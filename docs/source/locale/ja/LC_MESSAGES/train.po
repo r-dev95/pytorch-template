@@ -1,0 +1,234 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, r-dev95
+# This file is distributed under the same license as the template-tensorflow
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: template-tensorflow \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-06 20:34+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: ../../source/train.rst:2
+msgid "train.py"
+msgstr ""
+
+#: of train:1
+msgid "This is the module that trains the model."
+msgstr "モデルを学習するモジュール。"
+
+#: of train.check_params:1
+msgid "Checks the :class:`Trainer` parameters."
+msgstr ":class:`Trainer` のパラメータを確認する。"
+
+#: ../../source/train.rst
+msgid "Parameters"
+msgstr "パラメータ"
+
+#: of train.Trainer:23 train.check_params:3 train.main:5
+msgid "parameters."
+msgstr "パラメータ"
+
+#: of train.Trainer:1
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: of train.Trainer:1
+msgid "Trains the model."
+msgstr "モデルの学習を行う。"
+
+#: of train.Trainer:3
+msgid ""
+"You can train in various combinations depending on the configuration of "
+"each class in the table below. If you want to use other configuration, "
+"implement them in the each functions."
+msgstr "このクラスは下表のクラスそれぞれの設定に応じて、様々な組み合わせで学習を実行できる。他の設定を使用したい場合、それぞれの関数に実装する。"
+
+#: of train.Trainer:8
+msgid "class"
+msgstr "クラス"
+
+#: of train.Trainer:8
+msgid "function"
+msgstr "関数"
+
+#: of train.Trainer:10
+msgid "data"
+msgstr "データ"
+
+#: of train.Trainer:10
+msgid ":class:`lib.data.setup.SetupData`"
+msgstr ""
+
+#: of train.Trainer:12
+msgid "optimizer method"
+msgstr "最適化手法"
+
+#: of train.Trainer:12
+msgid ":class:`lib.optimizer.setup.SetupOpt`"
+msgstr ""
+
+#: of train.Trainer:14
+msgid "loss function"
+msgstr "誤差関数"
+
+#: of train.Trainer:14
+msgid ":class:`lib.loss.setup.SetupLoss`"
+msgstr ""
+
+#: of train.Trainer:16
+msgid "metrics"
+msgstr "メトリクス"
+
+#: of train.Trainer:16
+msgid ":class:`lib.metrics.setup.SetupMetrics`"
+msgstr ""
+
+#: of train.Trainer:18
+msgid "callback"
+msgstr "コールバック"
+
+#: of train.Trainer:18
+msgid ":class:`lib.callbacks.setup.SetupCallbacks`"
+msgstr ""
+
+#: of train.Trainer:20
+msgid "model"
+msgstr "モデル"
+
+#: of train.Trainer:20
+msgid ":class:`lib.model.setup.SetupModel`"
+msgstr ""
+
+#: ../../docstring of train.Trainer.train_data:1
+msgid "data class (train)"
+msgstr "データクラス (学習)"
+
+#: ../../docstring of train.Trainer.callbacks train.Trainer.classes
+#: train.Trainer.model train.Trainer.train_data train.Trainer.valid_data
+msgid "type"
+msgstr "型"
+
+#: ../../docstring of train.Trainer.train_data:3 train.Trainer.valid_data:3
+msgid "BaseLoadData"
+msgstr ""
+
+#: ../../docstring of train.Trainer.valid_data:1
+msgid "data class (valid)"
+msgstr "データクラス (検証)"
+
+#: ../../docstring of train.Trainer.classes:1
+msgid "class list"
+msgstr "クラスの一覧"
+
+#: ../../docstring of train.Trainer.classes:3
+msgid "key=model: model class"
+msgstr "key=model: モデルクラス"
+
+#: ../../docstring of train.Trainer.classes:4
+msgid "key=opt: optimizer method class"
+msgstr "key=opt: 最適化手法クラス"
+
+#: ../../docstring of train.Trainer.classes:5
+msgid "key=loss: loss function class"
+msgstr "key=loss: 誤差関数クラス"
+
+#: ../../docstring of train.Trainer.classes:6
+msgid "key=metrics: metrics class"
+msgstr "key=metrics: メトリクスクラス"
+
+#: ../../docstring of train.Trainer.classes:8
+msgid "ClassVar[dict[str, Any]]"
+msgstr ""
+
+#: ../../docstring of train.Trainer.model:1
+msgid "model class"
+msgstr "モデルクラス"
+
+#: ../../docstring of train.Trainer.model:3
+msgid "BaseModel"
+msgstr ""
+
+#: ../../docstring of train.Trainer.callbacks:1
+msgid "list of callback classes"
+msgstr "コールバッククラスのリスト"
+
+#: ../../docstring of train.Trainer.callbacks:3
+msgid "list[Callable]"
+msgstr ""
+
+#: of train.Trainer.load_dataset:1
+msgid "Loads the training and validation data."
+msgstr "学習データと検証データを読み込む。"
+
+#: of train.Trainer.load_dataset:3
+msgid ""
+"The training data must be loaded, but the validation data does not "
+"necessarily have to be loaded."
+msgstr "学習データは必ず読み込む必要があるが、検証データは必ずしも読み込む必要はない。"
+
+#: of train.Trainer.setup:1
+msgid "Sets up the training."
+msgstr "学習の設定を行う。"
+
+#: of train.Trainer.setup:3
+msgid "Sets the optimizer method, loss function, model, metrics, and callbacks."
+msgstr "最適化手法、誤差関数、モデル、メトリクス、コールバックを設定する。"
+
+#: of train.Trainer.run:1
+msgid "Runs training and validation."
+msgstr "学習と検証を実行する。"
+
+#: of train.Trainer.run:3
+msgid "Run ``.fit``."
+msgstr "``.fit`` を実行する。"
+
+#: of train.main:1
+msgid "main."
+msgstr ""
+
+#: of train.main:3
+msgid "This function is decorated by ``@save_params_log`` and ``@process_time``."
+msgstr "``@save_params_log`` と ``@process_time`` でデコレートされている。"
+
+#: of train.main train.set_params
+msgid "Returns"
+msgstr "戻り値"
+
+#: of train.main:8 train.set_params:7
+msgid "**dict[str, Any]** -- parameters."
+msgstr "**dict[str, Any]** -- パラメータ"
+
+#: of train.set_params:1
+msgid "Sets the command line arguments and file parameters."
+msgstr "コマンドライン引数とファイルパラメータを設定する。"
+
+#: of train.set_params:3
+msgid "Set only common parameters as command line arguments."
+msgstr "共通なパラメータのみ、コマンドライン引数で設定する。"
+
+#: of train.set_params:4
+msgid "Other necessary parameters are set in the file parameters."
+msgstr "他に必要なパラメータは、ファイルパラメータで設定する。"
+
+#: of train.set_params:5
+msgid "Use a yaml file. (:func:`lib.common.file.load_yaml`)"
+msgstr "ファイルは、yamlファイルを使用する。(:func:`lib.common.file.load_yaml`)"
+
+#: of train.set_params:11
+msgid ""
+"Command line arguments are overridden by file parameters. This means that"
+" if you want to set everything using file parameters, you don't "
+"necessarily need to use command line arguments."
+msgstr "コマンドライン引数はファイルパラメータで上書きされる。つまり、ファイルパラメータですべて設定する場合、必ずしもコマンドライン引数を使用する必要はない。"

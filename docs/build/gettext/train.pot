@@ -1,0 +1,230 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, r-dev95
+# This file is distributed under the same license as the template-tensorflow package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: template-tensorflow \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-06 20:34+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/train.rst:2
+msgid "train.py"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train:1
+msgid "This is the module that trains the model."
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.check_params:1
+msgid "Checks the :class:`Trainer` parameters."
+msgstr ""
+
+#: ../../source/train.rst:0
+msgid "Parameters"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:23
+#: ../../../template_pytorch/train.py:docstring of train.check_params:3
+#: ../../../template_pytorch/train.py:docstring of train.main:5
+msgid "parameters."
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:1
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:1
+msgid "Trains the model."
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:3
+msgid "You can train in various combinations depending on the configuration of each class in the table below. If you want to use other configuration, implement them in the each functions."
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:8
+msgid "class"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:8
+msgid "function"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:10
+msgid "data"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:10
+msgid ":class:`lib.data.setup.SetupData`"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:12
+msgid "optimizer method"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:12
+msgid ":class:`lib.optimizer.setup.SetupOpt`"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:14
+msgid "loss function"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:14
+msgid ":class:`lib.loss.setup.SetupLoss`"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:16
+msgid "metrics"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:16
+msgid ":class:`lib.metrics.setup.SetupMetrics`"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:18
+msgid "callback"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:18
+msgid ":class:`lib.callbacks.setup.SetupCallbacks`"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:20
+msgid "model"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer:20
+msgid ":class:`lib.model.setup.SetupModel`"
+msgstr ""
+
+#: ../../docstring of train.Trainer.train_data:1
+msgid "data class (train)"
+msgstr ""
+
+#: ../../docstring of train.Trainer.callbacks:0
+#: ../../docstring of train.Trainer.classes:0
+#: ../../docstring of train.Trainer.model:0
+#: ../../docstring of train.Trainer.train_data:0
+#: ../../docstring of train.Trainer.valid_data:0
+msgid "type"
+msgstr ""
+
+#: ../../docstring of train.Trainer.train_data:3
+#: ../../docstring of train.Trainer.valid_data:3
+msgid "BaseLoadData"
+msgstr ""
+
+#: ../../docstring of train.Trainer.valid_data:1
+msgid "data class (valid)"
+msgstr ""
+
+#: ../../docstring of train.Trainer.classes:1
+msgid "class list"
+msgstr ""
+
+#: ../../docstring of train.Trainer.classes:3
+msgid "key=model: model class"
+msgstr ""
+
+#: ../../docstring of train.Trainer.classes:4
+msgid "key=opt: optimizer method class"
+msgstr ""
+
+#: ../../docstring of train.Trainer.classes:5
+msgid "key=loss: loss function class"
+msgstr ""
+
+#: ../../docstring of train.Trainer.classes:6
+msgid "key=metrics: metrics class"
+msgstr ""
+
+#: ../../docstring of train.Trainer.classes:8
+msgid "ClassVar[dict[str, Any]]"
+msgstr ""
+
+#: ../../docstring of train.Trainer.model:1
+msgid "model class"
+msgstr ""
+
+#: ../../docstring of train.Trainer.model:3
+msgid "BaseModel"
+msgstr ""
+
+#: ../../docstring of train.Trainer.callbacks:1
+msgid "list of callback classes"
+msgstr ""
+
+#: ../../docstring of train.Trainer.callbacks:3
+msgid "list[Callable]"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer.load_dataset:1
+msgid "Loads the training and validation data."
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer.load_dataset:3
+msgid "The training data must be loaded, but the validation data does not necessarily have to be loaded."
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer.setup:1
+msgid "Sets up the training."
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer.setup:3
+msgid "Sets the optimizer method, loss function, model, metrics, and callbacks."
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer.run:1
+msgid "Runs training and validation."
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.Trainer.run:3
+msgid "Run ``.fit``."
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.main:1
+msgid "main."
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.main:3
+msgid "This function is decorated by ``@save_params_log`` and ``@process_time``."
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.main:0
+#: ../../../template_pytorch/train.py:docstring of train.set_params:0
+msgid "Returns"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.main:8
+#: ../../../template_pytorch/train.py:docstring of train.set_params:7
+msgid "**dict[str, Any]** -- parameters."
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.set_params:1
+msgid "Sets the command line arguments and file parameters."
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.set_params:3
+msgid "Set only common parameters as command line arguments."
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.set_params:4
+msgid "Other necessary parameters are set in the file parameters."
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.set_params:5
+msgid "Use a yaml file. (:func:`lib.common.file.load_yaml`)"
+msgstr ""
+
+#: ../../../template_pytorch/train.py:docstring of train.set_params:11
+msgid "Command line arguments are overridden by file parameters. This means that if you want to set everything using file parameters, you don't necessarily need to use command line arguments."
+msgstr ""

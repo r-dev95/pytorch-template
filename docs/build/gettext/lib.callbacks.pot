@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, r-dev95
+# This file is distributed under the same license as the template-tensorflow package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: template-tensorflow \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-06 20:34+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/lib.callbacks.rst:2
+msgid "callbacks package"
+msgstr ""
+
+#: ../../source/lib.callbacks.rst:11
+msgid "setup.py"
+msgstr ""
+
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup:1
+msgid "This is the module that sets up callbacks."
+msgstr ""
+
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup.check_params:1
+msgid "Checks the :class:`SetupCallbacks` parameters."
+msgstr ""
+
+#: ../../source/lib.callbacks.rst:0
+msgid "Parameters"
+msgstr ""
+
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup.SetupCallbacks:7
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup.check_params:3
+msgid "parameters."
+msgstr ""
+
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup.check_params:5
+msgid "Class variables whose values are available methods."
+msgstr ""
+
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup.SetupCallbacks:1
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup.SetupCallbacks:1
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup.SetupCallbacks.setup:1
+msgid "Sets up callbacks."
+msgstr ""
+
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup.SetupCallbacks:3
+msgid "If you want to use some other settings, implement it as a method of this class. If you implemented, set the name as the ``func`` key in ``__init__`` and the method as the value."
+msgstr ""
+
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup.SetupCallbacks.mcp:0
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup.SetupCallbacks.ms:0
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup.SetupCallbacks.setup:0
+msgid "Returns"
+msgstr ""
+
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup.SetupCallbacks.mcp:3
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup.SetupCallbacks.ms:3
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup.SetupCallbacks.setup:3
+msgid "**Callable** -- callbacks class."
+msgstr ""
+
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup.SetupCallbacks.ms:1
+msgid "Sets ``lightning.pytorch.callbacks.ModelSummary``."
+msgstr ""
+
+#: ../../../template_pytorch/lib/callbacks/setup.py:docstring of lib.callbacks.setup.SetupCallbacks.mcp:1
+msgid "Sets ``lightning.pytorch.callbacks.ModelCheckpoint``."
+msgstr ""

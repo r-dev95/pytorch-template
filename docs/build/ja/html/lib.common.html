@@ -1,0 +1,719 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>common package &mdash; template-tensorflow 0.1.0 ドキュメント</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=98e9f989"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=4755f45a"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="data package" href="lib.data.html" />
+    <link rel="prev" title="callbacks package" href="lib.callbacks.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            template-tensorflow
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="lib.html">lib package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lib.callbacks.html">callbacks package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">common package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-lib.common.decorator">decorator.py</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.decorator.process_time"><code class="docutils literal notranslate"><span class="pre">process_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.decorator.save_params_log"><code class="docutils literal notranslate"><span class="pre">save_params_log()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-lib.common.define">define.py</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.define.ZoneInfo"><code class="docutils literal notranslate"><span class="pre">ZoneInfo</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.define.ParamFileName"><code class="docutils literal notranslate"><span class="pre">ParamFileName</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.define.ParamKey"><code class="docutils literal notranslate"><span class="pre">ParamKey</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.define.ParamLog"><code class="docutils literal notranslate"><span class="pre">ParamLog</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-lib.common.file">file.py</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.file.dump_json"><code class="docutils literal notranslate"><span class="pre">dump_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.file.load_json"><code class="docutils literal notranslate"><span class="pre">load_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.file.dump_yaml"><code class="docutils literal notranslate"><span class="pre">dump_yaml()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.file.load_yaml"><code class="docutils literal notranslate"><span class="pre">load_yaml()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.file.dump_toml"><code class="docutils literal notranslate"><span class="pre">dump_toml()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.file.load_toml"><code class="docutils literal notranslate"><span class="pre">load_toml()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-lib.common.log">log.py</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.log.SetLogging"><code class="docutils literal notranslate"><span class="pre">SetLogging</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-lib.common.process">process.py</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.process.get_device_type"><code class="docutils literal notranslate"><span class="pre">get_device_type()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.process.fix_random_seed"><code class="docutils literal notranslate"><span class="pre">fix_random_seed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.process.set_weight"><code class="docutils literal notranslate"><span class="pre">set_weight()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.process.recursive_replace"><code class="docutils literal notranslate"><span class="pre">recursive_replace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lib.common.process.parse_tar_fname_number"><code class="docutils literal notranslate"><span class="pre">parse_tar_fname_number()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lib.data.html">data package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lib.loss.html">loss package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lib.metrics.html">metrics package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lib.model.html">model package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lib.optimizer.html">optimizer package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lib.html#module-lib.template">template.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="train.html">train.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eval.html">eval.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset.html">dataset.py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">template-tensorflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="lib.html">lib package</a></li>
+      <li class="breadcrumb-item active">common package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/lib.common.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-lib.common">
+<span id="common-package"></span><h1>common package<a class="headerlink" href="#module-lib.common" title="Link to this heading"></a></h1>
+<section id="module-lib.common.decorator">
+<span id="decorator-py"></span><h2>decorator.py<a class="headerlink" href="#module-lib.common.decorator" title="Link to this heading"></a></h2>
+<p>デコレータを定義するモジュール。</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="lib.common.decorator.process_time">
+<span class="sig-name descname"><span class="pre">process_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_func=&lt;built-in</span> <span class="pre">function</span> <span class="pre">print&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/decorator.html#process_time"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.decorator.process_time" title="Link to this definition"></a></dt>
+<dd><p>処理時間を表示する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>print_func</strong> (<em>Callable</em>) -- 標準出力の関数。<code class="docutils literal notranslate"><span class="pre">print</span></code> やlogging機能(<code class="docutils literal notranslate"><span class="pre">.debug</span></code>, <code class="docutils literal notranslate"><span class="pre">.info</span></code>, ... )など</p>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Callable</strong> -- 本関数内の <code class="docutils literal notranslate"><span class="pre">_process_time</span></code> 関数</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@process_time</span><span class="p">(</span><span class="n">print_func</span><span class="o">=</span><span class="nb">print</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="n">rtn</span>
+
+<span class="c1"># # [START] ========================================</span>
+<span class="c1">#   ...</span>
+<span class="c1"># # ================================================</span>
+<span class="c1"># # 12.345678sec</span>
+<span class="c1"># # [END] ==========================================</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lib.common.decorator.save_params_log">
+<span class="sig-name descname"><span class="pre">save_params_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'log_params.yaml'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/decorator.html#save_params_log"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.decorator.save_params_log" title="Link to this definition"></a></dt>
+<dd><p>パラメータを保存する</p>
+<ul class="simple">
+<li><p>ファイルには、実行開始日時と終了日時、処理時間を合わせて保存する。</p></li>
+<li><p>修飾する関数の戻り値は、辞書型を想定する。辞書型でない場合、ファイルを保存しない。</p></li>
+<li><p>辞書のキーに &quot;result&quot; (データ保存ディレクトリパス)がある場合、そのディレクトリに保存する。ない場合、カレントディレクトリに保存する。</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fname</strong> (<em>str</em>) -- ファイル名(拡張子は <code class="docutils literal notranslate"><span class="pre">.yml</span></code>, <code class="docutils literal notranslate"><span class="pre">.yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">.json</span></code>, <code class="docutils literal notranslate"><span class="pre">.toml</span></code> のいずれか)</p>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Callable</strong> -- 本関数内の <code class="docutils literal notranslate"><span class="pre">_save_params_log</span></code> 関数</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@save_params_log</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="s1">&#39;log.yaml&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="n">params</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;aaa&#39;</span><span class="p">:</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;bbb&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;ccc&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;ddd&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="s1">&#39;path/to/dir&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">func</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>出力イメージ (path/to/dir/log.yaml):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">aaa</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">abc</span>
+<span class="nt">bbb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">ccc</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">ddd</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">path/to/dir</span>
+<span class="nt">start_datetime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2024-1-1 00:00:00.000000</span>
+<span class="nt">end_datetime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2024-1-1 00:00:12.345678</span>
+<span class="nt">process_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12.34567891234567</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-lib.common.define">
+<span id="define-py"></span><h2>define.py<a class="headerlink" href="#module-lib.common.define" title="Link to this heading"></a></h2>
+<p>共通の定義を設定するモジュール。</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="lib.common.define.ZoneInfo">
+<span class="sig-name descname"><span class="pre">ZoneInfo</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">zoneinfo.ZoneInfo(key='Asia/Tokyo')</span></em><a class="headerlink" href="#lib.common.define.ZoneInfo" title="Link to this definition"></a></dt>
+<dd><p>ZoneInfoクラス</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.common.define.ParamFileName">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ParamFileName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">LOSS</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'metrics.csv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">WIGHT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'{epoch:03d}_{loss:.3f}_{val_loss:.3f}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/define.html#ParamFileName"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.define.ParamFileName" title="Link to this definition"></a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>ファイル名を定義する。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamFileName.LOSS">
+<span class="sig-name descname"><span class="pre">LOSS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'metrics.csv'</span></em><a class="headerlink" href="#lib.common.define.ParamFileName.LOSS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamFileName.WIGHT">
+<span class="sig-name descname"><span class="pre">WIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'{epoch:03d}_{loss:.3f}_{val_loss:.3f}'</span></em><a class="headerlink" href="#lib.common.define.ParamFileName.WIGHT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ParamKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">LEVEL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'level'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SEED</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'seed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PARAM</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'param'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RESULT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'result'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TRAIN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'train'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">VALID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'valid'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EVAL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'eval'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BATCH</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'batch'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BATCH_TRAIN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'batch_train'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BATCH_VALID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'batch_valid'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SHUFFLE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'shuffle'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NUM_WORKERS</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'num_workers'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EPOCHS</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'epochs'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DATA</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PROCESS</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'process'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MODEL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'model'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LAYER</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'layer'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OPT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'opt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LOSS</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'loss'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">METRICS</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'metrics'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CB</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cb'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kind'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DPATH</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dpath'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">FILE_PATTERN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'file_pattern'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DEVICE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'device'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MODEL_PARAMS</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'model_params'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/define.html#ParamKey"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.define.ParamKey" title="Link to this definition"></a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>主要パラメータの辞書キーを定義する。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.LEVEL">
+<span class="sig-name descname"><span class="pre">LEVEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'level'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.LEVEL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.SEED">
+<span class="sig-name descname"><span class="pre">SEED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'seed'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.SEED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.PARAM">
+<span class="sig-name descname"><span class="pre">PARAM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'param'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.PARAM" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.RESULT">
+<span class="sig-name descname"><span class="pre">RESULT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'result'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.RESULT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.TRAIN">
+<span class="sig-name descname"><span class="pre">TRAIN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'train'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.TRAIN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.VALID">
+<span class="sig-name descname"><span class="pre">VALID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'valid'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.VALID" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.EVAL">
+<span class="sig-name descname"><span class="pre">EVAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'eval'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.EVAL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.BATCH">
+<span class="sig-name descname"><span class="pre">BATCH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'batch'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.BATCH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.BATCH_TRAIN">
+<span class="sig-name descname"><span class="pre">BATCH_TRAIN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'batch_train'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.BATCH_TRAIN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.BATCH_VALID">
+<span class="sig-name descname"><span class="pre">BATCH_VALID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'batch_valid'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.BATCH_VALID" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.SHUFFLE">
+<span class="sig-name descname"><span class="pre">SHUFFLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'shuffle'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.SHUFFLE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.NUM_WORKERS">
+<span class="sig-name descname"><span class="pre">NUM_WORKERS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'num_workers'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.NUM_WORKERS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.EPOCHS">
+<span class="sig-name descname"><span class="pre">EPOCHS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'epochs'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.EPOCHS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.DATA">
+<span class="sig-name descname"><span class="pre">DATA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'data'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.DATA" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.PROCESS">
+<span class="sig-name descname"><span class="pre">PROCESS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'process'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.PROCESS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.MODEL">
+<span class="sig-name descname"><span class="pre">MODEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'model'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.MODEL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.LAYER">
+<span class="sig-name descname"><span class="pre">LAYER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'layer'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.LAYER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.OPT">
+<span class="sig-name descname"><span class="pre">OPT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'opt'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.OPT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.LOSS">
+<span class="sig-name descname"><span class="pre">LOSS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'loss'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.LOSS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.METRICS">
+<span class="sig-name descname"><span class="pre">METRICS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'metrics'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.METRICS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.CB">
+<span class="sig-name descname"><span class="pre">CB</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cb'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.CB" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'kind'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.DPATH">
+<span class="sig-name descname"><span class="pre">DPATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dpath'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.DPATH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.FILE_PATTERN">
+<span class="sig-name descname"><span class="pre">FILE_PATTERN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'file_pattern'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.FILE_PATTERN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.DEVICE">
+<span class="sig-name descname"><span class="pre">DEVICE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'device'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.DEVICE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamKey.MODEL_PARAMS">
+<span class="sig-name descname"><span class="pre">MODEL_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'model_params'</span></em><a class="headerlink" href="#lib.common.define.ParamKey.MODEL_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.common.define.ParamLog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ParamLog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">SH</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sh'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">FH</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fh'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NAME</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'main'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">FPATH</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'log/log.txt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SIZE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NUM</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/define.html#ParamLog"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.define.ParamLog" title="Link to this definition"></a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>ロギング機能の設定で使用するパラメータを定義する。</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;dataclass</span></code> でデコレートされている。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamLog.SH">
+<span class="sig-name descname"><span class="pre">SH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sh'</span></em><a class="headerlink" href="#lib.common.define.ParamLog.SH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamLog.FH">
+<span class="sig-name descname"><span class="pre">FH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'fh'</span></em><a class="headerlink" href="#lib.common.define.ParamLog.FH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamLog.NAME">
+<span class="sig-name descname"><span class="pre">NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'main'</span></em><a class="headerlink" href="#lib.common.define.ParamLog.NAME" title="Link to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">logging.getLogger</span></code> に渡す名前</p>
+<dl class="field-list simple">
+<dt class="field-odd">型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamLog.LEVEL">
+<span class="sig-name descname"><span class="pre">LEVEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'fh':</span> <span class="pre">10,</span> <span class="pre">'sh':</span> <span class="pre">10}</span></em><a class="headerlink" href="#lib.common.define.ParamLog.LEVEL" title="Link to this definition"></a></dt>
+<dd><p>ログレベル</p>
+<ul class="simple">
+<li><p>key=sh: ストリームハンドラ</p></li>
+<li><p>key=fh: ファイルハンドラ</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ClassVar[dict[str, int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamLog.FPATH">
+<span class="sig-name descname"><span class="pre">FPATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'log/log.txt'</span></em><a class="headerlink" href="#lib.common.define.ParamLog.FPATH" title="Link to this definition"></a></dt>
+<dd><p>ファイルパス</p>
+<dl class="field-list simple">
+<dt class="field-odd">型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamLog.SIZE">
+<span class="sig-name descname"><span class="pre">SIZE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1000000</span></em><a class="headerlink" href="#lib.common.define.ParamLog.SIZE" title="Link to this definition"></a></dt>
+<dd><p>ファイルサイズ</p>
+<dl class="field-list simple">
+<dt class="field-odd">型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.define.ParamLog.NUM">
+<span class="sig-name descname"><span class="pre">NUM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#lib.common.define.ParamLog.NUM" title="Link to this definition"></a></dt>
+<dd><p>ファイル数</p>
+<dl class="field-list simple">
+<dt class="field-odd">型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lib.common.file">
+<span id="file-py"></span><h2>file.py<a class="headerlink" href="#module-lib.common.file" title="Link to this heading"></a></h2>
+<p>ファイルを読み書きするモジュール。</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="lib.common.file.dump_json">
+<span class="sig-name descname"><span class="pre">dump_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/file.html#dump_json"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.file.dump_json" title="Link to this definition"></a></dt>
+<dd><p>jsonファイルを書き込む。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>Any</em>) -- 書き込みデータ</p></li>
+<li><p><strong>fpath</strong> (<em>str</em>) -- ファイルパス</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) -- 書き込みモード</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lib.common.file.load_json">
+<span class="sig-name descname"><span class="pre">load_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rb'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/file.html#load_json"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.file.load_json" title="Link to this definition"></a></dt>
+<dd><p>jsonファイルを読み込む。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fpath</strong> (<em>str</em>) -- ファイルパス</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) -- 読み込みモード</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dict[str, Any]</strong> -- 読み込んだデータ</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lib.common.file.dump_yaml">
+<span class="sig-name descname"><span class="pre">dump_yaml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/file.html#dump_yaml"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.file.dump_yaml" title="Link to this definition"></a></dt>
+<dd><p>yamlファイルを書き込む。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>Any</em>) -- 書き込みデータ</p></li>
+<li><p><strong>fpath</strong> (<em>str</em>) -- ファイルパス</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) -- 書き込みモード</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lib.common.file.load_yaml">
+<span class="sig-name descname"><span class="pre">load_yaml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rb'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/file.html#load_yaml"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.file.load_yaml" title="Link to this definition"></a></dt>
+<dd><p>yamlファイルを読み込む。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fpath</strong> (<em>str</em>) -- ファイルパス</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) -- 読み込みモード</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dict[str, Any]</strong> -- 読み込んだデータ</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lib.common.file.dump_toml">
+<span class="sig-name descname"><span class="pre">dump_toml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/file.html#dump_toml"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.file.dump_toml" title="Link to this definition"></a></dt>
+<dd><p>tomlファイルを書き込む。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>Any</em>) -- 書き込みデータ</p></li>
+<li><p><strong>fpath</strong> (<em>str</em>) -- ファイルパス</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) -- 書き込みモード</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lib.common.file.load_toml">
+<span class="sig-name descname"><span class="pre">load_toml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rb'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/file.html#load_toml"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.file.load_toml" title="Link to this definition"></a></dt>
+<dd><p>tomlファイルを読み込む。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fpath</strong> (<em>str</em>) -- ファイルパス</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) -- 読み込みモード</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dict[str, Any]</strong> -- 読み込んだデータ</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p><code class="docutils literal notranslate"><span class="pre">None</span></code> を指定したい場合、tomlファイル内では文字列として指定する。</p>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-lib.common.log">
+<span id="log-py"></span><h2>log.py<a class="headerlink" href="#module-lib.common.log" title="Link to this heading"></a></h2>
+<p>ロギング機能を設定するモジュール。</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="lib.common.log.SetLogging">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SetLogging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/log.html#SetLogging"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.log.SetLogging" title="Link to this definition"></a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>ロギング機能を設定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logger</strong> (<em>Logger</em>) -- <code class="docutils literal notranslate"><span class="pre">logging.Logger</span></code></p></li>
+<li><p><strong>param</strong> (<a class="reference internal" href="#lib.common.define.ParamLog" title="lib.common.define.ParamLog"><em>ParamLog</em></a>) -- <a class="reference internal" href="#lib.common.define.ParamLog" title="lib.common.define.ParamLog"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.common.define.ParamLog</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lib.common.log.SetLogging.format">
+<span class="sig-name descname"><span class="pre">format</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;logging.Formatter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#lib.common.log.SetLogging.format" title="Link to this definition"></a></dt>
+<dd><p>ログフォーマット</p>
+<dl class="field-list simple">
+<dt class="field-odd">型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>logging.Formatter</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.common.log.SetLogging.set_level">
+<span class="sig-name descname"><span class="pre">set_level</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/log.html#SetLogging.set_level"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.log.SetLogging.set_level" title="Link to this definition"></a></dt>
+<dd><p>ログレベルを設定する。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">logging.Logger.setLevel</span></code> を実行する。</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.common.log.SetLogging.set_stream_handler">
+<span class="sig-name descname"><span class="pre">set_stream_handler</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/log.html#SetLogging.set_stream_handler"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.log.SetLogging.set_stream_handler" title="Link to this definition"></a></dt>
+<dd><p>ストリームハンドラの設定を行う。</p>
+<ul class="simple">
+<li><p>ログレベルを設定する。(<code class="docutils literal notranslate"><span class="pre">logging.StreamHandler.setLevel</span></code>)</p></li>
+<li><p>ログフォーマットを設定する。(<code class="docutils literal notranslate"><span class="pre">logging.StreamHandler.setFormatter</span></code>)</p></li>
+<li><p>ハンドラを追加する。(<code class="docutils literal notranslate"><span class="pre">logging.Logger.addHandler</span></code>)</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lib.common.log.SetLogging.set_file_handler">
+<span class="sig-name descname"><span class="pre">set_file_handler</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/log.html#SetLogging.set_file_handler"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.log.SetLogging.set_file_handler" title="Link to this definition"></a></dt>
+<dd><p>ファイルハンドラの設定を行う。</p>
+<ul class="simple">
+<li><p>ファイルパスとファイルサイズ、ファイル数を設定する。(<code class="docutils literal notranslate"><span class="pre">logging.RotatingFileHandler</span></code>)</p></li>
+<li><p>ログレベルを設定する。(<code class="docutils literal notranslate"><span class="pre">logging.RotatingFileHandler.setLevel</span></code>)</p></li>
+<li><p>ログフォーマットを設定する。(<code class="docutils literal notranslate"><span class="pre">logging.RotatingFileHandler.setFormatter</span></code>)</p></li>
+<li><p>ハンドラを追加する。(<code class="docutils literal notranslate"><span class="pre">logging.Logger.addHandler</span></code>)</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lib.common.process">
+<span id="process-py"></span><h2>process.py<a class="headerlink" href="#module-lib.common.process" title="Link to this heading"></a></h2>
+<p>共通の処理を定義するモジュール。</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="lib.common.process.get_device_type">
+<span class="sig-name descname"><span class="pre">get_device_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/process.html#get_device_type"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.process.get_device_type" title="Link to this definition"></a></dt>
+<dd><p>デバイスタイプ(cpu、mpu、cuda)を取得する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>str</strong> -- デバイスタイプ。</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lib.common.process.fix_random_seed">
+<span class="sig-name descname"><span class="pre">fix_random_seed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/process.html#fix_random_seed"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.process.fix_random_seed" title="Link to this definition"></a></dt>
+<dd><p>実験の再現性を保つために乱数シードを固定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seed</strong> (<em>int</em>) -- 乱数シード</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lib.common.process.set_weight">
+<span class="sig-name descname"><span class="pre">set_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/process.html#set_weight"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.process.set_weight" title="Link to this definition"></a></dt>
+<dd><p>モデルの重みを設定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) -- パラメータ</p></li>
+<li><p><strong>model</strong> (<em>to.nn.Module</em>) -- モデルクラス</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>to.nn.Module</strong> -- 重みを適用したモデルクラス</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lib.common.process.recursive_replace">
+<span class="sig-name descname"><span class="pre">recursive_replace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fm_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/process.html#recursive_replace"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.process.recursive_replace" title="Link to this definition"></a></dt>
+<dd><p>再帰的な置換を行う。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>Any</em>) -- 置換前のデータ</p></li>
+<li><p><strong>fm_val</strong> (<em>Any</em>) -- 置換前の値</p></li>
+<li><p><strong>to_val</strong> (<em>Any</em>) -- 置換後の値</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Any</strong> -- 置換後のデータ</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lib.common.process.parse_tar_fname_number">
+<span class="sig-name descname"><span class="pre">parse_tar_fname_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lib/common/process.html#parse_tar_fname_number"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#lib.common.process.parse_tar_fname_number" title="Link to this definition"></a></dt>
+<dd><p>ファイル名が数字のtarファイルから最大値と最小値を解析する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dpath</strong> (<em>Path</em>) -- tarファイルの親パス</p>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>str</strong> -- 読み込むtarファイルのパターンを解析する。</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lib.callbacks.html" class="btn btn-neutral float-left" title="callbacks package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lib.data.html" class="btn btn-neutral float-right" title="data package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, r-dev95.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

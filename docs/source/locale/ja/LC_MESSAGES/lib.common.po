@@ -1,0 +1,390 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, r-dev95
+# This file is distributed under the same license as the template-tensorflow
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: template-tensorflow \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-06 20:34+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: ../../source/lib.common.rst:2
+msgid "common package"
+msgstr ""
+
+#: ../../source/lib.common.rst:11
+msgid "decorator.py"
+msgstr ""
+
+#: lib.common.decorator:1 of
+msgid "This is the module that defines the decorator."
+msgstr "デコレータを定義するモジュール。"
+
+#: lib.common.decorator.process_time:1 of
+msgid "Prints the processing time."
+msgstr "処理時間を表示する。"
+
+#: ../../source/lib.common.rst
+msgid "Parameters"
+msgstr "パラメータ"
+
+#: lib.common.decorator.process_time:3 of
+msgid ""
+"standard output function.  ``print`` or logging (``.debug``, ``.info``, "
+"... ) etc..."
+msgstr "標準出力の関数。``print`` やlogging機能(``.debug``, ``.info``, ... )など"
+
+#: lib.common.decorator.process_time:3 of
+msgid "standard output function."
+msgstr "標準出力の関数"
+
+#: lib.common.decorator.process_time:5 of
+msgid "``print`` or logging (``.debug``, ``.info``, ... ) etc..."
+msgstr "``print`` やlogging機能(``.debug``, ``.info``, ... )など"
+
+#: lib.common.decorator.process_time lib.common.decorator.save_params_log
+#: lib.common.file.load_json lib.common.file.load_toml
+#: lib.common.file.load_yaml lib.common.process.get_device_type
+#: lib.common.process.parse_tar_fname_number
+#: lib.common.process.recursive_replace lib.common.process.set_weight of
+msgid "Returns"
+msgstr "戻り値"
+
+#: lib.common.decorator.process_time:8 of
+msgid "**Callable** -- ``_process_time`` function in this function."
+msgstr "**Callable** -- 本関数内の ``_process_time`` 関数"
+
+#: lib.common.decorator.save_params_log:1 of
+msgid "Saves parameters."
+msgstr "パラメータを保存する"
+
+#: lib.common.decorator.save_params_log:3 of
+msgid ""
+"The execution start date and time, end date and time, and processing time"
+" are also saved."
+msgstr "ファイルには、実行開始日時と終了日時、処理時間を合わせて保存する。"
+
+#: lib.common.decorator.save_params_log:5 of
+msgid ""
+"The return value of the function to which the decorator is applied is "
+"assumed to be a dictionary. If it is not a dictionary type, it will not "
+"be saved."
+msgstr "修飾する関数の戻り値は、辞書型を想定する。辞書型でない場合、ファイルを保存しない。"
+
+#: lib.common.decorator.save_params_log:8 of
+msgid ""
+"If the dictionary key has \"result\" (data save directory path), it will "
+"be saved in that directory. If not, it saves it in the current directory."
+msgstr "辞書のキーに \"result\" (データ保存ディレクトリパス)がある場合、そのディレクトリに保存する。ない場合、カレントディレクトリに保存する。"
+
+#: lib.common.decorator.save_params_log:12 of
+msgid "file (The extension is ``.yml``, ``.yaml``, ``.json``, ``.toml``.)"
+msgstr "ファイル名(拡張子は ``.yml``, ``.yaml``, ``.json``, ``.toml`` のいずれか)"
+
+#: lib.common.decorator.save_params_log:16 of
+msgid "**Callable** -- ``_save_params_log`` function in this function."
+msgstr "**Callable** -- 本関数内の ``_save_params_log`` 関数"
+
+#: lib.common.decorator.save_params_log:34 of
+msgid "Output (path/to/dir/log.yaml):"
+msgstr "出力イメージ (path/to/dir/log.yaml):"
+
+#: ../../source/lib.common.rst:19
+msgid "define.py"
+msgstr ""
+
+#: lib.common.define:1 of
+msgid "This is the module that defines the configuration."
+msgstr "共通の定義を設定するモジュール。"
+
+#: ../../docstring lib.common.define.ZoneInfo:1 of
+msgid "ZoneInfo class."
+msgstr "ZoneInfoクラス"
+
+#: lib.common.define.ParamFileName:1 lib.common.define.ParamKey:1
+#: lib.common.define.ParamLog:1 lib.common.log.SetLogging:1 of
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: lib.common.define.ParamFileName:1 of
+msgid "Defines the file name."
+msgstr "ファイル名を定義する。"
+
+#: lib.common.define.ParamKey:1 of
+msgid "Defines the dictionary key for the main parameters."
+msgstr "主要パラメータの辞書キーを定義する。"
+
+#: lib.common.define.ParamLog:1 of
+msgid "Defines the parameters used in the logging configuration."
+msgstr "ロギング機能の設定で使用するパラメータを定義する。"
+
+#: lib.common.define.ParamLog:3 of
+msgid "This function is decorated by ``@dataclass``."
+msgstr "``@dataclass`` でデコレートされている。"
+
+#: ../../docstring lib.common.define.ParamLog.NAME:1 of
+msgid "The name to pass to ``logging.getLogger``."
+msgstr "``logging.getLogger`` に渡す名前"
+
+#: ../../docstring lib.common.define.ParamLog.FPATH
+#: lib.common.define.ParamLog.LEVEL lib.common.define.ParamLog.NAME
+#: lib.common.define.ParamLog.NUM lib.common.define.ParamLog.SIZE
+#: lib.common.log.SetLogging.format of
+msgid "type"
+msgstr "型"
+
+#: ../../docstring lib.common.define.ParamLog.FPATH:3
+#: lib.common.define.ParamLog.NAME:3 of
+msgid "str"
+msgstr ""
+
+#: ../../docstring lib.common.define.ParamLog.LEVEL:1 of
+msgid "Log level."
+msgstr "ログレベル"
+
+#: ../../docstring lib.common.define.ParamLog.LEVEL:3 of
+msgid "key=sh: stream handler."
+msgstr "key=sh: ストリームハンドラ"
+
+#: ../../docstring lib.common.define.ParamLog.LEVEL:4 of
+msgid "key=fh: file handler."
+msgstr "key=fh: ファイルハンドラ"
+
+#: ../../docstring lib.common.define.ParamLog.LEVEL:6 of
+msgid "ClassVar[dict[str, int]]"
+msgstr ""
+
+#: ../../docstring lib.common.define.ParamLog.FPATH:1 of
+msgid "File path."
+msgstr "ファイルパス"
+
+#: ../../docstring lib.common.define.ParamLog.SIZE:1 of
+msgid "Max file size."
+msgstr "ファイルサイズ"
+
+#: ../../docstring lib.common.define.ParamLog.NUM:3
+#: lib.common.define.ParamLog.SIZE:3 of
+msgid "int"
+msgstr ""
+
+#: ../../docstring lib.common.define.ParamLog.NUM:1 of
+msgid "Number of files."
+msgstr "ファイル数"
+
+#: ../../source/lib.common.rst:27
+msgid "file.py"
+msgstr ""
+
+#: lib.common.file:1 of
+msgid "This is the module that load and write files."
+msgstr "ファイルを読み書きするモジュール。"
+
+#: lib.common.file.dump_json:1 of
+msgid "Writes json files."
+msgstr "jsonファイルを書き込む。"
+
+#: lib.common.file.dump_json:3 lib.common.file.dump_toml:3
+#: lib.common.file.dump_yaml:3 of
+msgid "writing data."
+msgstr "書き込みデータ"
+
+#: lib.common.file.dump_json:5 lib.common.file.dump_toml:5
+#: lib.common.file.dump_yaml:5 lib.common.file.load_json:3
+#: lib.common.file.load_toml:3 lib.common.file.load_yaml:3 of
+msgid "file path."
+msgstr "ファイルパス"
+
+#: lib.common.file.dump_json:7 lib.common.file.dump_toml:7
+#: lib.common.file.dump_yaml:7 of
+msgid "write mode."
+msgstr "書き込みモード"
+
+#: lib.common.file.load_json:1 of
+msgid "Loads json files."
+msgstr "jsonファイルを読み込む。"
+
+#: lib.common.file.load_json:5 lib.common.file.load_toml:5
+#: lib.common.file.load_yaml:5 of
+msgid "load mode."
+msgstr "読み込みモード"
+
+#: lib.common.file.load_json:8 lib.common.file.load_toml:8
+#: lib.common.file.load_yaml:8 of
+msgid "**dict[str, Any]** -- loaded data."
+msgstr "**dict[str, Any]** -- 読み込んだデータ"
+
+#: lib.common.file.dump_yaml:1 of
+msgid "Writes yaml files."
+msgstr "yamlファイルを書き込む。"
+
+#: lib.common.file.load_yaml:1 of
+msgid "Loads yaml files."
+msgstr "yamlファイルを読み込む。"
+
+#: lib.common.file.dump_toml:1 of
+msgid "Writes toml files."
+msgstr "tomlファイルを書き込む。"
+
+#: lib.common.file.load_toml:1 of
+msgid "Loads toml files."
+msgstr "tomlファイルを読み込む。"
+
+#: lib.common.file.load_toml:12 of
+msgid "If you want to specify ``None`` , specify it as a string in toml file."
+msgstr "``None`` を指定したい場合、tomlファイル内では文字列として指定する。"
+
+#: ../../source/lib.common.rst:35
+msgid "log.py"
+msgstr ""
+
+#: lib.common.log:1 of
+msgid "This is the module that sets the logging configuration."
+msgstr "ロギング機能を設定するモジュール。"
+
+#: lib.common.log.SetLogging:1 of
+msgid "Sets the logging configuration."
+msgstr "ロギング機能を設定する。"
+
+#: lib.common.log.SetLogging:3 of
+msgid "``logging.Logger``"
+msgstr ""
+
+#: lib.common.log.SetLogging:5 of
+msgid ":class:`lib.common.define.ParamLog`"
+msgstr ""
+
+#: ../../docstring lib.common.log.SetLogging.format:1 of
+msgid "Log format."
+msgstr "ログフォーマット"
+
+#: ../../docstring lib.common.log.SetLogging.format:3 of
+msgid "logging.Formatter"
+msgstr ""
+
+#: lib.common.log.SetLogging.set_level:1 of
+msgid "Sets the log level."
+msgstr "ログレベルを設定する。"
+
+#: lib.common.log.SetLogging.set_level:3 of
+msgid "Run ``logging.Logger.setLevel``."
+msgstr "``logging.Logger.setLevel`` を実行する。"
+
+#: lib.common.log.SetLogging.set_stream_handler:1 of
+msgid "Sets the stream handler configuration."
+msgstr "ストリームハンドラの設定を行う。"
+
+#: lib.common.log.SetLogging.set_stream_handler:3 of
+msgid "Set the log level. (``logging.StreamHandler.setLevel``)"
+msgstr "ログレベルを設定する。(``logging.StreamHandler.setLevel``)"
+
+#: lib.common.log.SetLogging.set_stream_handler:5 of
+msgid "Set the log format. (``logging.StreamHandler.setFormatter``)"
+msgstr "ログフォーマットを設定する。(``logging.StreamHandler.setFormatter``)"
+
+#: lib.common.log.SetLogging.set_file_handler:9
+#: lib.common.log.SetLogging.set_stream_handler:7 of
+msgid "Add the handler. (``logging.Logger.addHandler``)"
+msgstr "ハンドラを追加する。(``logging.Logger.addHandler``)"
+
+#: lib.common.log.SetLogging.set_file_handler:1 of
+msgid "Sets the file handler configuration."
+msgstr "ファイルハンドラの設定を行う。"
+
+#: lib.common.log.SetLogging.set_file_handler:3 of
+msgid "Set the file path, size, and number. (``logging.RotatingFileHandler``)"
+msgstr "ファイルパスとファイルサイズ、ファイル数を設定する。(``logging.RotatingFileHandler``)"
+
+#: lib.common.log.SetLogging.set_file_handler:5 of
+msgid "Set the log level. (``logging.RotatingFileHandler.setLevel``)"
+msgstr "ログレベルを設定する。(``logging.RotatingFileHandler.setLevel``)"
+
+#: lib.common.log.SetLogging.set_file_handler:7 of
+msgid "Set the log format. (``logging.RotatingFileHandler.setFormatter``)"
+msgstr "ログフォーマットを設定する。(``logging.RotatingFileHandler.setFormatter``)"
+
+#: ../../source/lib.common.rst:43
+msgid "process.py"
+msgstr ""
+
+#: lib.common.process:1 of
+msgid "This is the module that defines the common process."
+msgstr "共通の処理を定義するモジュール。"
+
+#: lib.common.process.get_device_type:1 of
+msgid "Gets the device type (cpu or mpu or cuda)."
+msgstr "デバイスタイプ(cpu、mpu、cuda)を取得する。"
+
+#: lib.common.process.get_device_type:3 of
+msgid "**str** -- device type."
+msgstr "**str** -- デバイスタイプ。"
+
+#: lib.common.process.fix_random_seed:1 of
+msgid "Fixes the random seed to ensure reproducibility of experiment."
+msgstr "実験の再現性を保つために乱数シードを固定する。"
+
+#: lib.common.process.fix_random_seed:3 of
+msgid "random seed."
+msgstr "乱数シード"
+
+#: lib.common.process.set_weight:1 of
+msgid "Sets the model weight."
+msgstr "モデルの重みを設定する。"
+
+#: lib.common.process.set_weight:3 of
+msgid "parameters."
+msgstr "パラメータ"
+
+#: lib.common.process.set_weight:5 of
+msgid "model class."
+msgstr "モデルクラス"
+
+#: lib.common.process.set_weight:8 of
+msgid "**to.nn.Module** -- weighted model class."
+msgstr "**to.nn.Module** -- 重みを適用したモデルクラス"
+
+#: lib.common.process.recursive_replace:1 of
+msgid "Performs a recursive replacement."
+msgstr "再帰的な置換を行う。"
+
+#: lib.common.process.recursive_replace:3 of
+msgid "data before replacement."
+msgstr "置換前のデータ"
+
+#: lib.common.process.recursive_replace:5 of
+msgid "value before replacement."
+msgstr "置換前の値"
+
+#: lib.common.process.recursive_replace:7 of
+msgid "value after replacement."
+msgstr "置換後の値"
+
+#: lib.common.process.recursive_replace:10 of
+msgid "**Any** -- data after replacement."
+msgstr "**Any** -- 置換後のデータ"
+
+#: lib.common.process.parse_tar_fname_number:1 of
+msgid ""
+"Parse the highest and lowest numbers from a tar file whose filenames are "
+"numeric."
+msgstr "ファイル名が数字のtarファイルから最大値と最小値を解析する。"
+
+#: lib.common.process.parse_tar_fname_number:3 of
+msgid "the tar file parent path."
+msgstr "tarファイルの親パス"
+
+#: lib.common.process.parse_tar_fname_number:6 of
+msgid "**str** -- parsed load tar file pattern."
+msgstr "**str** -- 読み込むtarファイルのパターンを解析する。"
+

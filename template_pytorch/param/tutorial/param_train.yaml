@@ -1,0 +1,179 @@
+# -------------------------------------------------------------------
+# parameter file (train)
+#
+# Note:
+#   - Do not use '~/' in the path.
+#   - A list must be specified in list format even if it has only one element.
+# -------------------------------------------------------------------
+# -----------------------------------------------
+# Overwrite command line arguments.
+# -----------------------------------------------
+# log level (idx=0: stream handler, idx=1: file handler)
+# (DEBUG: 10, INFO: 20, WARNING: 30, ERROR: 40, CRITICAL: 50)
+# type: list[int, int]
+level: [10, 10]
+# random seed
+# type: int
+seed: 0
+# directory path (data save)
+# type: str
+result: result
+# number of workers (data loader)
+# type: int
+num_workers: 4
+
+# directory path (training data)
+# type: str
+train: data/mnist/train
+# directory path (validation data)
+# type: str | None
+valid: data/mnist/test
+# batch size (training data)
+# type: int
+train_batch: 32
+# batch size (validation data)
+# type: int | None
+valid_batch: 1000
+# shuffle size
+# type: int | None
+shuffle: null
+# Number of epochs
+# type: int
+epochs: 2
+
+# -----------------------------------------------
+# Set non-command line arguments.
+# -----------------------------------------------
+# -------------------------------------
+# data
+# -------------------------------------
+data:
+  kind: mnist
+
+# -------------------------------------
+# data process
+# -------------------------------------
+process:
+  kind: [one_hot, rescale]
+
+  # one_hot
+  one_hot:
+    num_classes: &num_classes 10               # int
+
+  # rescale
+  rescale:
+    scale: 0.00392156862745098                # float
+    offset: 0                                 # float
+
+# -------------------------------------
+# model
+# -------------------------------------
+model:
+  kind: simple
+
+# -------------------------------------
+# model layer
+# -------------------------------------
+layer:
+  kind: [flatten, linear_1, relu, linear_2]
+
+  # Flatten
+  flatten:
+    start_dim: 1                              # int = 1,
+    end_dim: -1                               # int = -1
+
+  # Linear
+  LINEAR: &LINEAR
+    in_features: 0                            # int
+    out_features: 0                           # int
+    bias: true                                # bool
+  linear_1:
+    <<: *LINEAR
+    in_features: 784
+    out_features: &out_1 100
+  linear_2:
+    <<: *LINEAR
+    in_features: *out_1
+    out_features: *num_classes
+
+  # ReLU
+  relu:
+    inplace: false                            # bool
+
+# -------------------------------------
+# optimizer method
+# -------------------------------------
+opt:
+  kind: adam
+
+  # Adam
+  adam:
+    # params: null                              # Any
+    lr: 0.001                                 # float | Tensor = 0.001
+    betas: [0.9, 0.999]                       # Tuple[float, float] = (0.9, 0.999)
+    eps: 0.00000001                           # float = 1e-8
+    weight_decay: 0                           # float = 0
+    amsgrad: false                            # bool = False
+    foreach: null                             # bool | None = None
+    maximize: false                           # bool = False
+    capturable: false                         # bool = False
+    differentiable: false                     # bool = False
+    fused: null                               # bool | None = None
+
+# -------------------------------------
+# loss function
+# -------------------------------------
+loss:
+  kind: ce
+
+  # Crossentropy
+  ce:
+    weight: null                              # Tensor | None = None
+    ignore_index: -100                        # int = -100
+    reduction: mean                           # str = "mean"
+    label_smoothing: 0                        # float = 0
+
+# -------------------------------------
+# metrics
+# -------------------------------------
+metrics:
+  kind: [mse, bacc]
+
+  # MeanSquaredError
+  mse:
+    squared: true                             # bool = True
+    num_outputs: 1                            # int = 1
+
+  # BinaryAccuracy
+  bacc:
+    threshold: 0.5                            # float = 0.5
+    multidim_average: global                  # Literal['global', 'samplewise'] = "global"
+    ignore_index: null                        # int | None = None
+    validate_args: true                       # bool = True
+
+# -------------------------------------
+# callback
+# -------------------------------------
+cb:
+  kind: [ms, mcp]
+
+  # ModelSummary
+  ms:
+    max_depth: 3                              # int = 1
+
+  # ModelCheckpoint
+  mcp: # The "dirpath" and "filename" is fixed in the code.
+    # dirpath:                                  # _PATH | None = None
+    # filename:                                 # str | None = None
+    monitor: null                             # str | None = None
+    verbose: false                            # bool = False
+    save_last: null                           # bool | Literal['link'] | None = None
+    save_top_k: -1                            # int = 1
+    save_weights_only: false                  # bool = False
+    mode: min                                 # str = "min"
+    auto_insert_metric_name: true             # bool = True
+    every_n_train_steps: null                 # int | None = None
+    train_time_interval: null                 # timedelta | None = None
+    every_n_epochs: 1                         # int | None = None
+    save_on_train_epoch_end: null             # bool | None = None
+    enable_version_counter: true              # bool = True

@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "template-pytorch"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+h5py = "^3.12.1"
+matplotlib = "^3.9.2"
+pandas = "^2.2.3"
+pyyaml = "^6.0.2"
+scikit-learn = "^1.5.2"
+scikit-image = "^0.24.0"
+tomlkit = "^0.13.2"
+torch = {version = "^2.5.1+cu118", source = "pytorch-cu118"}
+torchvision = {version = "^0.20.1+cu118", source = "pytorch-cu118"}
+torchaudio = {version = "^2.5.1+cu118", source = "pytorch-cu118"}
+lightning = {extras = ["extra"], version = "^2.4.0"}
+torchmetrics = "^1.6.0"
+webdataset = "^0.2.100"
+tensorboard = "^2.18.0"
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^8.1.3"
+sphinx-intl = "^2.3.0"
+sphinx-autobuild = "^2024.10.3"
+sphinx-rtd-theme = "^3.0.1"
+
+[tool.poetry.group.test.dependencies]
+mypy = "^1.13.0"
+ruff = "^0.8.0"
+pytest = "^8.3.3"
+pytest-mock = "^3.14.0"
+types-pyyaml = "^6.0.12.20240917"
+ipykernel = "^6.29.5"
+
+[[tool.poetry.source]]
+name = "pytorch-cu118"
+url = "https://download.pytorch.org/whl/cu118"
+priority = "explicit"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

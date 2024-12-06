@@ -1,0 +1,281 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, r-dev95
+# This file is distributed under the same license as the template-tensorflow
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: template-tensorflow \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-06 20:34+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: ../../source/lib.model.rst:2
+msgid "model package"
+msgstr ""
+
+#: ../../source/lib.model.rst:11
+msgid "base.py"
+msgstr ""
+
+#: lib.model.base:1 of
+msgid "This is the module that defines the base model."
+msgstr "ベースモデルを定義するモジュール。"
+
+#: lib.model.base.check_params:1 of
+msgid "Checks the :class:`BaseModel` parameters."
+msgstr ":class:`BaseModel` のパラメータを確認する。"
+
+#: ../../source/lib.model.rst
+msgid "Parameters"
+msgstr "パラメータ"
+
+#: lib.model.base.BaseModel:6 lib.model.base.check_params:3 of
+msgid "class list."
+msgstr "クラスの一覧"
+
+#: lib.model.base.BaseModel:1 of
+msgid "Bases: :py:class:`~lightning.pytorch.core.module.LightningModule`"
+msgstr ""
+
+#: lib.model.base.BaseModel:1 of
+msgid "Defines the base model."
+msgstr "ベースモデルを定義する。"
+
+#: lib.model.base.BaseModel:3 of
+msgid ""
+"You can customize :meth:`training_step` and :meth:`validation_step` using"
+" ``.fit``."
+msgstr "``.fit`` を使用しつつ、:meth:`training_step` と :meth:`validation_step` をカスタマイズできる。"
+
+#: lib.model.base.BaseModel.update_metrics:1 of
+msgid "Updates metrics."
+msgstr "メトリクスを更新する。"
+
+#: lib.model.base.BaseModel.update_metrics:3 of
+msgid "train flag (training step: True, validation step: False)."
+msgstr "学習フラグ (学習ステップ: True, 検証ステップ: False)"
+
+#: lib.model.base.BaseModel.update_metrics:5 of
+msgid "tuple of labels, preds, and losses."
+msgstr "ラベルと予測、誤差のタプル。"
+
+#: lib.model.base.BaseModel.configure_optimizers
+#: lib.model.base.BaseModel.training_step
+#: lib.model.base.BaseModel.update_metrics
+#: lib.model.base.BaseModel.validation_step lib.model.layer.SetupLayer.conv2d
+#: lib.model.layer.SetupLayer.flatten lib.model.layer.SetupLayer.linear
+#: lib.model.layer.SetupLayer.maxpool2d lib.model.layer.SetupLayer.relu
+#: lib.model.layer.SetupLayer.setup lib.model.setup.SetupModel.setup
+#: lib.model.setup.SetupModel.simple lib.model.simple.SimpleModel.forward of
+msgid "Returns"
+msgstr "戻り値"
+
+#: lib.model.base.BaseModel.update_metrics:8 of
+msgid "**dict[str, float]** -- all metrics results."
+msgstr "**dict[str, float]** -- すべてのメトリクスの結果"
+
+#: lib.model.base.BaseModel.configure_optimizers:1 of
+msgid "Returns the optimizer method class."
+msgstr "最適化手法クラスを返す。"
+
+#: lib.model.base.BaseModel.configure_optimizers:3
+#: lib.model.base.BaseModel.training_step:3
+#: lib.model.base.BaseModel.validation_step:3
+#: lib.model.simple.SimpleModel.forward:3 of
+msgid "This function is decorated by ``@override``."
+msgstr "``@override`` でデコレートされている。"
+
+#: lib.model.base.BaseModel.configure_optimizers:5 of
+msgid "**Callable** -- optimizer method class."
+msgstr "**Callable** -- 最適化手法クラス"
+
+#: lib.model.base.BaseModel.training_step:1 of
+msgid "Trains the model one step at a time."
+msgstr "1ステップ分モデルを学習する。"
+
+#: lib.model.base.BaseModel.training_step:5
+#: lib.model.base.BaseModel.validation_step:5 of
+msgid "Output predictions. (forward propagation)"
+msgstr "予測を算出する。(順伝番: forward propagation)"
+
+#: lib.model.base.BaseModel.training_step:6
+#: lib.model.base.BaseModel.validation_step:6 of
+msgid "Output losses."
+msgstr "誤差を算出する。"
+
+#: lib.model.base.BaseModel.training_step:7
+#: lib.model.base.BaseModel.validation_step:7 of
+msgid "Update metrics."
+msgstr "メトリクスを更新する。"
+
+#: lib.model.base.BaseModel.training_step:8
+#: lib.model.base.BaseModel.validation_step:8 of
+msgid "Output log."
+msgstr "ログを算出する。"
+
+#: lib.model.base.BaseModel.training_step:10
+#: lib.model.base.BaseModel.validation_step:10 of
+msgid "tuple of inputs and labels."
+msgstr "入力とラベルのタプル"
+
+#: lib.model.base.BaseModel.training_step:12
+#: lib.model.base.BaseModel.validation_step:12 of
+msgid "batch index."
+msgstr "バッチのインデックス"
+
+#: lib.model.base.BaseModel.training_step:15
+#: lib.model.base.BaseModel.validation_step:15 of
+msgid "**to.Tensor** -- loss between the label and the model prediction."
+msgstr "**to.Tensor** -- ラベルとモデル予測との誤差"
+
+#: lib.model.base.BaseModel.validation_step:1 of
+msgid "Validations the model one step at a time."
+msgstr "1ステップ分モデルを検証する。"
+
+#: ../../source/lib.model.rst:19
+msgid "layer.py"
+msgstr ""
+
+#: lib.model.layer:1 of
+msgid "This is the module that sets up model layers."
+msgstr "モデルレイヤーを設定するモジュール。"
+
+#: lib.model.layer.check_params:1 of
+msgid "Checks the :class:`SetupLayer` parameters."
+msgstr ":class:`SetupLayer` のパラメータを確認する。"
+
+#: lib.model.layer.SetupLayer:7 lib.model.layer.check_params:3
+#: lib.model.setup.SetupModel:7 lib.model.setup.check_params:3
+#: lib.model.simple.SimpleModel:6 lib.model.simple.check_params:3 of
+msgid "parameters."
+msgstr "パラメータ"
+
+#: lib.model.layer.check_params:5 lib.model.setup.check_params:5 of
+msgid "Class variables whose values are available methods."
+msgstr "使用可能なメソッドを値に持つクラス変数。"
+
+#: lib.model.layer.SetupLayer:1 lib.model.setup.SetupModel:1 of
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: lib.model.layer.SetupLayer:1 of
+msgid "Sets up the model layer."
+msgstr "モデルレイヤーを設定する。"
+
+#: lib.model.layer.SetupLayer:3 lib.model.setup.SetupModel:3 of
+msgid ""
+"If you want to use some other settings, implement it as a method of this "
+"class. If you implemented, set the name as the ``func`` key in "
+"``__init__`` and the method as the value."
+msgstr ""
+"他の設定を使用したい場合、このクラスのメソッドとして実装する。実装した場合、``__init__`` の ``func`` "
+"のキーに名前を、値にメソッドを実装すること。"
+
+#: lib.model.layer.SetupLayer.setup:1 of
+msgid "Sets up model layers."
+msgstr "モデルレイヤーを設定する。"
+
+#: lib.model.layer.SetupLayer.setup:3 of
+msgid "**list[Callable]** -- list of model layers."
+msgstr "**list[Callable]** -- モデルレイヤークラスのリスト"
+
+#: lib.model.layer.SetupLayer.flatten:1 of
+msgid "Sets ``to.nn.Flatten``."
+msgstr "``to.nn.Flatten`` を設定する。"
+
+#: lib.model.layer.SetupLayer.conv2d:3 lib.model.layer.SetupLayer.flatten:3
+#: lib.model.layer.SetupLayer.linear:3 lib.model.layer.SetupLayer.maxpool2d:3
+#: lib.model.layer.SetupLayer.relu:3 of
+msgid "**Callable** -- model layer class."
+msgstr "**Callable** -- モデルレイヤークラス"
+
+#: lib.model.layer.SetupLayer.linear:1 of
+msgid "Sets ``to.nn.Linear``."
+msgstr "``to.nn.Linear`` を設定する。"
+
+#: lib.model.layer.SetupLayer.conv2d:1 of
+msgid "Sets ``to.nn.Conv2d``."
+msgstr "``to.nn.Conv2d`` を設定する。"
+
+#: lib.model.layer.SetupLayer.maxpool2d:1 of
+msgid "Sets ``to.nn.MaxPool2d``."
+msgstr "``to.nn.MaxPool2d`` を設定する。"
+
+#: lib.model.layer.SetupLayer.relu:1 of
+msgid "Sets ``to.nn.ReLU``."
+msgstr "``to.nn.ReLU`` を設定する。"
+
+#: ../../source/lib.model.rst:27
+msgid "setup.py"
+msgstr ""
+
+#: lib.model.setup:1 of
+msgid "This is the module that sets up model."
+msgstr "モデルを設定するモジュール。"
+
+#: lib.model.setup.check_params:1 of
+msgid "Checks the :class:`SetupModel` parameters."
+msgstr ":class:`SetupModel` のパラメータを確認する。"
+
+#: lib.model.setup.SetupModel:1 lib.model.setup.SetupModel.setup:1 of
+msgid "Sets up model."
+msgstr "モデルを設定する。"
+
+#: lib.model.setup.SetupModel.setup:3 lib.model.setup.SetupModel.simple:3 of
+msgid "**Callable** -- model class."
+msgstr "**Callable** -- モデルクラス"
+
+#: lib.model.setup.SetupModel.simple:1 of
+msgid "Sets :class:`lib.model.simple.SimpleModel`."
+msgstr ":class:`lib.model.simple.SimpleModel` を設定する。"
+
+#: ../../source/lib.model.rst:35
+msgid "simple.py"
+msgstr ""
+
+#: lib.model.simple:1 of
+msgid "This is the module that builds simple model."
+msgstr "シンプルモデルを構築するモジュール。"
+
+#: lib.model.simple.check_params:1 of
+msgid "Checks the :class:`SimpleModel` parameters."
+msgstr ":class:`SimpleModel` のパラメータを確認する。"
+
+#: lib.model.simple.SimpleModel:1 of
+msgid "Bases: :py:class:`~torch.nn.modules.module.Module`"
+msgstr ""
+
+#: lib.model.simple.SimpleModel:1 of
+msgid "Builds the following simple model."
+msgstr "次のシンプルモデルを構築する。"
+
+#: lib.model.simple.SimpleModel:3 of
+msgid "MLP (Multi Layer Perceptron)"
+msgstr "多層パーセプトロン(MLP: Multi Layer Perceptron)"
+
+#: lib.model.simple.SimpleModel:4 of
+msgid "CNN (Convolutional Neural Network)"
+msgstr "畳み込みニューラルネットワーク (CNN: Convolutional Neural Network)"
+
+#: lib.model.simple.SimpleModel.forward:1 of
+msgid "Outputs the model predictions."
+msgstr "モデルの予測を出力する。"
+
+#: lib.model.simple.SimpleModel.forward:5 of
+msgid "input."
+msgstr "入力"
+
+#: lib.model.simple.SimpleModel.forward:8 of
+msgid "**to.Tensor** -- output."
+msgstr "**to.Tensor** -- 出力"

@@ -1,0 +1,163 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lib.data.mnist &mdash; template-tensorflow 0.1.0 ドキュメント</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=98e9f989"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/translations.js?v=4755f45a"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="検索" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            template-tensorflow
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../lib.html">lib package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../train.html">train.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../eval.html">eval.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dataset.html">dataset.py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">template-tensorflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">モジュールコード</a></li>
+      <li class="breadcrumb-item active">lib.data.mnist</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>lib.data.mnist のソースコード</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This is the module that loads Mnist data.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">getLogger</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">ClassVar</span><span class="p">,</span> <span class="n">override</span>
+
+<span class="kn">from</span> <span class="nn">lib.common.define</span> <span class="kn">import</span> <span class="n">ParamKey</span><span class="p">,</span> <span class="n">ParamLog</span>
+<span class="kn">from</span> <span class="nn">lib.common.process</span> <span class="kn">import</span> <span class="n">parse_tar_fname_number</span>
+<span class="kn">from</span> <span class="nn">lib.data.base</span> <span class="kn">import</span> <span class="n">BaseLoadData</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="n">ParamKey</span><span class="p">()</span>
+<span class="n">PARAM_LOG</span> <span class="o">=</span> <span class="n">ParamLog</span><span class="p">()</span>
+<span class="n">LOGGER</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">(</span><span class="n">PARAM_LOG</span><span class="o">.</span><span class="n">NAME</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Mnist">
+<a class="viewcode-back" href="../../../lib.data.html#lib.data.mnist.Mnist">[ドキュメント]</a>
+<span class="k">class</span> <span class="nc">Mnist</span><span class="p">(</span><span class="n">BaseLoadData</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads Mnist data.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        params (dict[str, Any]): parameters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#: ClassVar[list[int]]: image size. (vertical x horizontal)</span>
+    <span class="n">size</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">]</span>
+    <span class="c1">#: int: all number of data.</span>
+    <span class="n">n_data</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="c1">#: ClassVar[list[int]]: input shape. (after preprocess)</span>
+    <span class="n">input_shape_model</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="c1">#: ClassVar[list[int]]: label shape. (after preprocess)</span>
+    <span class="n">label_shape_model</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dpath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">DPATH</span><span class="p">])</span>
+        <span class="n">file_pattern</span> <span class="o">=</span> <span class="n">parse_tar_fname_number</span><span class="p">(</span><span class="n">dpath</span><span class="o">=</span><span class="n">dpath</span><span class="p">)</span>
+        <span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">FILE_PATTERN</span><span class="p">]</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">dpath</span><span class="p">,</span> <span class="n">file_pattern</span><span class="p">)</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">dpath</span><span class="o">.</span><span class="n">stem</span> <span class="o">==</span> <span class="s1">&#39;train&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_data</span> <span class="o">=</span> <span class="mi">60000</span>
+        <span class="k">elif</span> <span class="n">dpath</span><span class="o">.</span><span class="n">stem</span> <span class="o">==</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_data</span> <span class="o">=</span> <span class="mi">10000</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;the dataset path must be &quot;train/%05d.tar&quot; or &quot;test/%05d.tar&quot;.&#39;</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Mnist.set_model_il_shape">
+<a class="viewcode-back" href="../../../lib.data.html#lib.data.mnist.Mnist.set_model_il_shape">[ドキュメント]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span> <span class="nf">set_model_il_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the shape of the preprocessed inputs and labels.</span>
+
+<span class="sd">        This method is decorated by ``@override``.</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, r-dev95.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

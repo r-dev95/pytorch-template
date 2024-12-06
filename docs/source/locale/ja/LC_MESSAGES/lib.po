@@ -1,0 +1,136 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, r-dev95
+# This file is distributed under the same license as the template-tensorflow
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: template-tensorflow \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-22 20:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: ../../source/lib.rst:2
+msgid "lib package"
+msgstr ""
+
+#: ../../source/lib.rst:23
+msgid "template.py"
+msgstr ""
+
+#: lib.template:1 of
+msgid "This is the template module."
+msgstr "テンプレートモジュール。"
+
+#: lib.template.Tmp:1 of
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: lib.template.Tmp:1 of
+msgid "Tmp class"
+msgstr ""
+
+#: lib.template.Tmp:4 of
+msgid "sphinx docstring example:"
+msgstr ""
+
+#: lib.template.Tmp:7 of
+msgid "link in file:"
+msgstr ""
+
+#: lib.template.Tmp:9 of
+msgid "class     = :class:`Tmp`"
+msgstr ""
+
+#: lib.template.Tmp:11 of
+msgid "func      = :func:`main`"
+msgstr ""
+
+#: lib.template.Tmp:13 of
+msgid "method    = :meth:`tmp_method`"
+msgstr ""
+
+#: lib.template.Tmp:15 of
+msgid "attribute = :attr:`tmp_val`"
+msgstr ""
+
+#: lib.template.Tmp:17 of
+msgid "module    = :mod:`lib`"
+msgstr ""
+
+#: lib.template.Tmp:20 of
+msgid "code block:"
+msgstr ""
+
+#: lib.template.Tmp:29 of
+msgid "comments:"
+msgstr ""
+
+#: lib.template.Tmp:33 lib.template.Tmp:37 lib.template.Tmp:41
+#: lib.template.Tmp:45 lib.template.Tmp:49 lib.template.Tmp:53
+#: lib.template.Tmp:57 lib.template.Tmp:61 lib.template.Tmp:65
+#: lib.template.Tmp:69 of
+msgid "description"
+msgstr ""
+
+#: lib.template.Tmp:67 of
+msgid "something"
+msgstr ""
+
+#: lib.template.main:1 of
+msgid "main."
+msgstr ""
+
+#: lib.template.main:3 of
+msgid "This function is decorated by ``@save_params_log`` and ``@process_time``."
+msgstr "``@save_params_log`` と ``@process_time`` でデコレートされている。"
+
+#: ../../source/lib.rst
+msgid "Parameters"
+msgstr "パラメータ"
+
+#: lib.template.main:5 of
+msgid "parameters."
+msgstr "パラメータ"
+
+#: lib.template.main lib.template.set_params of
+msgid "Returns"
+msgstr "戻り値"
+
+#: lib.template.main:8 lib.template.set_params:7 of
+msgid "**dict[str, Any]** -- parameters."
+msgstr "**dict[str, Any]** -- パラメータ"
+
+#: lib.template.set_params:1 of
+msgid "Sets the command line arguments and file parameters."
+msgstr "コマンドライン引数とファイルパラメータを設定する。"
+
+#: lib.template.set_params:3 of
+msgid "Set only common parameters as command line arguments."
+msgstr "共通なパラメータのみ、コマンドライン引数で設定する。"
+
+#: lib.template.set_params:4 of
+msgid "Other necessary parameters are set in the file parameters."
+msgstr "他に必要なパラメータは、ファイルパラメータで設定する。"
+
+#: lib.template.set_params:5 of
+msgid "Use a yaml file. (:func:`lib.common.file.load_yaml`)"
+msgstr "ファイルは、yamlファイルを使用する。(:func:`lib.common.file.load_yaml`)"
+
+#: lib.template.set_params:11 of
+msgid ""
+"Command line arguments are overridden by file parameters. This means that"
+" if you want to set everything using file parameters, you don't "
+"necessarily need to use command line arguments."
+msgstr "コマンドライン引数はファイルパラメータで上書きされる。つまり、ファイルパラメータですべて設定する場合、必ずしもコマンドライン引数を使用する必要はない。"
+

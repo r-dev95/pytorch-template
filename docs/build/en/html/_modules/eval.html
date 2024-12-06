@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eval &mdash; template-tensorflow 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            template-tensorflow
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lib.html">lib package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../train.html">train.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eval.html">eval.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataset.html">dataset.py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">template-tensorflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">eval</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for eval</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This is the module that evaluates the model.</span>
+<span class="sd">&quot;&quot;&quot;</span>  <span class="c1"># noqa: INP001</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">getLogger</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">torch</span> <span class="k">as</span> <span class="nn">to</span>
+<span class="kn">import</span> <span class="nn">torchmetrics</span>
+
+<span class="kn">from</span> <span class="nn">lib.common.decorator</span> <span class="kn">import</span> <span class="n">process_time</span><span class="p">,</span> <span class="n">save_params_log</span>
+<span class="kn">from</span> <span class="nn">lib.common.define</span> <span class="kn">import</span> <span class="n">ParamKey</span><span class="p">,</span> <span class="n">ParamLog</span>
+<span class="kn">from</span> <span class="nn">lib.common.file</span> <span class="kn">import</span> <span class="n">load_yaml</span>
+<span class="kn">from</span> <span class="nn">lib.common.log</span> <span class="kn">import</span> <span class="n">SetLogging</span>
+<span class="kn">from</span> <span class="nn">lib.common.process</span> <span class="kn">import</span> <span class="n">fix_random_seed</span><span class="p">,</span> <span class="n">get_device_type</span><span class="p">,</span> <span class="n">set_weight</span>
+<span class="kn">from</span> <span class="nn">lib.data.base</span> <span class="kn">import</span> <span class="n">BaseLoadData</span>
+<span class="kn">from</span> <span class="nn">lib.data.setup</span> <span class="kn">import</span> <span class="n">SetupData</span>
+<span class="kn">from</span> <span class="nn">lib.loss.setup</span> <span class="kn">import</span> <span class="n">SetupLoss</span>
+<span class="kn">from</span> <span class="nn">lib.metrics.setup</span> <span class="kn">import</span> <span class="n">SetupMetrics</span>
+<span class="kn">from</span> <span class="nn">lib.model.setup</span> <span class="kn">import</span> <span class="n">SetupModel</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="n">ParamKey</span><span class="p">()</span>
+<span class="n">PARAM_LOG</span> <span class="o">=</span> <span class="n">ParamLog</span><span class="p">()</span>
+<span class="n">LOGGER</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">(</span><span class="n">PARAM_LOG</span><span class="o">.</span><span class="n">NAME</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="check_params">
+<a class="viewcode-back" href="../eval.html#eval.check_params">[docs]</a>
+<span class="k">def</span> <span class="nf">check_params</span><span class="p">(</span><span class="n">params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># noqa: C901</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks the :class:`Evaluator` parameters.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        params (dict[str, Any]): parameters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># error: True</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">SEED</span><span class="p">],</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;params[&quot;</span><span class="si">{</span><span class="n">K</span><span class="o">.</span><span class="n">SEED</span><span class="si">}</span><span class="s1">&quot;] must be integer.&#39;</span><span class="p">)</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The random number seed is not fixed.&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">RESULT</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">Path</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">RESULT</span><span class="p">])</span><span class="o">.</span><span class="n">exists</span><span class="p">()):</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;params[&quot;</span><span class="si">{</span><span class="n">K</span><span class="o">.</span><span class="n">RESULT</span><span class="si">}</span><span class="s1">&quot;] is None or the directory does not exists.&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">EVAL</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">Path</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">EVAL</span><span class="p">])</span><span class="o">.</span><span class="n">exists</span><span class="p">()):</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;params[&quot;</span><span class="si">{</span><span class="n">K</span><span class="o">.</span><span class="n">EVAL</span><span class="si">}</span><span class="s1">&quot;] is None or the directory does not exists.&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">BATCH</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">BATCH</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;params[&quot;</span><span class="si">{</span><span class="n">K</span><span class="o">.</span><span class="n">BATCH</span><span class="si">}</span><span class="s1">&quot;] must be greater than zero.&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">NUM_WORKERS</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">NUM_WORKERS</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;params[&quot;</span><span class="si">{</span><span class="n">K</span><span class="o">.</span><span class="n">NUM_WORKERS</span><span class="si">}</span><span class="s1">&quot;] must be greater than zero.&#39;</span><span class="p">)</span>
+
+    <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span> <span class="n">K</span><span class="o">.</span><span class="n">PROCESS</span><span class="p">,</span> <span class="n">K</span><span class="o">.</span><span class="n">MODEL</span><span class="p">,</span> <span class="n">K</span><span class="o">.</span><span class="n">LAYER</span><span class="p">,</span> <span class="n">K</span><span class="o">.</span><span class="n">LOSS</span><span class="p">,</span> <span class="n">K</span><span class="o">.</span><span class="n">METRICS</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The key &quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">&quot; for variable &quot;params&quot; is missing.&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span></div>
+
+
+
+<div class="viewcode-block" id="Evaluator">
+<a class="viewcode-back" href="../eval.html#eval.Evaluator">[docs]</a>
+<span class="k">class</span> <span class="nc">Evaluator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Evaluates the model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        params (dict[str, Any]): parameters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#: BaseLoadData: data class (evaluate)</span>
+    <span class="n">eval_data</span><span class="p">:</span> <span class="n">BaseLoadData</span>
+    <span class="c1">#: to.nn.Module: model class</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">to</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span>
+    <span class="c1">#: Callable: loss function class</span>
+    <span class="n">loss</span><span class="p">:</span> <span class="n">Callable</span>
+    <span class="c1">#: torchmetrics.MetricCollection: metrics class.</span>
+    <span class="n">metrics</span><span class="p">:</span> <span class="n">torchmetrics</span><span class="o">.</span><span class="n">MetricCollection</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">params</span>
+        <span class="n">check_params</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+        <span class="n">fix_random_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">SEED</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">DEVICE</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_device_type</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Evaluator.load_dataset">
+<a class="viewcode-back" href="../eval.html#eval.Evaluator.load_dataset">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Loads the evaluation data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># evaluation data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">DPATH</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">EVAL</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">SHUFFLE</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eval_data</span> <span class="o">=</span> <span class="n">SetupData</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Evaluator.setup">
+<a class="viewcode-back" href="../eval.html#eval.Evaluator.setup">[docs]</a>
+    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets up the evaluation.</span>
+
+<span class="sd">        *   Sets the loss function, model, metrics.</span>
+<span class="sd">        *   Set the model weights.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">SetupModel</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">set_weight</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">MODEL_PARAMS</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loss</span> <span class="o">=</span> <span class="n">SetupLoss</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="n">SetupMetrics</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">MODEL_PARAMS</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Evaluator.eval_step">
+<a class="viewcode-back" href="../eval.html#eval.Evaluator.eval_step">[docs]</a>
+    <span class="k">def</span> <span class="nf">eval_step</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Evaluations the model.</span>
+
+<span class="sd">        *   Customize the evaluation of your trained models.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict[str, Any]: evaluate results.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">i_data</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">n_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_data</span><span class="o">.</span><span class="n">n_data</span>
+        <span class="n">metrics_loss</span> <span class="o">=</span> <span class="n">torchmetrics</span><span class="o">.</span><span class="n">MeanMetric</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">to</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_data</span><span class="o">.</span><span class="n">make_loader_example</span><span class="p">():</span>
+                <span class="n">i_data</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+                <span class="n">preds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+                <span class="n">losses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+
+                <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+                <span class="n">res</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics_loss</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">losses</span><span class="p">)</span>
+
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">[</span><span class="si">{</span><span class="n">K</span><span class="o">.</span><span class="n">EVAL</span><span class="si">}</span><span class="s1">][</span><span class="si">{</span><span class="n">i_data</span><span class="si">:</span><span class="s1">&gt;8</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">n_data</span><span class="si">:</span><span class="s1">&gt;8</span><span class="si">}</span><span class="s1">] - &#39;</span>
+                <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">=</span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s1">&gt;.5</span><span class="si">}</span><span class="s1">, &#39;</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+        <span class="n">res</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics_loss</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="Evaluator.run">
+<a class="viewcode-back" href="../eval.html#eval.Evaluator.run">[docs]</a>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Runs evaluation.</span>
+
+<span class="sd">        *   Customize the evaluation of your trained models.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_step</span><span class="p">()</span>
+
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">=</span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s1">&gt;.5</span><span class="si">}</span><span class="s1">, &#39;</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../eval.html#eval.main">[docs]</a>
+<span class="nd">@save_params_log</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;log_params_</span><span class="si">{</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s1">.yaml&#39;</span><span class="p">)</span>
+<span class="nd">@process_time</span><span class="p">(</span><span class="n">print_func</span><span class="o">=</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;main.</span>
+
+<span class="sd">    This function is decorated by ``@save_params_log`` and ``@process_time``.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        params (dict[str, Any]): parameters.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict[str, Any]: parameters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">evaluate</span> <span class="o">=</span> <span class="n">Evaluator</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+    <span class="n">evaluate</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">params</span></div>
+
+
+
+<div class="viewcode-block" id="set_params">
+<a class="viewcode-back" href="../eval.html#eval.set_params">[docs]</a>
+<span class="k">def</span> <span class="nf">set_params</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets the command line arguments and file parameters.</span>
+
+<span class="sd">    *   Set only common parameters as command line arguments.</span>
+<span class="sd">    *   Other necessary parameters are set in the file parameters.</span>
+<span class="sd">    *   Use a yaml file. (:func:`lib.common.file.load_yaml`)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict[str, Any]: parameters.</span>
+
+<span class="sd">    .. attention::</span>
+
+<span class="sd">        Command line arguments are overridden by file parameters.</span>
+<span class="sd">        This means that if you want to set everything using file parameters,</span>
+<span class="sd">        you don&#39;t necessarily need to use command line arguments.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># set the command line arguments.</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="c1"># log level (idx=0: stream handler, idx=1: file handler)</span>
+    <span class="c1"># (DEBUG: 10, INFO: 20, WARNING: 30, ERROR: 40, CRITICAL: 50)</span>
+    <span class="n">choices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--level&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">choices</span><span class="p">)</span>
+    <span class="c1"># random seed</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--seed&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="c1"># file path (parameters)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--param&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;param/param.yaml&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+    <span class="c1"># directory path (data save)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--result&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+    <span class="c1"># directory path (evaluation data)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--eval&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+    <span class="c1"># batch size (evaluation data)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--batch&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="c1"># number of workers (data loader)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--num_workers&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="n">params</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">())</span>
+
+    <span class="c1"># set the file parameters.</span>
+    <span class="n">fpath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">PARAM</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">K</span><span class="o">.</span><span class="n">PARAM</span> <span class="ow">in</span> <span class="n">params</span> <span class="ow">and</span> <span class="n">fpath</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">load_yaml</span><span class="p">(</span><span class="n">fpath</span><span class="o">=</span><span class="n">fpath</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">params</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># set the parameters.</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">set_params</span><span class="p">()</span>
+    <span class="c1"># set the logging configuration.</span>
+    <span class="n">PARAM_LOG</span><span class="o">.</span><span class="n">LEVEL</span><span class="p">[</span><span class="n">PARAM_LOG</span><span class="o">.</span><span class="n">SH</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">LEVEL</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">PARAM_LOG</span><span class="o">.</span><span class="n">LEVEL</span><span class="p">[</span><span class="n">PARAM_LOG</span><span class="o">.</span><span class="n">FH</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">LEVEL</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">SetLogging</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">LOGGER</span><span class="p">,</span> <span class="n">param</span><span class="o">=</span><span class="n">PARAM_LOG</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">K</span><span class="o">.</span><span class="n">RESULT</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+        <span class="n">Path</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">K</span><span class="o">.</span><span class="n">RESULT</span><span class="p">])</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">main</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, r-dev95.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

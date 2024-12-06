@@ -1,0 +1,9 @@
+.mypy_cache/
+.pytest_cache
+.ruff_cache/
+cspell.json
+
+__pycache__/
+*/log/*.txt*
+*/result/
+*/param/*.yaml

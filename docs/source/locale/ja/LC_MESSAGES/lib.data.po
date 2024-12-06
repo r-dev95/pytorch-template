@@ -1,0 +1,317 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, r-dev95
+# This file is distributed under the same license as the template-tensorflow
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: template-tensorflow \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-06 20:34+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: ../../source/lib.data.rst:2
+msgid "data package"
+msgstr ""
+
+#: ../../source/lib.data.rst:11
+msgid "base.py"
+msgstr ""
+
+#: lib.data.base:1 of
+msgid "This is the module load data."
+msgstr "データを読み込むモジュール。"
+
+#: lib.data.base.check_params:1 of
+msgid "Checks the :class:`BaseLoadData` parameters."
+msgstr ":class:`BaseLoadData` のパラメータを確認する。"
+
+#: ../../source/lib.data.rst
+msgid "Parameters"
+msgstr "パラメータ"
+
+#: lib.data.base.BaseLoadData:5 lib.data.base.check_params:3
+#: lib.data.cifar.Cifar:3 lib.data.mnist.Mnist:3 lib.data.processor.Processor:9
+#: lib.data.processor.check_params:3 lib.data.setup.SetupData:7
+#: lib.data.setup.check_params:3 of
+msgid "parameters."
+msgstr "パラメータ"
+
+#: lib.data.base.BaseLoadData:1 lib.data.processor.Processor:1
+#: lib.data.setup.SetupData:1 of
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: lib.data.base.BaseLoadData:1 of
+msgid "Loads data."
+msgstr "データを読み込む。"
+
+#: lib.data.base.BaseLoadData:3 of
+msgid "Make a data pipeline to load a shard data (webdataset)."
+msgstr "shardデータ(webdataset)を読み込むデータパイプラインを作成する。"
+
+#: lib.data.base.BaseLoadData:10 of
+msgid ""
+"Child classes that inherit this class must set the pattern of file paths "
+"to ``params[K.FILE_PATTERN]`` before running "
+"``super().__init__(params=params)``."
+msgstr ""
+"このクラスを継承する子クラスは、``super().__init__(params=params)`` を実行する前にファイルパスのパターンを "
+"``params[K.FILE_PATTERN]`` に設定する必要がある。"
+
+#: ../../docstring lib.data.base.BaseLoadData.n_data:1
+#: lib.data.cifar.Cifar.n_data:1 lib.data.mnist.Mnist.n_data:1 of
+msgid "all number of data."
+msgstr "総データ数"
+
+#: ../../docstring lib.data.base.BaseLoadData.input_shape_model
+#: lib.data.base.BaseLoadData.label_shape_model
+#: lib.data.base.BaseLoadData.n_data lib.data.cifar.Cifar.input_shape_model
+#: lib.data.cifar.Cifar.label_shape_model lib.data.cifar.Cifar.n_data
+#: lib.data.cifar.Cifar.size lib.data.mnist.Mnist.input_shape_model
+#: lib.data.mnist.Mnist.label_shape_model lib.data.mnist.Mnist.n_data
+#: lib.data.mnist.Mnist.size of
+msgid "type"
+msgstr "型"
+
+#: ../../docstring lib.data.base.BaseLoadData.n_data:3
+#: lib.data.cifar.Cifar.n_data:3 lib.data.mnist.Mnist.n_data:3 of
+msgid "int"
+msgstr ""
+
+#: ../../docstring lib.data.base.BaseLoadData.input_shape_model:1
+#: lib.data.cifar.Cifar.input_shape_model:1
+#: lib.data.mnist.Mnist.input_shape_model:1 of
+msgid "input shape. (after preprocess)"
+msgstr "入力形状 (前処理後)"
+
+#: ../../docstring lib.data.base.BaseLoadData.input_shape_model:3
+#: lib.data.base.BaseLoadData.label_shape_model:3
+#: lib.data.cifar.Cifar.input_shape_model:3
+#: lib.data.cifar.Cifar.label_shape_model:3 lib.data.cifar.Cifar.size:3
+#: lib.data.mnist.Mnist.input_shape_model:3
+#: lib.data.mnist.Mnist.label_shape_model:3 lib.data.mnist.Mnist.size:3 of
+msgid "ClassVar[list[int]]"
+msgstr ""
+
+#: ../../docstring lib.data.base.BaseLoadData.label_shape_model:1
+#: lib.data.cifar.Cifar.label_shape_model:1
+#: lib.data.mnist.Mnist.label_shape_model:1 of
+msgid "label shape. (after preprocess)"
+msgstr "ラベル形状 (前処理後)"
+
+#: lib.data.base.BaseLoadData.set_model_il_shape:1
+#: lib.data.cifar.Cifar.set_model_il_shape:1
+#: lib.data.mnist.Mnist.set_model_il_shape:1 of
+msgid "Sets the shape of the preprocessed inputs and labels."
+msgstr "前処理された入力とラベルの形状を設定する。"
+
+#: lib.data.base.BaseLoadData.process:1 lib.data.processor.Processor.run:1 of
+msgid "Runs process data."
+msgstr "データ処理を実行する。"
+
+#: lib.data.base.BaseLoadData.process:3 of
+msgid "Run :meth:`lib.data.processor.Processor.run`."
+msgstr ":meth:`lib.data.processor.Processor.run` を実行する。"
+
+#: lib.data.base.BaseLoadData.process:5 of
+msgid "tuple of inputs and labels."
+msgstr "入力とラベルの形状。"
+
+#: lib.data.base.BaseLoadData.make_loader_example
+#: lib.data.base.BaseLoadData.process lib.data.processor.Processor.one_hot
+#: lib.data.processor.Processor.rescale lib.data.processor.Processor.run
+#: lib.data.setup.SetupData.cifar lib.data.setup.SetupData.mnist
+#: lib.data.setup.SetupData.setup of
+msgid "Returns"
+msgstr "戻り値"
+
+#: lib.data.base.BaseLoadData.process:8 lib.data.processor.Processor.one_hot:8
+#: lib.data.processor.Processor.rescale:8 lib.data.processor.Processor.run:8 of
+msgid "**to.Tensor** -- input. (after process)"
+msgstr "**to.Tensor** -- 入力 (処理後)"
+
+#: lib.data.base.BaseLoadData.process:9 lib.data.processor.Processor.one_hot:9
+#: lib.data.processor.Processor.rescale:9 lib.data.processor.Processor.run:9 of
+msgid "**to.Tensor** -- label. (after process)"
+msgstr "**to.Tensor** -- ラベル (処理後)"
+
+#: lib.data.base.BaseLoadData.make_loader_example:1 of
+msgid "Makes data loader."
+msgstr "データローダーを作成する。"
+
+#: lib.data.base.BaseLoadData.make_loader_example:3 of
+msgid ""
+"Set the file path pattern, random seed, and shuffle flag for sharded "
+"data. (``wds.WebDataset``)"
+msgstr "ファイルパスのパターンや乱数シード、shardデータ(``wds.WebDataset``)のシャッフルフラグを設定する。"
+
+#: lib.data.base.BaseLoadData.make_loader_example:5 of
+msgid "Set the decoding configuration. (``wds.WebDataset.decode``)"
+msgstr "デコードを設定する。 (``wds.WebDataset.decode``)"
+
+#: lib.data.base.BaseLoadData.make_loader_example:7 of
+msgid "Set the file type. (``wds.WebDataset.to_tuple``)"
+msgstr "ファイルタイプを設定する。 (``wds.WebDataset.to_tuple``)"
+
+#: lib.data.base.BaseLoadData.make_loader_example:9 of
+msgid "Set the preprocess function. (``wds.WebDataset.map``)"
+msgstr "前処理関数を設定する。 (``wds.WebDataset.map``)"
+
+#: lib.data.base.BaseLoadData.make_loader_example:11 of
+msgid "Set the shuffle configuration. (``wds.WebDataset.shuffle``)"
+msgstr "シャッフルを設定する。 (``wds.WebDataset.shuffle``)"
+
+#: lib.data.base.BaseLoadData.make_loader_example:13 of
+msgid ""
+"Set the dataset (``wds.WebDataset``), batch size, and number of workers. "
+"(``to.utils.data.DataLoader``)"
+msgstr "データセット(``wds.WebDataset``)やバッチサイズ、ワーカー数を設定する。 (``to.utils.data.DataLoader``)"
+
+#: lib.data.base.BaseLoadData.make_loader_example:16 of
+msgid "random seed."
+msgstr "乱数シード"
+
+#: lib.data.base.BaseLoadData.make_loader_example:19 of
+msgid "**Callable** -- data pipeline. (``to.utils.data.DataLoader``)"
+msgstr "**Callable** -- データパイプライン (``to.utils.data.DataLoader``)"
+
+#: ../../source/lib.data.rst:19
+msgid "cifar.py"
+msgstr ""
+
+#: lib.data.cifar:1 of
+msgid "This is the module that loads Cifar data."
+msgstr "Cifarデータを読み込むモジュール。"
+
+#: lib.data.cifar.Cifar:1 lib.data.mnist.Mnist:1 of
+msgid "Bases: :py:class:`~lib.data.base.BaseLoadData`"
+msgstr ""
+
+#: lib.data.cifar.Cifar:1 of
+msgid "Loads Cifar data."
+msgstr "Cifarデータを読み込む。"
+
+#: ../../docstring lib.data.cifar.Cifar.size:1 of
+msgid "image size. (vertical x horizontal x channel)"
+msgstr "画像サイズ (縦 × 横 × チャネル)"
+
+#: lib.data.cifar.Cifar.set_model_il_shape:3
+#: lib.data.mnist.Mnist.set_model_il_shape:3 of
+msgid "This method is decorated by ``@override``."
+msgstr "``@override`` でデコレートされている。"
+
+#: ../../source/lib.data.rst:27
+msgid "mnist.py"
+msgstr ""
+
+#: lib.data.mnist:1 of
+msgid "This is the module that loads Mnist data."
+msgstr "Mnistデータを読み込むモジュール。"
+
+#: lib.data.mnist.Mnist:1 of
+msgid "Loads Mnist data."
+msgstr "Mnistデータを読み込む。"
+
+#: ../../docstring lib.data.mnist.Mnist.size:1 of
+msgid "image size. (vertical x horizontal)"
+msgstr "画像サイズ (縦 × 横)"
+
+#: ../../source/lib.data.rst:35
+msgid "processor.py"
+msgstr ""
+
+#: lib.data.processor:1 of
+msgid "This is the module that process data."
+msgstr "データを処理するモジュール。"
+
+#: lib.data.processor.check_params:1 of
+msgid "Checks the :class:`Processor` parameters."
+msgstr ":class:`Processor` のパラメータを確認する。"
+
+#: lib.data.processor.check_params:5 lib.data.setup.check_params:5 of
+msgid "Class variables whose values are available methods."
+msgstr "使用可能なメソッドを値に持つクラス変数。"
+
+#: lib.data.processor.Processor:1 of
+msgid "Processes data."
+msgstr "データを処理する。"
+
+#: lib.data.processor.Processor:3 of
+msgid ""
+"Used to process data when making a ``to.utils.data.DataLoader`` data "
+"pipeline."
+msgstr "``to.utils.data.DataLoader`` データパイプラインを作成する際、データを処理するために使用する。"
+
+#: lib.data.processor.Processor:5 lib.data.setup.SetupData:3 of
+msgid ""
+"If you want to use some other settings, implement it as a method of this "
+"class. If you implemented, set the name as the ``func`` key in "
+"``__init__`` and the method as the value."
+msgstr ""
+"他の設定を使用したい場合、このクラスのメソッドとして実装する。実装した場合、``__init__`` の ``func`` "
+"のキーに名前を、値にメソッドを実装すること。"
+
+#: lib.data.processor.Processor.one_hot:3
+#: lib.data.processor.Processor.rescale:3 lib.data.processor.Processor.run:3 of
+msgid "input. (before process)"
+msgstr "入力 (処理前)"
+
+#: lib.data.processor.Processor.one_hot:5
+#: lib.data.processor.Processor.rescale:5 lib.data.processor.Processor.run:5 of
+msgid "label. (before process)"
+msgstr "ラベル (処理前)"
+
+#: lib.data.processor.Processor.one_hot:1 of
+msgid "Runs ``to.nn.functional.one_hot``."
+msgstr "``to.nn.functional.one_hot`` を実行する。"
+
+#: lib.data.processor.Processor.rescale:1 of
+msgid "Runs rescale and offset."
+msgstr "リスケールとオフセットを実行する。"
+
+#: ../../source/lib.data.rst:43
+msgid "setup.py"
+msgstr ""
+
+#: lib.data.setup:1 of
+msgid "This is the module that sets up data."
+msgstr "データを設定するモジュール。"
+
+#: lib.data.setup.check_params:1 of
+msgid "Checks the :class:`SetupData` parameters."
+msgstr ":class:`SetupData` のパラメータを確認する。"
+
+#: lib.data.setup.SetupData:1 lib.data.setup.SetupData.setup:1 of
+msgid "Sets up data."
+msgstr "データを設定する。"
+
+#: lib.data.setup.SetupData.setup:3 of
+msgid "**BaseLoadData** -- data class."
+msgstr "**BaseLoadData** -- データクラス"
+
+#: lib.data.setup.SetupData.mnist:1 of
+msgid "Sets :class:`lib.data.mnist.Mnist` (mnist or fashion mnist)."
+msgstr ":class:`lib.data.mnist.Mnist` を設定する。 (mnist または fashion mnist)"
+
+#: lib.data.setup.SetupData.mnist:3 of
+msgid "**Mnist** -- data class."
+msgstr "**Mnist** -- データクラス"
+
+#: lib.data.setup.SetupData.cifar:1 of
+msgid "Sets :class:`lib.data.cifar.Cifar` (cifar10 or cifar100)."
+msgstr ":class:`lib.data.cifar.Cifar` を設定する。 (cifar10 または cifar100)"
+
+#: lib.data.setup.SetupData.cifar:3 of
+msgid "**Cifar** -- data class."
+msgstr "**Cifar** -- データクラス"

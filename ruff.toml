@@ -1,0 +1,116 @@
+# https://docs.astral.sh/ruff/rules/
+
+target-version = "py312"
+line-length = 88
+preview = true
+show-fixes = true
+src = [
+    "template_tensorflow",
+    "tests",
+]
+exclude = [
+    ".git",
+    ".ruff_cache",
+    ".mypy_cache",
+    "docs",
+]
+
+[lint]
+select = ["ALL"]
+ignore = [
+    # Pyflakes
+    "F401",     # {name} imported but unused
+    "F541",     # f-string without any placeholders
+
+    # pycodestyle
+    "E261",     # Insert at least two spaces before an inline comment
+    "E262",     # Inline comment should start with `#`
+    "E741",     # Ambiguous variable name: {name}
+
+    # pydocstyle
+    "D1",       # [D100-107] Missing docstring in *
+    "D200",     # One-line docstring should fit on one line
+    "D400",     # First line should end with a period
+    "D415",     # First line should end with a period, question mark, or exclamation point
+
+    # flake8-annotations
+    "ANN002",   # Missing type annotation for *{name}
+    "ANN003",   # Missing type annotation for **{name}
+    #"ANN401",   # Dynamically typed expressions (typing.Any) are disallowed in {name}
+
+    # flake8-bugbear
+    "B905",     # `zip()` without an explicit `strict=` parameter
+
+    # flake8-copyright
+    "CPY001",   # Missing copyright notice at top of file
+
+    # flake8-datetimez
+    #"DTZ0",     # [DTZ001-012] datetime
+
+    # flake8-logging-format
+    "G004",      # Logging statement uses f-string
+
+    # flake8-print
+    "T2",       # [T201,203] print found | pprint found
+
+    # flake8-return
+    "RET504",   # Unnecessary assignment to {name} before return statement
+
+    # flake8-unused-arguments
+    #"ARG0",     # [ARG001-005] Unused * argument: {name}
+
+    # eradicate
+    "ERA001",   # Found commented-out code
+
+    # pandas-vet
+    "PD901",    # Avoid using the generic variable name df for DataFrames
+
+    # Pylint
+    "PLR6201",  # Use a set literal when testing for membership
+
+    # refurb
+    "FURB171",  # Membership test against single-item container
+
+    # pydoclint
+    "DOC501",   # Raised exception {id} missing from docstring
+
+    # ruff
+    "RUF100",   # Unused noqa directive
+
+    # The rule has been deprecated and will be removed in a future release.
+    "E999",     # SyntaxError: {message}
+    "UP027",    # Replace unpacked list comprehension with a generator expression
+    "ANN1",     # [ANN101-102] Missing type annotation for {name} in method | {name}=self, cls
+    "PT004",    # Fixture {function} does not return anything, add leading underscore
+    "PT005",    # Fixture {function} returns a value, remove leading underscore
+]
+
+[lint.flake8-quotes]
+inline-quotes = "single"
+
+[lint.pydocstyle]
+convention = "google"
+
+[lint.extend-per-file-ignores]
+"tests/*" = [
+    "ANN",
+    "ARG",
+    "E203",
+    "E221",
+    "E501",
+    "F541",
+    "I001",
+    "INP001",
+    "N806",
+    "NPY002",
+    "PERF401",
+    "PLR6301",
+    "PT011",
+    "RUF012",
+    "S101",
+    "S311",
+]
+"tests/define.py" = [
+    "E302",
+    "E305",
+]

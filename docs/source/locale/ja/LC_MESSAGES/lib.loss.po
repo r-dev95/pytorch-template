@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, r-dev95
+# This file is distributed under the same license as the template-tensorflow
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: template-tensorflow \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-06 20:34+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: ../../source/lib.loss.rst:2
+msgid "loss package"
+msgstr ""
+
+#: ../../source/lib.loss.rst:11
+msgid "setup.py"
+msgstr ""
+
+#: lib.loss.setup:1 of
+msgid "This is the module that sets up loss function."
+msgstr "誤差関数を設定するモジュール。"
+
+#: lib.loss.setup.check_params:1 of
+msgid "Checks the :class:`SetupLoss` parameters."
+msgstr ":class:`SetupLoss` のパラメータを確認する。"
+
+#: ../../source/lib.loss.rst
+msgid "Parameters"
+msgstr "パラメータ"
+
+#: lib.loss.setup.SetupLoss:7 lib.loss.setup.check_params:3 of
+msgid "parameters."
+msgstr "パラメータ"
+
+#: lib.loss.setup.check_params:5 of
+msgid "Class variables whose values are available methods."
+msgstr "使用可能なメソッドを値に持つクラス変数。"
+
+#: lib.loss.setup.SetupLoss:1 of
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: lib.loss.setup.SetupLoss:1 lib.loss.setup.SetupLoss.setup:1 of
+msgid "Sets up loss function."
+msgstr "誤差関数を設定する。"
+
+#: lib.loss.setup.SetupLoss:3 of
+msgid ""
+"If you want to use some other settings, implement it as a method of this "
+"class. If you implemented, set the name as the ``func`` key in "
+"``__init__`` and the method as the value."
+msgstr ""
+"他の設定を使用したい場合、このクラスのメソッドとして実装する。実装した場合、``__init__`` の ``func`` "
+"のキーに名前を、値にメソッドを実装すること。"
+
+#: lib.loss.setup.SetupLoss.ce lib.loss.setup.SetupLoss.mse
+#: lib.loss.setup.SetupLoss.setup of
+msgid "Returns"
+msgstr "戻り値"
+
+#: lib.loss.setup.SetupLoss.ce:3 lib.loss.setup.SetupLoss.mse:3
+#: lib.loss.setup.SetupLoss.setup:3 of
+msgid "**Callable** -- loss function class."
+msgstr "**Callable** -- 誤差関数クラス"
+
+#: lib.loss.setup.SetupLoss.mse:1 of
+msgid "Sets ``to.nn.MSELoss``."
+msgstr "``to.nn.MSELoss`` を設定する。"
+
+#: lib.loss.setup.SetupLoss.ce:1 of
+msgid "Sets ``to.nn.CrossEntropyLoss``."
+msgstr "``to.nn.CrossEntropyLoss`` を設定する。"
