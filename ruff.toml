@@ -5,7 +5,7 @@ line-length = 88
 preview = true
 show-fixes = true
 src = [
-    "template_tensorflow",
+    "template_pytorch",
     "tests",
 ]
 exclude = [
