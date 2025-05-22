@@ -1,15 +1,17 @@
 # https://docs.astral.sh/ruff/rules/
 
-target-version = "py312"
+target-version = "py313"
 line-length = 88
 preview = true
 show-fixes = true
 src = [
-    "template_pytorch",
+    "src",
     "tests",
 ]
 exclude = [
     ".git",
+    ".venv",
+    ".vscode",
     ".ruff_cache",
     ".mypy_cache",
     "docs",
