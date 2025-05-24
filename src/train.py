@@ -182,7 +182,7 @@ class Trainer:
 @save_params_log(fname=f'log_params_{Path(__file__).stem}.yaml')
 @process_time(print_func=LOGGER.info)
 def main(params: dict[str, Any]) -> dict[str, Any]:
-    """main.
+    """Main.
 
     This function is decorated by ``@save_params_log`` and ``@process_time``.
 

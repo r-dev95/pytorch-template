@@ -46,19 +46,19 @@ git clone https://github.com/r-dev95/template-pytorch.git
 
 ### 2. Building a virtual environment
 
-We assume that `poetry` is installed.
+We assume that `uv` is installed.
 
 If you do not yet have a Python development environment, please see [here](#building-a-development-environment).
 
 ``` bash
-cd template-pytorch/template_pytorch
-poetry install
+cd template-pytorch/src
+uv sync --dev --group docs
 ```
 
 ### 3. Download data and make shard-form data (webdataset)
 
 ``` bash
-poetry shell
+source .venv/bin/activate
 python dataset.py --result dataset --data mnist
 ```
 
