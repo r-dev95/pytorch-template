@@ -2,17 +2,15 @@
 """
 
 import shutil
-import sys
 from logging import getLogger
 from pathlib import Path
 
 import pytest
 
-sys.path.append('../template_pytorch/')
-from template_pytorch.lib.common import file
-from template_pytorch.lib.common.define import ParamKey, ParamLog
+from lib.common import file
+from lib.common.types import ParamKey as K
+from lib.common.types import ParamLog
 
-K = ParamKey()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(name=PARAM_LOG.NAME)
 
@@ -61,11 +59,11 @@ class TestYaml:
     """Tests :func:`file.dump_yaml` and :func:`file.load_yaml`.
     """
     params = {
-        K.SEED: 0,
-        K.RESULT: 'result',
-        K.TRAIN: None,
-        K.CB: {
-            K.KIND: ['mcp'],
+        K.SEED.value: 0,
+        K.RESULT.value: 'result',
+        K.TRAIN.value: None,
+        K.CB.value: {
+            K.KIND.value: ['mcp'],
             'mcp': {
                 # 'filepath': 'epoch{epoch:03d}_loss{loss:.3f}_{val_loss:.3f}.weights.h5',
                 'monitor': 'val_loss',
@@ -93,6 +91,7 @@ class TestYaml:
         """
         fpath = Path(self.params[K.RESULT], 'log.yaml')
         file.dump_yaml(data=self.params, fpath=fpath)
+        print(f'{self.params=}')
         data = file.load_yaml(fpath=fpath)
         assert self.params == data
 

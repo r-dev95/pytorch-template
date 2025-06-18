@@ -7,14 +7,13 @@ from logging import ERROR, getLogger
 import pytest
 from _pytest.logging import LogCaptureFixture
 
-sys.path.append('../template_pytorch/')
-from template_pytorch.lib.callbacks import setup
-from template_pytorch.lib.common.define import ParamKey, ParamLog
+from lib.callbacks import setup
+from lib.common.types import ParamKey as K
+from lib.common.types import ParamLog
 
 sys.path.append('../tests/')
 from define import CB
 
-K = ParamKey()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(name=PARAM_LOG.NAME)
 

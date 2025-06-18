@@ -5,14 +5,13 @@ import sys
 from logging import getLogger
 from pathlib import Path
 
-sys.path.append('../template_pytorch/')
-from template_pytorch.lib.common.define import ParamKey, ParamLog
-from template_pytorch.lib.data import cifar
+from lib.common.types import ParamKey as K
+from lib.common.types import ParamLog
+from lib.data import cifar
 
 sys.path.append('../tests')
 from define import DATA_PARENT_DPATH
 
-K = ParamKey()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(name=PARAM_LOG.NAME)
 

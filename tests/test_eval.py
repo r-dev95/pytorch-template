@@ -8,14 +8,13 @@ from pathlib import Path
 import pytest
 from _pytest.logging import LogCaptureFixture
 
-sys.path.append('../template_pytorch/')
-from template_pytorch import eval  # noqa: A004
-from template_pytorch.lib.common.define import ParamKey, ParamLog
+import eval  # noqa: A004
+from lib.common.types import ParamKey as K
+from lib.common.types import ParamLog
 
 sys.path.append('../tests')
 from define import DATA_RESULT_DPATH, DATA_PARENT_DPATH, Layer, Loss, Metrics, Proc
 
-K = ParamKey()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(name=PARAM_LOG.NAME)
 

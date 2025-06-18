@@ -3,8 +3,8 @@ lib package
 
 .. automodule:: lib
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 
 .. toctree::
@@ -24,5 +24,5 @@ template.py
 
 .. automodule:: lib.template
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2024, r-dev95
-# This file is distributed under the same license as the template-tensorflow package.
+# This file is distributed under the same license as the pytorch-template package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: template-tensorflow \n"
+"Project-Id-Version: pytorch-template \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-06 20:34+0900\n"
+"POT-Creation-Date: 2025-06-18 20:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "dataset.py"
 msgstr ""
 
-#: ../../../template_pytorch/dataset.py:docstring of dataset:1
+#: ../../../src/dataset.py:docstring of dataset:1
 msgid "This is the module that makes TFRecord data."
 msgstr ""
 
@@ -45,15 +45,15 @@ msgstr ""
 msgid "dict[str, Callable]"
 msgstr ""
 
-#: ../../../template_pytorch/dataset.py:docstring of dataset.ParamDataset:1
+#: ../../../src/dataset.py:docstring of dataset.ParamDataset:1
 msgid "Bases: :py:class:`object`"
 msgstr ""
 
-#: ../../../template_pytorch/dataset.py:docstring of dataset.ParamDataset:1
+#: ../../../src/dataset.py:docstring of dataset.ParamDataset:1
 msgid "Defines the parameters."
 msgstr ""
 
-#: ../../../template_pytorch/dataset.py:docstring of dataset.write_exmaple:1
+#: ../../../src/dataset.py:docstring of dataset.write_exmaple:1
 msgid "Writes shard data (webdataset)."
 msgstr ""
 
@@ -61,48 +61,48 @@ msgstr ""
 msgid "Parameters"
 msgstr ""
 
-#: ../../../template_pytorch/dataset.py:docstring of dataset.main:3
-#: ../../../template_pytorch/dataset.py:docstring of dataset.worker:10
-#: ../../../template_pytorch/dataset.py:docstring of dataset.write_exmaple:3
+#: ../../../src/dataset.py:docstring of dataset.main:3
+#: ../../../src/dataset.py:docstring of dataset.worker:10
+#: ../../../src/dataset.py:docstring of dataset.write_exmaple:3
 msgid "parameters."
 msgstr ""
 
-#: ../../../template_pytorch/dataset.py:docstring of dataset.worker:1
+#: ../../../src/dataset.py:docstring of dataset.worker:1
 msgid "Makes shard data (webdataset)."
 msgstr ""
 
-#: ../../../template_pytorch/dataset.py:docstring of dataset.worker:3
+#: ../../../src/dataset.py:docstring of dataset.worker:3
 msgid "Make shard data (webdataset) loading data from the following function."
 msgstr ""
 
-#: ../../../template_pytorch/dataset.py:docstring of dataset.worker:5
+#: ../../../src/dataset.py:docstring of dataset.worker:5
 msgid "``torchvision.datasets.MNIST``"
 msgstr ""
 
-#: ../../../template_pytorch/dataset.py:docstring of dataset.worker:6
+#: ../../../src/dataset.py:docstring of dataset.worker:6
 msgid "``torchvision.datasets.FashionMNIST``"
 msgstr ""
 
-#: ../../../template_pytorch/dataset.py:docstring of dataset.worker:7
+#: ../../../src/dataset.py:docstring of dataset.worker:7
 msgid "``torchvision.datasets.CIFAR10``"
 msgstr ""
 
-#: ../../../template_pytorch/dataset.py:docstring of dataset.worker:8
+#: ../../../src/dataset.py:docstring of dataset.worker:8
 msgid "``torchvision.datasets.CIFAR100``"
 msgstr ""
 
-#: ../../../template_pytorch/dataset.py:docstring of dataset.main:1
-msgid "main."
+#: ../../../src/dataset.py:docstring of dataset.main:1
+msgid "Main."
 msgstr ""
 
-#: ../../../template_pytorch/dataset.py:docstring of dataset.set_params:1
+#: ../../../src/dataset.py:docstring of dataset.set_params:1
 msgid "Sets the command line arguments."
 msgstr ""
 
-#: ../../../template_pytorch/dataset.py:docstring of dataset.set_params:0
+#: ../../../src/dataset.py:docstring of dataset.set_params:0
 msgid "Returns"
 msgstr ""
 
-#: ../../../template_pytorch/dataset.py:docstring of dataset.set_params:3
+#: ../../../src/dataset.py:docstring of dataset.set_params:3
 msgid "**dict[str, Any]** -- parameters."
 msgstr ""

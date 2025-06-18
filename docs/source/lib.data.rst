@@ -3,8 +3,8 @@ data package
 
 .. automodule:: lib.data
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 
 base.py
@@ -12,37 +12,37 @@ base.py
 
 .. automodule:: lib.data.base
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 cifar.py
 --------
 
 .. automodule:: lib.data.cifar
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 mnist.py
 --------
 
 .. automodule:: lib.data.mnist
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 processor.py
 ------------
 
 .. automodule:: lib.data.processor
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 setup.py
 --------
 
 .. automodule:: lib.data.setup
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

@@ -8,14 +8,13 @@ import pytest
 import torch as to
 from _pytest.logging import LogCaptureFixture
 
-sys.path.append('../template_pytorch/')
-from template_pytorch.lib.common.define import ParamKey, ParamLog
-from template_pytorch.lib.model import simple
+from lib.common.types import ParamKey as K
+from lib.common.types import ParamLog
+from lib.model import simple
 
 sys.path.append('../tests')
 from define import Layer
 
-K = ParamKey()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(name=PARAM_LOG.NAME)
 

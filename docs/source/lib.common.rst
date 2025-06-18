@@ -3,8 +3,8 @@ common package
 
 .. automodule:: lib.common
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 
 decorator.py
@@ -12,37 +12,37 @@ decorator.py
 
 .. automodule:: lib.common.decorator
    :members:
-   :undoc-members:
    :show-inheritance:
-
-define.py
----------
-
-.. automodule:: lib.common.define
-   :members:
    :undoc-members:
-   :show-inheritance:
 
 file.py
 -------
 
 .. automodule:: lib.common.file
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 log.py
 ------
 
 .. automodule:: lib.common.log
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 process.py
 ----------
 
 .. automodule:: lib.common.process
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
+
+types.py
+--------
+
+.. automodule:: lib.common.types
+   :members:
+   :show-inheritance:
+   :undoc-members:

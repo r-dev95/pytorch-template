@@ -8,9 +8,9 @@ from typing import Any
 import torchmetrics
 import torchmetrics.classification
 
-from lib.common.define import ParamKey, ParamLog
+from lib.common.types import ParamKey as K
+from lib.common.types import ParamLog
 
-K = ParamKey()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(PARAM_LOG.NAME)
 

@@ -12,10 +12,11 @@ from lightning.pytorch.loggers import CSVLogger, TensorBoardLogger
 
 from lib.callbacks.setup import SetupCallbacks
 from lib.common.decorator import process_time, save_params_log
-from lib.common.define import ParamFileName, ParamKey, ParamLog
 from lib.common.file import load_yaml
 from lib.common.log import SetLogging
 from lib.common.process import fix_random_seed, get_device_type
+from lib.common.types import ParamFileName, ParamLog
+from lib.common.types import ParamKey as K
 from lib.data.base import BaseLoadData
 from lib.data.setup import SetupData
 from lib.loss.setup import SetupLoss
@@ -24,7 +25,6 @@ from lib.model.base import BaseModel
 from lib.model.setup import SetupModel
 from lib.optimizer.setup import SetupOpt
 
-K = ParamKey()
 PARAM_FILE_NAME = ParamFileName()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(PARAM_LOG.NAME)
@@ -214,38 +214,83 @@ def set_params() -> dict[str, Any]:
         you don't necessarily need to use command line arguments.
     """
     # set the command line arguments.
-    parser = argparse.ArgumentParser()
-    # log level (idx=0: stream handler, idx=1: file handler)
-    # (DEBUG: 10, INFO: 20, WARNING: 30, ERROR: 40, CRITICAL: 50)
-    choices = [10, 20, 30, 40, 50]
-    parser.add_argument('--level', default=[20, 20], type=int, nargs=2, choices=choices)
-    # random seed
-    parser.add_argument('--seed', default=0, type=int)
-    # file path (parameters)
-    parser.add_argument('--param', default='param/param.yaml', type=str)
-    # directory path (data save)
-    parser.add_argument('--result', default='result', type=str)
-    # number of workers (data loader)
-    parser.add_argument('--num_workers', default=None, type=int)
-    # directory path (training data)
-    parser.add_argument('--train', default='', type=str)
-    # directory path (validation data)
-    parser.add_argument('--valid', default='', type=str)
-    # batch size (training data)
-    parser.add_argument('--batch_train', default=32, type=int)
-    # batch size (validation data)
-    parser.add_argument('--batch_valid', default=1000, type=int)
-    # shuffle size
-    parser.add_argument('--shuffle', default=None, type=int)
-    # Number of epochs
-    parser.add_argument('--epochs', default=10, type=int)
+    parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
+    parser.add_argument(
+        f'--{K.HANDLER}',
+        default=[True, True], type=bool, nargs=2,
+        help=(
+            f'The log handler flag to use.\n'
+            f'True: set handler, False: not set handler\n'
+            f'ex) --{K.HANDLER} arg1 arg2 (arg1: stream handler, arg2: file handler)'
+        ),
+    )
+    parser.add_argument(
+        f'--{K.LEVEL}',
+        default=[20, 20], type=int, nargs=2, choices=[10, 20, 30, 40, 50],
+        help=(
+            f'The log level.\n'
+            f'DEBUG: 10, INFO: 20, WARNING: 30, ERROR: 40, CRITICAL: 50\n'
+            f'ex) --{K.LEVEL} arg1 arg2 (arg1: stream handler, arg2: file handler)'
+        ),
+    )
+    parser.add_argument(
+        f'--{K.PARAM}',
+        default='param/param.yaml', type=str,
+        help=('The parameter file path.'),
+    )
+    parser.add_argument(
+        f'--{K.RESULT}',
+        default='result', type=str,
+        help=('The directory path to save the results.'),
+    )
+    parser.add_argument(
+        f'--{K.SEED}',
+        default=0, type=int,
+        help=('The random seed.'),
+    )
+    parser.add_argument(
+        f'--{K.TRAIN}',
+        default='', type=str,
+        help=('The training data directory path.'),
+    )
+    parser.add_argument(
+        f'--{K.VALID}',
+        default='', type=str,
+        help=('The validation data directory path.'),
+    )
+    parser.add_argument(
+        f'--{K.BATCH_TRAIN}',
+        default=32, type=int,
+        help=('The training batch size.'),
+    )
+    parser.add_argument(
+        f'--{K.BATCH_VALID}',
+        default=1000, type=int,
+        help=('The validation batch size.'),
+    )
+    parser.add_argument(
+        f'--{K.SHUFFLE}',
+        default=None, type=int,
+        help=('The shuffle size.'),
+    )
+    parser.add_argument(
+        f'--{K.NUM_WORKERS}',
+        default=None, type=int,
+        help=('The number of data loader workers.'),
+    )
+    parser.add_argument(
+        f'--{K.EPOCHS}',
+        default=10, type=int,
+        help=('The number of epochs.'),
+    )
 
     params = vars(parser.parse_args())
 
     # set the file parameters.
-    fpath = Path(params[K.PARAM])
-    if K.PARAM in params and fpath.is_file():
-        params.update(load_yaml(fpath=fpath))
+    if params.get(K.PARAM):
+        fpath = Path(params[K.PARAM])
+        if fpath.is_file():
+            params.update(load_yaml(fpath=fpath))
 
     return params
 
@@ -254,11 +299,13 @@ if __name__ == '__main__':
     # set the parameters.
     params = set_params()
     # set the logging configuration.
+    PARAM_LOG.HANDLER[PARAM_LOG.SH] = params[K.HANDLER][0]
+    PARAM_LOG.HANDLER[PARAM_LOG.FH] = params[K.HANDLER][1]
     PARAM_LOG.LEVEL[PARAM_LOG.SH] = params[K.LEVEL][0]
     PARAM_LOG.LEVEL[PARAM_LOG.FH] = params[K.LEVEL][1]
     SetLogging(logger=LOGGER, param=PARAM_LOG)
 
-    if K.RESULT in params:
+    if params.get(K.RESULT):
         Path(params[K.RESULT]).mkdir(parents=True, exist_ok=True)
 
     main(params=params)

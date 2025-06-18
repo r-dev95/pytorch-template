@@ -5,10 +5,10 @@ from collections.abc import Callable
 from logging import getLogger
 from typing import Any
 
-from lib.common.define import ParamFileName, ParamKey, ParamLog
+from lib.common.types import ParamFileName, ParamLog
+from lib.common.types import ParamKey as K
 from lib.model.simple import SimpleModel
 
-K = ParamKey()
 PARAM_FILE_NAME = ParamFileName()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(PARAM_LOG.NAME)

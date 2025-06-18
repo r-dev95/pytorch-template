@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2024, r-dev95
-# This file is distributed under the same license as the template-tensorflow package.
+# This file is distributed under the same license as the pytorch-template package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: template-tensorflow \n"
+"Project-Id-Version: pytorch-template \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-06 20:34+0900\n"
+"POT-Creation-Date: 2025-06-18 20:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,11 +24,11 @@ msgstr ""
 msgid "base.py"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base:1
+#: ../../../src/lib/data/base.py:docstring of lib.data.base:1
 msgid "This is the module load data."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.check_params:1
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.check_params:1
 msgid "Checks the :class:`BaseLoadData` parameters."
 msgstr ""
 
@@ -36,32 +36,32 @@ msgstr ""
 msgid "Parameters"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData:5
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.check_params:3
-#: ../../../template_pytorch/lib/data/cifar.py:docstring of lib.data.cifar.Cifar:3
-#: ../../../template_pytorch/lib/data/mnist.py:docstring of lib.data.mnist.Mnist:3
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor:9
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.check_params:3
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup.SetupData:7
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup.check_params:3
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData:5
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.check_params:3
+#: ../../../src/lib/data/cifar.py:docstring of lib.data.cifar.Cifar:3
+#: ../../../src/lib/data/mnist.py:docstring of lib.data.mnist.Mnist:3
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor:9
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.check_params:3
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup.SetupData:7
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup.check_params:3
 msgid "parameters."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData:1
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor:1
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup.SetupData:1
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData:1
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor:1
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup.SetupData:1
 msgid "Bases: :py:class:`object`"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData:1
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData:1
 msgid "Loads data."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData:3
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData:3
 msgid "Make a data pipeline to load a shard data (webdataset)."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData:10
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData:10
 msgid "Child classes that inherit this class must set the pattern of file paths to ``params[K.FILE_PATTERN]`` before running ``super().__init__(params=params)``."
 msgstr ""
 
@@ -114,83 +114,83 @@ msgstr ""
 msgid "label shape. (after preprocess)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.set_model_il_shape:1
-#: ../../../template_pytorch/lib/data/cifar.py:docstring of lib.data.cifar.Cifar.set_model_il_shape:1
-#: ../../../template_pytorch/lib/data/mnist.py:docstring of lib.data.mnist.Mnist.set_model_il_shape:1
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.set_model_il_shape:1
+#: ../../../src/lib/data/cifar.py:docstring of lib.data.cifar.Cifar.set_model_il_shape:1
+#: ../../../src/lib/data/mnist.py:docstring of lib.data.mnist.Mnist.set_model_il_shape:1
 msgid "Sets the shape of the preprocessed inputs and labels."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.process:1
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.run:1
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.process:1
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.run:1
 msgid "Runs process data."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.process:3
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.process:3
 msgid "Run :meth:`lib.data.processor.Processor.run`."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.process:5
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.process:5
 msgid "tuple of inputs and labels."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:0
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.process:0
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.one_hot:0
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.rescale:0
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.run:0
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup.SetupData.cifar:0
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup.SetupData.mnist:0
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup.SetupData.setup:0
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:0
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.process:0
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.one_hot:0
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.rescale:0
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.run:0
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup.SetupData.cifar:0
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup.SetupData.mnist:0
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup.SetupData.setup:0
 msgid "Returns"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.process:8
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.one_hot:8
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.rescale:8
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.run:8
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.process:8
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.one_hot:8
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.rescale:8
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.run:8
 msgid "**to.Tensor** -- input. (after process)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.process:9
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.one_hot:9
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.rescale:9
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.run:9
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.process:9
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.one_hot:9
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.rescale:9
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.run:9
 msgid "**to.Tensor** -- label. (after process)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:1
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:1
 msgid "Makes data loader."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:3
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:3
 msgid "Set the file path pattern, random seed, and shuffle flag for sharded data. (``wds.WebDataset``)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:5
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:5
 msgid "Set the decoding configuration. (``wds.WebDataset.decode``)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:7
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:7
 msgid "Set the file type. (``wds.WebDataset.to_tuple``)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:9
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:9
 msgid "Set the preprocess function. (``wds.WebDataset.map``)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:11
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:11
 msgid "Set the shuffle configuration. (``wds.WebDataset.shuffle``)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:13
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:13
 msgid "Set the dataset (``wds.WebDataset``), batch size, and number of workers. (``to.utils.data.DataLoader``)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:16
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:16
 msgid "random seed."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:19
+#: ../../../src/lib/data/base.py:docstring of lib.data.base.BaseLoadData.make_loader_example:19
 msgid "**Callable** -- data pipeline. (``to.utils.data.DataLoader``)"
 msgstr ""
 
@@ -198,16 +198,16 @@ msgstr ""
 msgid "cifar.py"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/cifar.py:docstring of lib.data.cifar:1
+#: ../../../src/lib/data/cifar.py:docstring of lib.data.cifar:1
 msgid "This is the module that loads Cifar data."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/cifar.py:docstring of lib.data.cifar.Cifar:1
-#: ../../../template_pytorch/lib/data/mnist.py:docstring of lib.data.mnist.Mnist:1
+#: ../../../src/lib/data/cifar.py:docstring of lib.data.cifar.Cifar:1
+#: ../../../src/lib/data/mnist.py:docstring of lib.data.mnist.Mnist:1
 msgid "Bases: :py:class:`~lib.data.base.BaseLoadData`"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/cifar.py:docstring of lib.data.cifar.Cifar:1
+#: ../../../src/lib/data/cifar.py:docstring of lib.data.cifar.Cifar:1
 msgid "Loads Cifar data."
 msgstr ""
 
@@ -215,8 +215,8 @@ msgstr ""
 msgid "image size. (vertical x horizontal x channel)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/cifar.py:docstring of lib.data.cifar.Cifar.set_model_il_shape:3
-#: ../../../template_pytorch/lib/data/mnist.py:docstring of lib.data.mnist.Mnist.set_model_il_shape:3
+#: ../../../src/lib/data/cifar.py:docstring of lib.data.cifar.Cifar.set_model_il_shape:3
+#: ../../../src/lib/data/mnist.py:docstring of lib.data.mnist.Mnist.set_model_il_shape:3
 msgid "This method is decorated by ``@override``."
 msgstr ""
 
@@ -224,11 +224,11 @@ msgstr ""
 msgid "mnist.py"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/mnist.py:docstring of lib.data.mnist:1
+#: ../../../src/lib/data/mnist.py:docstring of lib.data.mnist:1
 msgid "This is the module that loads Mnist data."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/mnist.py:docstring of lib.data.mnist.Mnist:1
+#: ../../../src/lib/data/mnist.py:docstring of lib.data.mnist.Mnist:1
 msgid "Loads Mnist data."
 msgstr ""
 
@@ -240,49 +240,49 @@ msgstr ""
 msgid "processor.py"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor:1
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor:1
 msgid "This is the module that process data."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.check_params:1
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.check_params:1
 msgid "Checks the :class:`Processor` parameters."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.check_params:5
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup.check_params:5
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.check_params:5
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup.check_params:5
 msgid "Class variables whose values are available methods."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor:1
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor:1
 msgid "Processes data."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor:3
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor:3
 msgid "Used to process data when making a ``to.utils.data.DataLoader`` data pipeline."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor:5
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup.SetupData:3
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor:5
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup.SetupData:3
 msgid "If you want to use some other settings, implement it as a method of this class. If you implemented, set the name as the ``func`` key in ``__init__`` and the method as the value."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.one_hot:3
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.rescale:3
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.run:3
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.one_hot:3
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.rescale:3
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.run:3
 msgid "input. (before process)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.one_hot:5
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.rescale:5
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.run:5
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.one_hot:5
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.rescale:5
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.run:5
 msgid "label. (before process)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.one_hot:1
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.one_hot:1
 msgid "Runs ``to.nn.functional.one_hot``."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/processor.py:docstring of lib.data.processor.Processor.rescale:1
+#: ../../../src/lib/data/processor.py:docstring of lib.data.processor.Processor.rescale:1
 msgid "Runs rescale and offset."
 msgstr ""
 
@@ -290,35 +290,35 @@ msgstr ""
 msgid "setup.py"
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup:1
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup:1
 msgid "This is the module that sets up data."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup.check_params:1
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup.check_params:1
 msgid "Checks the :class:`SetupData` parameters."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup.SetupData:1
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup.SetupData.setup:1
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup.SetupData:1
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup.SetupData.setup:1
 msgid "Sets up data."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup.SetupData.setup:3
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup.SetupData.setup:3
 msgid "**BaseLoadData** -- data class."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup.SetupData.mnist:1
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup.SetupData.mnist:1
 msgid "Sets :class:`lib.data.mnist.Mnist` (mnist or fashion mnist)."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup.SetupData.mnist:3
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup.SetupData.mnist:3
 msgid "**Mnist** -- data class."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup.SetupData.cifar:1
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup.SetupData.cifar:1
 msgid "Sets :class:`lib.data.cifar.Cifar` (cifar10 or cifar100)."
 msgstr ""
 
-#: ../../../template_pytorch/lib/data/setup.py:docstring of lib.data.setup.SetupData.cifar:3
+#: ../../../src/lib/data/setup.py:docstring of lib.data.setup.SetupData.cifar:3
 msgid "**Cifar** -- data class."
 msgstr ""

@@ -9,10 +9,10 @@ from logging import getLogger
 from pathlib import Path
 from typing import Any
 
-from lib.common.define import ParamKey, ParamLog, ZoneInfo
 from lib.common.file import dump_json, dump_toml, dump_yaml
+from lib.common.types import ParamKey as K
+from lib.common.types import ParamLog, ZoneInfo
 
-K = ParamKey()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(PARAM_LOG.NAME)
 
@@ -35,22 +35,26 @@ def process_time(print_func: Callable = print) -> Callable:
             ...
             return rtn
 
-        # # [START] ========================================
-        #   ...
-        # # ================================================
-        # # 12.345678sec
-        # # [END] ==========================================
+        # ==================================================
+        # [START][main]
+        # ==================================================
+        # ...
+        # ==================================================
+        # [END][main] 12.345678sec
+        # ==================================================
     """
     def _process_time(func: Callable) -> Callable:
         @functools.wraps(func)
-        def _wrapper(*args: Any, **kwargs: Any) -> Any:  # noqa: ANN401
+        def _wrapper(*args: Any, **kwargs: Any) -> Any:
             start_time = time.perf_counter()
-            print_func(f'# [START] ========================================')
+            print_func(f'{'=' * 50}')
+            print_func(f'[START][{func.__name__}]')
+            print_func(f'{'=' * 50}')
             rtn = func(*args, **kwargs)
             end_time = time.perf_counter()
-            print_func(f'# ================================================')
-            print_func(f'# {end_time - start_time:>.6}sec')
-            print_func(f'# [END] ==========================================')
+            print_func(f'{'=' * 50}')
+            print_func(f'[END][{func.__name__}] {end_time - start_time:>.6}sec')
+            print_func(f'{'=' * 50}')
             return rtn
         return _wrapper
     return _process_time
@@ -109,7 +113,7 @@ def save_params_log(fname: str = 'log_params.yaml') -> Callable:
     """
     def _save_params_log(func: Callable) -> Callable:
         @functools.wraps(func)
-        def _wrapper(*args: Any, **kwargs: Any) -> dict[str, Any]:  # noqa: ANN401
+        def _wrapper(*args: Any, **kwargs: Any) -> dict[str, Any]:
             start_time = time.perf_counter()
             start_datetime = datetime.datetime.now(tz=ZoneInfo)
             rtn = func(*args, **kwargs)
@@ -121,7 +125,7 @@ def save_params_log(fname: str = 'log_params.yaml') -> Callable:
             rtn['end_datetime'] = end_datetime
             rtn['process_time'] = end_time - start_time
             fpath = Path(fname)
-            if K.RESULT in rtn:
+            if rtn.get(K.RESULT):
                 Path(rtn[K.RESULT]).mkdir(parents=True, exist_ok=True)
                 fpath = Path(rtn[K.RESULT], fpath)
             if fpath.suffix in ['.yml', '.yaml']:

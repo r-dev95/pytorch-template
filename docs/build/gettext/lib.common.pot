@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2024, r-dev95
-# This file is distributed under the same license as the template-tensorflow package.
+# This file is distributed under the same license as the pytorch-template package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: template-tensorflow \n"
+"Project-Id-Version: pytorch-template \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-06 20:34+0900\n"
+"POT-Creation-Date: 2025-06-18 20:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,11 +24,11 @@ msgstr ""
 msgid "decorator.py"
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/decorator.py:docstring of lib.common.decorator:1
+#: ../../../src/lib/common/decorator.py:docstring of lib.common.decorator:1
 msgid "This is the module that defines the decorator."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/decorator.py:docstring of lib.common.decorator.process_time:1
+#: ../../../src/lib/common/decorator.py:docstring of lib.common.decorator.process_time:1
 msgid "Prints the processing time."
 msgstr ""
 
@@ -36,354 +36,391 @@ msgstr ""
 msgid "Parameters"
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/decorator.py:docstring of lib.common.decorator.process_time:3
+#: ../../../src/lib/common/decorator.py:docstring of lib.common.decorator.process_time:3
 msgid "standard output function.  ``print`` or logging (``.debug``, ``.info``, ... ) etc..."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/decorator.py:docstring of lib.common.decorator.process_time:3
+#: ../../../src/lib/common/decorator.py:docstring of lib.common.decorator.process_time:3
 msgid "standard output function."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/decorator.py:docstring of lib.common.decorator.process_time:5
+#: ../../../src/lib/common/decorator.py:docstring of lib.common.decorator.process_time:5
 msgid "``print`` or logging (``.debug``, ``.info``, ... ) etc..."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/decorator.py:docstring of lib.common.decorator.process_time:0
-#: ../../../template_pytorch/lib/common/decorator.py:docstring of lib.common.decorator.save_params_log:0
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.load_json:0
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.load_toml:0
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.load_yaml:0
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.get_device_type:0
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.parse_tar_fname_number:0
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.recursive_replace:0
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.set_weight:0
+#: ../../../src/lib/common/decorator.py:docstring of lib.common.decorator.process_time:0
+#: ../../../src/lib/common/decorator.py:docstring of lib.common.decorator.save_params_log:0
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.load_json:0
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.load_toml:0
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.load_yaml:0
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.get_device_type:0
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.parse_tar_fname_number:0
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.recursive_replace:0
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.sec_to_hms:0
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.set_weight:0
 msgid "Returns"
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/decorator.py:docstring of lib.common.decorator.process_time:8
+#: ../../../src/lib/common/decorator.py:docstring of lib.common.decorator.process_time:8
 msgid "**Callable** -- ``_process_time`` function in this function."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/decorator.py:docstring of lib.common.decorator.save_params_log:1
+#: ../../../src/lib/common/decorator.py:docstring of lib.common.decorator.save_params_log:1
 msgid "Saves parameters."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/decorator.py:docstring of lib.common.decorator.save_params_log:3
+#: ../../../src/lib/common/decorator.py:docstring of lib.common.decorator.save_params_log:3
 msgid "The execution start date and time, end date and time, and processing time are also saved."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/decorator.py:docstring of lib.common.decorator.save_params_log:5
+#: ../../../src/lib/common/decorator.py:docstring of lib.common.decorator.save_params_log:5
 msgid "The return value of the function to which the decorator is applied is assumed to be a dictionary. If it is not a dictionary type, it will not be saved."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/decorator.py:docstring of lib.common.decorator.save_params_log:8
+#: ../../../src/lib/common/decorator.py:docstring of lib.common.decorator.save_params_log:8
 msgid "If the dictionary key has \"result\" (data save directory path), it will be saved in that directory. If not, it saves it in the current directory."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/decorator.py:docstring of lib.common.decorator.save_params_log:12
+#: ../../../src/lib/common/decorator.py:docstring of lib.common.decorator.save_params_log:12
 msgid "file (The extension is ``.yml``, ``.yaml``, ``.json``, ``.toml``.)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/decorator.py:docstring of lib.common.decorator.save_params_log:16
+#: ../../../src/lib/common/decorator.py:docstring of lib.common.decorator.save_params_log:16
 msgid "**Callable** -- ``_save_params_log`` function in this function."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/decorator.py:docstring of lib.common.decorator.save_params_log:34
+#: ../../../src/lib/common/decorator.py:docstring of lib.common.decorator.save_params_log:34
 msgid "Output (path/to/dir/log.yaml):"
 msgstr ""
 
 #: ../../source/lib.common.rst:19
-msgid "define.py"
-msgstr ""
-
-#: ../../../template_pytorch/lib/common/define.py:docstring of lib.common.define:1
-msgid "This is the module that defines the configuration."
-msgstr ""
-
-#: ../../docstring of lib.common.define.ZoneInfo:1
-msgid "ZoneInfo class."
-msgstr ""
-
-#: ../../../template_pytorch/lib/common/define.py:docstring of lib.common.define.ParamFileName:1
-#: ../../../template_pytorch/lib/common/define.py:docstring of lib.common.define.ParamKey:1
-#: ../../../template_pytorch/lib/common/define.py:docstring of lib.common.define.ParamLog:1
-#: ../../../template_pytorch/lib/common/log.py:docstring of lib.common.log.SetLogging:1
-msgid "Bases: :py:class:`object`"
-msgstr ""
-
-#: ../../../template_pytorch/lib/common/define.py:docstring of lib.common.define.ParamFileName:1
-msgid "Defines the file name."
-msgstr ""
-
-#: ../../../template_pytorch/lib/common/define.py:docstring of lib.common.define.ParamKey:1
-msgid "Defines the dictionary key for the main parameters."
-msgstr ""
-
-#: ../../../template_pytorch/lib/common/define.py:docstring of lib.common.define.ParamLog:1
-msgid "Defines the parameters used in the logging configuration."
-msgstr ""
-
-#: ../../../template_pytorch/lib/common/define.py:docstring of lib.common.define.ParamLog:3
-msgid "This function is decorated by ``@dataclass``."
-msgstr ""
-
-#: ../../docstring of lib.common.define.ParamLog.NAME:1
-msgid "The name to pass to ``logging.getLogger``."
-msgstr ""
-
-#: ../../docstring of lib.common.define.ParamLog.FPATH:0
-#: ../../docstring of lib.common.define.ParamLog.LEVEL:0
-#: ../../docstring of lib.common.define.ParamLog.NAME:0
-#: ../../docstring of lib.common.define.ParamLog.NUM:0
-#: ../../docstring of lib.common.define.ParamLog.SIZE:0
-#: ../../docstring of lib.common.log.SetLogging.format:0
-msgid "type"
-msgstr ""
-
-#: ../../docstring of lib.common.define.ParamLog.FPATH:3
-#: ../../docstring of lib.common.define.ParamLog.NAME:3
-msgid "str"
-msgstr ""
-
-#: ../../docstring of lib.common.define.ParamLog.LEVEL:1
-msgid "Log level."
-msgstr ""
-
-#: ../../docstring of lib.common.define.ParamLog.LEVEL:3
-msgid "key=sh: stream handler."
-msgstr ""
-
-#: ../../docstring of lib.common.define.ParamLog.LEVEL:4
-msgid "key=fh: file handler."
-msgstr ""
-
-#: ../../docstring of lib.common.define.ParamLog.LEVEL:6
-msgid "ClassVar[dict[str, int]]"
-msgstr ""
-
-#: ../../docstring of lib.common.define.ParamLog.FPATH:1
-msgid "File path."
-msgstr ""
-
-#: ../../docstring of lib.common.define.ParamLog.SIZE:1
-msgid "Max file size."
-msgstr ""
-
-#: ../../docstring of lib.common.define.ParamLog.NUM:3
-#: ../../docstring of lib.common.define.ParamLog.SIZE:3
-msgid "int"
-msgstr ""
-
-#: ../../docstring of lib.common.define.ParamLog.NUM:1
-msgid "Number of files."
-msgstr ""
-
-#: ../../source/lib.common.rst:27
 msgid "file.py"
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file:1
+#: ../../../src/lib/common/file.py:docstring of lib.common.file:1
 msgid "This is the module that load and write files."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.dump_json:1
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.dump_json:1
 msgid "Writes json files."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.dump_json:3
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.dump_toml:3
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.dump_yaml:3
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.dump_json:3
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.dump_toml:3
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.dump_yaml:3
 msgid "writing data."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.dump_json:5
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.dump_toml:5
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.dump_yaml:5
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.load_json:3
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.load_toml:3
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.load_yaml:3
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.dump_json:5
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.dump_toml:5
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.dump_yaml:5
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.load_json:3
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.load_toml:3
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.load_yaml:3
 msgid "file path."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.dump_json:7
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.dump_toml:7
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.dump_yaml:7
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.dump_json:7
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.dump_toml:7
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.dump_yaml:7
 msgid "write mode."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.load_json:1
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.load_json:1
 msgid "Loads json files."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.load_json:5
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.load_toml:5
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.load_yaml:5
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.load_json:5
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.load_toml:5
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.load_yaml:5
 msgid "load mode."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.load_json:8
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.load_toml:8
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.load_yaml:8
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.load_json:8
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.load_toml:8
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.load_yaml:8
 msgid "**dict[str, Any]** -- loaded data."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.dump_yaml:1
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.dump_yaml:1
 msgid "Writes yaml files."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.load_yaml:1
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.load_yaml:1
 msgid "Loads yaml files."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.dump_toml:1
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.dump_toml:1
 msgid "Writes toml files."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.load_toml:1
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.load_toml:1
 msgid "Loads toml files."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/file.py:docstring of lib.common.file.load_toml:12
+#: ../../../src/lib/common/file.py:docstring of lib.common.file.load_toml:12
 msgid "If you want to specify ``None`` , specify it as a string in toml file."
 msgstr ""
 
-#: ../../source/lib.common.rst:35
+#: ../../source/lib.common.rst:27
 msgid "log.py"
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/log.py:docstring of lib.common.log:1
+#: ../../../src/lib/common/log.py:docstring of lib.common.log:1
 msgid "This is the module that sets the logging configuration."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/log.py:docstring of lib.common.log.SetLogging:1
+#: ../../../src/lib/common/log.py:docstring of lib.common.log.SetLogging:1
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: ../../../src/lib/common/log.py:docstring of lib.common.log.SetLogging:1
 msgid "Sets the logging configuration."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/log.py:docstring of lib.common.log.SetLogging:3
+#: ../../../src/lib/common/log.py:docstring of lib.common.log.SetLogging:3
 msgid "``logging.Logger``"
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/log.py:docstring of lib.common.log.SetLogging:5
-msgid ":class:`lib.common.define.ParamLog`"
+#: ../../../src/lib/common/log.py:docstring of lib.common.log.SetLogging:5
+msgid ":class:`lib.common.types.ParamLog`"
 msgstr ""
 
 #: ../../docstring of lib.common.log.SetLogging.format:1
 msgid "Log format."
 msgstr ""
 
+#: ../../docstring of lib.common.log.SetLogging.format:0
+#: ../../docstring of lib.common.types.ParamLog.FH:0
+#: ../../docstring of lib.common.types.ParamLog.FPATH:0
+#: ../../docstring of lib.common.types.ParamLog.HANDLER:0
+#: ../../docstring of lib.common.types.ParamLog.LEVEL:0
+#: ../../docstring of lib.common.types.ParamLog.NAME:0
+#: ../../docstring of lib.common.types.ParamLog.NUM:0
+#: ../../docstring of lib.common.types.ParamLog.SH:0
+#: ../../docstring of lib.common.types.ParamLog.SIZE:0
+msgid "type"
+msgstr ""
+
 #: ../../docstring of lib.common.log.SetLogging.format:3
 msgid "logging.Formatter"
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/log.py:docstring of lib.common.log.SetLogging.set_level:1
+#: ../../../src/lib/common/log.py:docstring of lib.common.log.SetLogging.make_directory:1
+msgid "Make the directory to store log files."
+msgstr ""
+
+#: ../../../src/lib/common/log.py:docstring of lib.common.log.SetLogging.set_level:1
 msgid "Sets the log level."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/log.py:docstring of lib.common.log.SetLogging.set_level:3
+#: ../../../src/lib/common/log.py:docstring of lib.common.log.SetLogging.set_level:3
 msgid "Run ``logging.Logger.setLevel``."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/log.py:docstring of lib.common.log.SetLogging.set_stream_handler:1
+#: ../../../src/lib/common/log.py:docstring of lib.common.log.SetLogging.set_stream_handler:1
 msgid "Sets the stream handler configuration."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/log.py:docstring of lib.common.log.SetLogging.set_stream_handler:3
+#: ../../../src/lib/common/log.py:docstring of lib.common.log.SetLogging.set_stream_handler:3
 msgid "Set the log level. (``logging.StreamHandler.setLevel``)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/log.py:docstring of lib.common.log.SetLogging.set_stream_handler:5
+#: ../../../src/lib/common/log.py:docstring of lib.common.log.SetLogging.set_stream_handler:5
 msgid "Set the log format. (``logging.StreamHandler.setFormatter``)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/log.py:docstring of lib.common.log.SetLogging.set_file_handler:9
-#: ../../../template_pytorch/lib/common/log.py:docstring of lib.common.log.SetLogging.set_stream_handler:7
+#: ../../../src/lib/common/log.py:docstring of lib.common.log.SetLogging.set_file_handler:9
+#: ../../../src/lib/common/log.py:docstring of lib.common.log.SetLogging.set_stream_handler:7
 msgid "Add the handler. (``logging.Logger.addHandler``)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/log.py:docstring of lib.common.log.SetLogging.set_file_handler:1
+#: ../../../src/lib/common/log.py:docstring of lib.common.log.SetLogging.set_file_handler:1
 msgid "Sets the file handler configuration."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/log.py:docstring of lib.common.log.SetLogging.set_file_handler:3
+#: ../../../src/lib/common/log.py:docstring of lib.common.log.SetLogging.set_file_handler:3
 msgid "Set the file path, size, and number. (``logging.RotatingFileHandler``)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/log.py:docstring of lib.common.log.SetLogging.set_file_handler:5
+#: ../../../src/lib/common/log.py:docstring of lib.common.log.SetLogging.set_file_handler:5
 msgid "Set the log level. (``logging.RotatingFileHandler.setLevel``)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/log.py:docstring of lib.common.log.SetLogging.set_file_handler:7
+#: ../../../src/lib/common/log.py:docstring of lib.common.log.SetLogging.set_file_handler:7
 msgid "Set the log format. (``logging.RotatingFileHandler.setFormatter``)"
 msgstr ""
 
-#: ../../source/lib.common.rst:43
+#: ../../source/lib.common.rst:35
 msgid "process.py"
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process:1
+#: ../../../src/lib/common/process.py:docstring of lib.common.process:1
 msgid "This is the module that defines the common process."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.get_device_type:1
-msgid "Gets the device type (cpu or mpu or cuda)."
-msgstr ""
-
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.get_device_type:3
-msgid "**str** -- device type."
-msgstr ""
-
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.fix_random_seed:1
-msgid "Fixes the random seed to ensure reproducibility of experiment."
-msgstr ""
-
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.fix_random_seed:3
-msgid "random seed."
-msgstr ""
-
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.set_weight:1
-msgid "Sets the model weight."
-msgstr ""
-
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.set_weight:3
-msgid "parameters."
-msgstr ""
-
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.set_weight:5
-msgid "model class."
-msgstr ""
-
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.set_weight:8
-msgid "**to.nn.Module** -- weighted model class."
-msgstr ""
-
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.recursive_replace:1
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.recursive_replace:1
 msgid "Performs a recursive replacement."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.recursive_replace:3
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.recursive_replace:3
 msgid "data before replacement."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.recursive_replace:5
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.recursive_replace:5
 msgid "value before replacement."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.recursive_replace:7
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.recursive_replace:7
 msgid "value after replacement."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.recursive_replace:10
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.recursive_replace:10
 msgid "**Any** -- data after replacement."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.parse_tar_fname_number:1
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.sec_to_hms:1
+msgid "Convert seconds to hh:mm:ss:ms format."
+msgstr ""
+
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.sec_to_hms:3
+msgid "The number of seconds."
+msgstr ""
+
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.sec_to_hms:6
+msgid "**tuple[int, int, int, float]** -- The tuple of hh, mm, ss, ms."
+msgstr ""
+
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.get_device_type:1
+msgid "Gets the device type (cpu or mpu or cuda)."
+msgstr ""
+
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.get_device_type:3
+msgid "**str** -- device type."
+msgstr ""
+
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.fix_random_seed:1
+msgid "Fixes the random seed to ensure reproducibility of experiment."
+msgstr ""
+
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.fix_random_seed:3
+msgid "random seed."
+msgstr ""
+
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.set_weight:1
+msgid "Sets the model weight."
+msgstr ""
+
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.set_weight:3
+msgid "parameters."
+msgstr ""
+
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.set_weight:5
+msgid "model class."
+msgstr ""
+
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.set_weight:8
+msgid "**to.nn.Module** -- weighted model class."
+msgstr ""
+
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.parse_tar_fname_number:1
 msgid "Parse the highest and lowest numbers from a tar file whose filenames are numeric."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.parse_tar_fname_number:3
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.parse_tar_fname_number:3
 msgid "the tar file parent path."
 msgstr ""
 
-#: ../../../template_pytorch/lib/common/process.py:docstring of lib.common.process.parse_tar_fname_number:6
+#: ../../../src/lib/common/process.py:docstring of lib.common.process.parse_tar_fname_number:6
 msgid "**str** -- parsed load tar file pattern."
+msgstr ""
+
+#: ../../source/lib.common.rst:43
+msgid "types.py"
+msgstr ""
+
+#: ../../../src/lib/common/types.py:docstring of lib.common.types:1
+msgid "This is the module that defines the types."
+msgstr ""
+
+#: ../../docstring of lib.common.types.ZoneInfo:1
+msgid "ZoneInfo class."
+msgstr ""
+
+#: ../../../src/lib/common/types.py:docstring of lib.common.types.ParamKey:1
+msgid "Bases: :py:class:`~enum.StrEnum`"
+msgstr ""
+
+#: ../../../src/lib/common/types.py:docstring of lib.common.types.ParamKey:1
+msgid "Defines the dictionary key for the main parameters."
+msgstr ""
+
+#: ../../../src/lib/common/types.py:docstring of lib.common.types.ParamFileName:1
+#: ../../../src/lib/common/types.py:docstring of lib.common.types.ParamLog:1
+msgid "Bases: :py:class:`~pydantic.main.BaseModel`"
+msgstr ""
+
+#: ../../../src/lib/common/types.py:docstring of lib.common.types.ParamLog:1
+msgid "Defines the parameters used in the logging configuration."
+msgstr ""
+
+#: ../../docstring of lib.common.types.ParamFileName.model_config:1
+#: ../../docstring of lib.common.types.ParamLog.model_config:1
+msgid "Configuration for the model, should be a dictionary conforming to [`ConfigDict`][pydantic.config.ConfigDict]."
+msgstr ""
+
+#: ../../docstring of lib.common.types.ParamLog.SH:1
+msgid "The stream handler key."
+msgstr ""
+
+#: ../../docstring of lib.common.types.ParamLog.FH:3
+#: ../../docstring of lib.common.types.ParamLog.FPATH:3
+#: ../../docstring of lib.common.types.ParamLog.NAME:3
+#: ../../docstring of lib.common.types.ParamLog.SH:3
+msgid "str"
+msgstr ""
+
+#: ../../docstring of lib.common.types.ParamLog.FH:1
+msgid "The file handler key."
+msgstr ""
+
+#: ../../docstring of lib.common.types.ParamLog.NAME:1
+msgid "The name to pass to ``logging.getLogger``."
+msgstr ""
+
+#: ../../docstring of lib.common.types.ParamLog.HANDLER:1
+msgid "The handler flag to use."
+msgstr ""
+
+#: ../../docstring of lib.common.types.ParamLog.HANDLER:3
+msgid "dict[str, bool]"
+msgstr ""
+
+#: ../../docstring of lib.common.types.ParamLog.LEVEL:1
+msgid "The log level."
+msgstr ""
+
+#: ../../docstring of lib.common.types.ParamLog.LEVEL:3
+msgid "dict[str, int]"
+msgstr ""
+
+#: ../../docstring of lib.common.types.ParamLog.FPATH:1
+msgid "The file path."
+msgstr ""
+
+#: ../../docstring of lib.common.types.ParamLog.SIZE:1
+msgid "The max file size."
+msgstr ""
+
+#: ../../docstring of lib.common.types.ParamLog.NUM:3
+#: ../../docstring of lib.common.types.ParamLog.SIZE:3
+msgid "int"
+msgstr ""
+
+#: ../../docstring of lib.common.types.ParamLog.NUM:1
+msgid "The number of files."
+msgstr ""
+
+#: ../../../src/lib/common/types.py:docstring of lib.common.types.ParamFileName:1
+msgid "Defines the result file name."
 msgstr ""

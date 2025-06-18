@@ -38,7 +38,10 @@ ignore = [
     # flake8-annotations
     "ANN002",   # Missing type annotation for *{name}
     "ANN003",   # Missing type annotation for **{name}
-    #"ANN401",   # Dynamically typed expressions (typing.Any) are disallowed in {name}
+    "ANN401",   # Dynamically typed expressions (typing.Any) are disallowed in {name}
+
+    # flake8-bandit
+    "S404",     # subprocess module is possibly insecure
 
     # flake8-bugbear
     "B905",     # `zip()` without an explicit `strict=` parameter

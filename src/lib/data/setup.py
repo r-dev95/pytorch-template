@@ -5,12 +5,12 @@ from collections.abc import Callable
 from logging import getLogger
 from typing import Any
 
-from lib.common.define import ParamKey, ParamLog
+from lib.common.types import ParamKey as K
+from lib.common.types import ParamLog
 from lib.data.base import BaseLoadData
 from lib.data.cifar import Cifar
 from lib.data.mnist import Mnist
 
-K = ParamKey()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(PARAM_LOG.NAME)
 

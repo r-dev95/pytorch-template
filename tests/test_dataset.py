@@ -10,16 +10,15 @@ import pytest
 import torch as to
 from pytest_mock import MockerFixture
 
-sys.path.append('../template_pytorch/')
-from template_pytorch import dataset
-from template_pytorch.lib.common.define import ParamKey, ParamLog
-from template_pytorch.lib.common.process import parse_tar_fname_number
-from template_pytorch.lib.data import base
+import dataset
+from lib.common.types import ParamKey as K
+from lib.common.types import ParamLog
+from lib.common.process import parse_tar_fname_number
+from lib.data import base
 
 sys.path.append('../tests')
 from define import DATA_PARENT_DPATH
 
-K = ParamKey()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(name=PARAM_LOG.NAME)
 

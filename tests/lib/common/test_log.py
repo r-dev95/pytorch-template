@@ -2,17 +2,15 @@
 """
 
 import shutil
-import sys
 from logging import getLogger
 from pathlib import Path
 
 import pytest
 
-sys.path.append('../template_pytorch/')
-from template_pytorch.lib.common import log
-from template_pytorch.lib.common.define import ParamKey, ParamLog
+from lib.common import log
+from lib.common.types import ParamKey as K
+from lib.common.types import ParamLog
 
-K = ParamKey()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(name=PARAM_LOG.NAME)
 
@@ -34,5 +32,11 @@ class TestSetLogging:
         *   A log file is output.
         """
         log.SetLogging(logger=LOGGER, param=PARAM_LOG)
+
+        # Addressed an issue in Windows where a log file was grabbed by a process and
+        # could not be deleted.
+        for handler in LOGGER.handlers[:]:
+            LOGGER.removeHandler(hdlr=handler)
+            handler.close()
 
         assert Path(PARAM_LOG.FPATH).is_file()

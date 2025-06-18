@@ -1,18 +1,16 @@
 """This is the module that tests setup.py.
 """
 
-import sys
 from logging import ERROR, getLogger
 from pathlib import Path
 
 import pytest
 from _pytest.logging import LogCaptureFixture
 
-sys.path.append('../template_pytorch/')
-from template_pytorch.lib.common.define import ParamKey, ParamLog
-from template_pytorch.lib.data import setup
+from lib.common.types import ParamKey as K
+from lib.common.types import ParamLog
+from lib.data import setup
 
-K = ParamKey()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(name=PARAM_LOG.NAME)
 
