@@ -106,6 +106,10 @@ Main parameters that are also implemented as command line arguments are set with
 `train.py` and `eval.py` common settings example:
 
 ```yaml
+# log handler (idx=0: stream handler, idx=1: file handler)
+# (True: set handler, False: not set handler)
+# type: list[bool, bool]
+handler: [True, True]
 # log level (idx=0: stream handler, idx=1: file handler)
 # (DEBUG: 10, INFO: 20, WARNING: 30, ERROR: 40, CRITICAL: 50)
 # type: list[int, int]
