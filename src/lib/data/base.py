@@ -8,10 +8,10 @@ from typing import Any, ClassVar
 import torch as to
 import webdataset as wds
 
-from lib.common.define import ParamKey, ParamLog
+from lib.common.types import ParamKey as K
+from lib.common.types import ParamLog
 from lib.data.processor import Processor
 
-K = ParamKey()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(PARAM_LOG.NAME)
 

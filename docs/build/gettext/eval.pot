@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2024, r-dev95
-# This file is distributed under the same license as the template-tensorflow package.
+# This file is distributed under the same license as the pytorch-template package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: template-tensorflow \n"
+"Project-Id-Version: pytorch-template \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-06 20:34+0900\n"
+"POT-Creation-Date: 2025-06-18 20:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 msgid "eval.py"
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval:1
+#: ../../../src/eval.py:docstring of eval:1
 msgid "This is the module that evaluates the model."
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.check_params:1
+#: ../../../src/eval.py:docstring of eval.check_params:1
 msgid "Checks the :class:`Evaluator` parameters."
 msgstr ""
 
@@ -32,17 +32,17 @@ msgstr ""
 msgid "Parameters"
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.Evaluator:3
-#: ../../../template_pytorch/eval.py:docstring of eval.check_params:3
-#: ../../../template_pytorch/eval.py:docstring of eval.main:5
+#: ../../../src/eval.py:docstring of eval.Evaluator:3
+#: ../../../src/eval.py:docstring of eval.check_params:3
+#: ../../../src/eval.py:docstring of eval.main:5
 msgid "parameters."
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.Evaluator:1
+#: ../../../src/eval.py:docstring of eval.Evaluator:1
 msgid "Bases: :py:class:`object`"
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.Evaluator:1
+#: ../../../src/eval.py:docstring of eval.Evaluator:1
 msgid "Evaluates the model."
 msgstr ""
 
@@ -85,74 +85,74 @@ msgstr ""
 msgid "torchmetrics.MetricCollection"
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.Evaluator.load_dataset:1
+#: ../../../src/eval.py:docstring of eval.Evaluator.load_dataset:1
 msgid "Loads the evaluation data."
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.Evaluator.setup:1
+#: ../../../src/eval.py:docstring of eval.Evaluator.setup:1
 msgid "Sets up the evaluation."
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.Evaluator.setup:3
+#: ../../../src/eval.py:docstring of eval.Evaluator.setup:3
 msgid "Sets the loss function, model, metrics."
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.Evaluator.setup:4
+#: ../../../src/eval.py:docstring of eval.Evaluator.setup:4
 msgid "Set the model weights."
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.Evaluator.eval_step:1
+#: ../../../src/eval.py:docstring of eval.Evaluator.eval_step:1
 msgid "Evaluations the model."
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.Evaluator.eval_step:3
-#: ../../../template_pytorch/eval.py:docstring of eval.Evaluator.run:3
+#: ../../../src/eval.py:docstring of eval.Evaluator.eval_step:3
+#: ../../../src/eval.py:docstring of eval.Evaluator.run:3
 msgid "Customize the evaluation of your trained models."
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.Evaluator.eval_step:0
-#: ../../../template_pytorch/eval.py:docstring of eval.main:0
-#: ../../../template_pytorch/eval.py:docstring of eval.set_params:0
+#: ../../../src/eval.py:docstring of eval.Evaluator.eval_step:0
+#: ../../../src/eval.py:docstring of eval.main:0
+#: ../../../src/eval.py:docstring of eval.set_params:0
 msgid "Returns"
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.Evaluator.eval_step:5
+#: ../../../src/eval.py:docstring of eval.Evaluator.eval_step:5
 msgid "**dict[str, Any]** -- evaluate results."
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.Evaluator.run:1
+#: ../../../src/eval.py:docstring of eval.Evaluator.run:1
 msgid "Runs evaluation."
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.main:1
-msgid "main."
+#: ../../../src/eval.py:docstring of eval.main:1
+msgid "Main."
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.main:3
+#: ../../../src/eval.py:docstring of eval.main:3
 msgid "This function is decorated by ``@save_params_log`` and ``@process_time``."
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.main:8
-#: ../../../template_pytorch/eval.py:docstring of eval.set_params:7
+#: ../../../src/eval.py:docstring of eval.main:8
+#: ../../../src/eval.py:docstring of eval.set_params:7
 msgid "**dict[str, Any]** -- parameters."
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.set_params:1
+#: ../../../src/eval.py:docstring of eval.set_params:1
 msgid "Sets the command line arguments and file parameters."
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.set_params:3
+#: ../../../src/eval.py:docstring of eval.set_params:3
 msgid "Set only common parameters as command line arguments."
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.set_params:4
+#: ../../../src/eval.py:docstring of eval.set_params:4
 msgid "Other necessary parameters are set in the file parameters."
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.set_params:5
+#: ../../../src/eval.py:docstring of eval.set_params:5
 msgid "Use a yaml file. (:func:`lib.common.file.load_yaml`)"
 msgstr ""
 
-#: ../../../template_pytorch/eval.py:docstring of eval.set_params:11
+#: ../../../src/eval.py:docstring of eval.set_params:11
 msgid "Command line arguments are overridden by file parameters. This means that if you want to set everything using file parameters, you don't necessarily need to use command line arguments."
 msgstr ""

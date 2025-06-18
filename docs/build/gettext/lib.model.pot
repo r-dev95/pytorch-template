@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2024, r-dev95
-# This file is distributed under the same license as the template-tensorflow package.
+# This file is distributed under the same license as the pytorch-template package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: template-tensorflow \n"
+"Project-Id-Version: pytorch-template \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-06 20:34+0900\n"
+"POT-Creation-Date: 2025-06-18 20:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,11 +24,11 @@ msgstr ""
 msgid "base.py"
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base:1
+#: ../../../src/lib/model/base.py:docstring of lib.model.base:1
 msgid "This is the module that defines the base model."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.check_params:1
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.check_params:1
 msgid "Checks the :class:`BaseModel` parameters."
 msgstr ""
 
@@ -36,110 +36,110 @@ msgstr ""
 msgid "Parameters"
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel:6
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.check_params:3
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel:6
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.check_params:3
 msgid "class list."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel:1
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel:1
 msgid "Bases: :py:class:`~lightning.pytorch.core.module.LightningModule`"
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel:1
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel:1
 msgid "Defines the base model."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel:3
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel:3
 msgid "You can customize :meth:`training_step` and :meth:`validation_step` using ``.fit``."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.update_metrics:1
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.update_metrics:1
 msgid "Updates metrics."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.update_metrics:3
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.update_metrics:3
 msgid "train flag (training step: True, validation step: False)."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.update_metrics:5
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.update_metrics:5
 msgid "tuple of labels, preds, and losses."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.configure_optimizers:0
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:0
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.update_metrics:0
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:0
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.conv2d:0
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.flatten:0
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.linear:0
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.maxpool2d:0
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.relu:0
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.setup:0
-#: ../../../template_pytorch/lib/model/setup.py:docstring of lib.model.setup.SetupModel.setup:0
-#: ../../../template_pytorch/lib/model/setup.py:docstring of lib.model.setup.SetupModel.simple:0
-#: ../../../template_pytorch/lib/model/simple.py:docstring of lib.model.simple.SimpleModel.forward:0
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.configure_optimizers:0
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:0
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.update_metrics:0
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:0
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.conv2d:0
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.flatten:0
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.linear:0
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.maxpool2d:0
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.relu:0
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.setup:0
+#: ../../../src/lib/model/setup.py:docstring of lib.model.setup.SetupModel.setup:0
+#: ../../../src/lib/model/setup.py:docstring of lib.model.setup.SetupModel.simple:0
+#: ../../../src/lib/model/simple.py:docstring of lib.model.simple.SimpleModel.forward:0
 msgid "Returns"
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.update_metrics:8
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.update_metrics:8
 msgid "**dict[str, float]** -- all metrics results."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.configure_optimizers:1
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.configure_optimizers:1
 msgid "Returns the optimizer method class."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.configure_optimizers:3
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:3
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:3
-#: ../../../template_pytorch/lib/model/simple.py:docstring of lib.model.simple.SimpleModel.forward:3
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.configure_optimizers:3
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:3
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:3
+#: ../../../src/lib/model/simple.py:docstring of lib.model.simple.SimpleModel.forward:3
 msgid "This function is decorated by ``@override``."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.configure_optimizers:5
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.configure_optimizers:5
 msgid "**Callable** -- optimizer method class."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:1
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:1
 msgid "Trains the model one step at a time."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:5
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:5
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:5
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:5
 msgid "Output predictions. (forward propagation)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:6
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:6
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:6
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:6
 msgid "Output losses."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:7
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:7
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:7
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:7
 msgid "Update metrics."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:8
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:8
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:8
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:8
 msgid "Output log."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:10
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:10
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:10
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:10
 msgid "tuple of inputs and labels."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:12
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:12
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:12
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:12
 msgid "batch index."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:15
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:15
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.training_step:15
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:15
 msgid "**to.Tensor** -- loss between the label and the model prediction."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:1
+#: ../../../src/lib/model/base.py:docstring of lib.model.base.BaseModel.validation_step:1
 msgid "Validations the model one step at a time."
 msgstr ""
 
@@ -147,75 +147,75 @@ msgstr ""
 msgid "layer.py"
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer:1
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer:1
 msgid "This is the module that sets up model layers."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.check_params:1
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.check_params:1
 msgid "Checks the :class:`SetupLayer` parameters."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer:7
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.check_params:3
-#: ../../../template_pytorch/lib/model/setup.py:docstring of lib.model.setup.SetupModel:7
-#: ../../../template_pytorch/lib/model/setup.py:docstring of lib.model.setup.check_params:3
-#: ../../../template_pytorch/lib/model/simple.py:docstring of lib.model.simple.SimpleModel:6
-#: ../../../template_pytorch/lib/model/simple.py:docstring of lib.model.simple.check_params:3
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer:7
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.check_params:3
+#: ../../../src/lib/model/setup.py:docstring of lib.model.setup.SetupModel:7
+#: ../../../src/lib/model/setup.py:docstring of lib.model.setup.check_params:3
+#: ../../../src/lib/model/simple.py:docstring of lib.model.simple.SimpleModel:6
+#: ../../../src/lib/model/simple.py:docstring of lib.model.simple.check_params:3
 msgid "parameters."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.check_params:5
-#: ../../../template_pytorch/lib/model/setup.py:docstring of lib.model.setup.check_params:5
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.check_params:5
+#: ../../../src/lib/model/setup.py:docstring of lib.model.setup.check_params:5
 msgid "Class variables whose values are available methods."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer:1
-#: ../../../template_pytorch/lib/model/setup.py:docstring of lib.model.setup.SetupModel:1
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer:1
+#: ../../../src/lib/model/setup.py:docstring of lib.model.setup.SetupModel:1
 msgid "Bases: :py:class:`object`"
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer:1
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer:1
 msgid "Sets up the model layer."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer:3
-#: ../../../template_pytorch/lib/model/setup.py:docstring of lib.model.setup.SetupModel:3
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer:3
+#: ../../../src/lib/model/setup.py:docstring of lib.model.setup.SetupModel:3
 msgid "If you want to use some other settings, implement it as a method of this class. If you implemented, set the name as the ``func`` key in ``__init__`` and the method as the value."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.setup:1
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.setup:1
 msgid "Sets up model layers."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.setup:3
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.setup:3
 msgid "**list[Callable]** -- list of model layers."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.flatten:1
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.flatten:1
 msgid "Sets ``to.nn.Flatten``."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.conv2d:3
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.flatten:3
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.linear:3
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.maxpool2d:3
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.relu:3
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.conv2d:3
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.flatten:3
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.linear:3
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.maxpool2d:3
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.relu:3
 msgid "**Callable** -- model layer class."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.linear:1
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.linear:1
 msgid "Sets ``to.nn.Linear``."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.conv2d:1
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.conv2d:1
 msgid "Sets ``to.nn.Conv2d``."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.maxpool2d:1
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.maxpool2d:1
 msgid "Sets ``to.nn.MaxPool2d``."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.relu:1
+#: ../../../src/lib/model/layer.py:docstring of lib.model.layer.SetupLayer.relu:1
 msgid "Sets ``to.nn.ReLU``."
 msgstr ""
 
@@ -223,25 +223,25 @@ msgstr ""
 msgid "setup.py"
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/setup.py:docstring of lib.model.setup:1
+#: ../../../src/lib/model/setup.py:docstring of lib.model.setup:1
 msgid "This is the module that sets up model."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/setup.py:docstring of lib.model.setup.check_params:1
+#: ../../../src/lib/model/setup.py:docstring of lib.model.setup.check_params:1
 msgid "Checks the :class:`SetupModel` parameters."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/setup.py:docstring of lib.model.setup.SetupModel:1
-#: ../../../template_pytorch/lib/model/setup.py:docstring of lib.model.setup.SetupModel.setup:1
+#: ../../../src/lib/model/setup.py:docstring of lib.model.setup.SetupModel:1
+#: ../../../src/lib/model/setup.py:docstring of lib.model.setup.SetupModel.setup:1
 msgid "Sets up model."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/setup.py:docstring of lib.model.setup.SetupModel.setup:3
-#: ../../../template_pytorch/lib/model/setup.py:docstring of lib.model.setup.SetupModel.simple:3
+#: ../../../src/lib/model/setup.py:docstring of lib.model.setup.SetupModel.setup:3
+#: ../../../src/lib/model/setup.py:docstring of lib.model.setup.SetupModel.simple:3
 msgid "**Callable** -- model class."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/setup.py:docstring of lib.model.setup.SetupModel.simple:1
+#: ../../../src/lib/model/setup.py:docstring of lib.model.setup.SetupModel.simple:1
 msgid "Sets :class:`lib.model.simple.SimpleModel`."
 msgstr ""
 
@@ -249,38 +249,38 @@ msgstr ""
 msgid "simple.py"
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/simple.py:docstring of lib.model.simple:1
+#: ../../../src/lib/model/simple.py:docstring of lib.model.simple:1
 msgid "This is the module that builds simple model."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/simple.py:docstring of lib.model.simple.check_params:1
+#: ../../../src/lib/model/simple.py:docstring of lib.model.simple.check_params:1
 msgid "Checks the :class:`SimpleModel` parameters."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/simple.py:docstring of lib.model.simple.SimpleModel:1
+#: ../../../src/lib/model/simple.py:docstring of lib.model.simple.SimpleModel:1
 msgid "Bases: :py:class:`~torch.nn.modules.module.Module`"
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/simple.py:docstring of lib.model.simple.SimpleModel:1
+#: ../../../src/lib/model/simple.py:docstring of lib.model.simple.SimpleModel:1
 msgid "Builds the following simple model."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/simple.py:docstring of lib.model.simple.SimpleModel:3
+#: ../../../src/lib/model/simple.py:docstring of lib.model.simple.SimpleModel:3
 msgid "MLP (Multi Layer Perceptron)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/simple.py:docstring of lib.model.simple.SimpleModel:4
+#: ../../../src/lib/model/simple.py:docstring of lib.model.simple.SimpleModel:4
 msgid "CNN (Convolutional Neural Network)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/simple.py:docstring of lib.model.simple.SimpleModel.forward:1
+#: ../../../src/lib/model/simple.py:docstring of lib.model.simple.SimpleModel.forward:1
 msgid "Outputs the model predictions."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/simple.py:docstring of lib.model.simple.SimpleModel.forward:5
+#: ../../../src/lib/model/simple.py:docstring of lib.model.simple.SimpleModel.forward:5
 msgid "input."
 msgstr ""
 
-#: ../../../template_pytorch/lib/model/simple.py:docstring of lib.model.simple.SimpleModel.forward:8
+#: ../../../src/lib/model/simple.py:docstring of lib.model.simple.SimpleModel.forward:8
 msgid "**to.Tensor** -- output."
 msgstr ""

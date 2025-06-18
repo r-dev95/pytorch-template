@@ -3,8 +3,8 @@ loss package
 
 .. automodule:: lib.loss
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 
 setup.py
@@ -12,5 +12,5 @@ setup.py
 
 .. automodule:: lib.loss.setup
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

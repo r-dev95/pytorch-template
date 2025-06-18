@@ -3,8 +3,8 @@ metrics package
 
 .. automodule:: lib.metrics
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 
 setup.py
@@ -12,5 +12,5 @@ setup.py
 
 .. automodule:: lib.metrics.setup
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

@@ -4,12 +4,11 @@
 # package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: template-tensorflow \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-06 20:34+0900\n"
+"POT-Creation-Date: 2025-06-18 20:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ja\n"
@@ -18,7 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.17.0\n"
 
 #: ../../source/lib.common.rst:2
 msgid "common package"
@@ -58,7 +57,8 @@ msgstr "``print`` やlogging機能(``.debug``, ``.info``, ... )など"
 #: lib.common.file.load_json lib.common.file.load_toml
 #: lib.common.file.load_yaml lib.common.process.get_device_type
 #: lib.common.process.parse_tar_fname_number
-#: lib.common.process.recursive_replace lib.common.process.set_weight of
+#: lib.common.process.recursive_replace lib.common.process.sec_to_hms
+#: lib.common.process.set_weight of
 msgid "Returns"
 msgstr "戻り値"
 
@@ -102,88 +102,6 @@ msgid "Output (path/to/dir/log.yaml):"
 msgstr "出力イメージ (path/to/dir/log.yaml):"
 
 #: ../../source/lib.common.rst:19
-msgid "define.py"
-msgstr ""
-
-#: lib.common.define:1 of
-msgid "This is the module that defines the configuration."
-msgstr "共通の定義を設定するモジュール。"
-
-#: ../../docstring lib.common.define.ZoneInfo:1 of
-msgid "ZoneInfo class."
-msgstr "ZoneInfoクラス"
-
-#: lib.common.define.ParamFileName:1 lib.common.define.ParamKey:1
-#: lib.common.define.ParamLog:1 lib.common.log.SetLogging:1 of
-msgid "Bases: :py:class:`object`"
-msgstr ""
-
-#: lib.common.define.ParamFileName:1 of
-msgid "Defines the file name."
-msgstr "ファイル名を定義する。"
-
-#: lib.common.define.ParamKey:1 of
-msgid "Defines the dictionary key for the main parameters."
-msgstr "主要パラメータの辞書キーを定義する。"
-
-#: lib.common.define.ParamLog:1 of
-msgid "Defines the parameters used in the logging configuration."
-msgstr "ロギング機能の設定で使用するパラメータを定義する。"
-
-#: lib.common.define.ParamLog:3 of
-msgid "This function is decorated by ``@dataclass``."
-msgstr "``@dataclass`` でデコレートされている。"
-
-#: ../../docstring lib.common.define.ParamLog.NAME:1 of
-msgid "The name to pass to ``logging.getLogger``."
-msgstr "``logging.getLogger`` に渡す名前"
-
-#: ../../docstring lib.common.define.ParamLog.FPATH
-#: lib.common.define.ParamLog.LEVEL lib.common.define.ParamLog.NAME
-#: lib.common.define.ParamLog.NUM lib.common.define.ParamLog.SIZE
-#: lib.common.log.SetLogging.format of
-msgid "type"
-msgstr "型"
-
-#: ../../docstring lib.common.define.ParamLog.FPATH:3
-#: lib.common.define.ParamLog.NAME:3 of
-msgid "str"
-msgstr ""
-
-#: ../../docstring lib.common.define.ParamLog.LEVEL:1 of
-msgid "Log level."
-msgstr "ログレベル"
-
-#: ../../docstring lib.common.define.ParamLog.LEVEL:3 of
-msgid "key=sh: stream handler."
-msgstr "key=sh: ストリームハンドラ"
-
-#: ../../docstring lib.common.define.ParamLog.LEVEL:4 of
-msgid "key=fh: file handler."
-msgstr "key=fh: ファイルハンドラ"
-
-#: ../../docstring lib.common.define.ParamLog.LEVEL:6 of
-msgid "ClassVar[dict[str, int]]"
-msgstr ""
-
-#: ../../docstring lib.common.define.ParamLog.FPATH:1 of
-msgid "File path."
-msgstr "ファイルパス"
-
-#: ../../docstring lib.common.define.ParamLog.SIZE:1 of
-msgid "Max file size."
-msgstr "ファイルサイズ"
-
-#: ../../docstring lib.common.define.ParamLog.NUM:3
-#: lib.common.define.ParamLog.SIZE:3 of
-msgid "int"
-msgstr ""
-
-#: ../../docstring lib.common.define.ParamLog.NUM:1 of
-msgid "Number of files."
-msgstr "ファイル数"
-
-#: ../../source/lib.common.rst:27
 msgid "file.py"
 msgstr ""
 
@@ -245,13 +163,17 @@ msgstr "tomlファイルを読み込む。"
 msgid "If you want to specify ``None`` , specify it as a string in toml file."
 msgstr "``None`` を指定したい場合、tomlファイル内では文字列として指定する。"
 
-#: ../../source/lib.common.rst:35
+#: ../../source/lib.common.rst:27
 msgid "log.py"
 msgstr ""
 
 #: lib.common.log:1 of
 msgid "This is the module that sets the logging configuration."
 msgstr "ロギング機能を設定するモジュール。"
+
+#: lib.common.log.SetLogging:1 of
+msgid "Bases: :py:class:`object`"
+msgstr ""
 
 #: lib.common.log.SetLogging:1 of
 msgid "Sets the logging configuration."
@@ -262,16 +184,28 @@ msgid "``logging.Logger``"
 msgstr ""
 
 #: lib.common.log.SetLogging:5 of
-msgid ":class:`lib.common.define.ParamLog`"
+msgid ":class:`lib.common.types.ParamLog`"
 msgstr ""
 
 #: ../../docstring lib.common.log.SetLogging.format:1 of
 msgid "Log format."
 msgstr "ログフォーマット"
 
+#: ../../docstring lib.common.log.SetLogging.format
+#: lib.common.types.ParamLog.FH lib.common.types.ParamLog.FPATH
+#: lib.common.types.ParamLog.HANDLER lib.common.types.ParamLog.LEVEL
+#: lib.common.types.ParamLog.NAME lib.common.types.ParamLog.NUM
+#: lib.common.types.ParamLog.SH lib.common.types.ParamLog.SIZE of
+msgid "type"
+msgstr "型"
+
 #: ../../docstring lib.common.log.SetLogging.format:3 of
 msgid "logging.Formatter"
 msgstr ""
+
+#: lib.common.log.SetLogging.make_directory:1 of
+msgid "Make the directory to store log files."
+msgstr "ログファイルを保存するディレクトリを作成する。"
 
 #: lib.common.log.SetLogging.set_level:1 of
 msgid "Sets the log level."
@@ -314,13 +248,45 @@ msgstr "ログレベルを設定する。(``logging.RotatingFileHandler.setLevel
 msgid "Set the log format. (``logging.RotatingFileHandler.setFormatter``)"
 msgstr "ログフォーマットを設定する。(``logging.RotatingFileHandler.setFormatter``)"
 
-#: ../../source/lib.common.rst:43
+#: ../../source/lib.common.rst:35
 msgid "process.py"
 msgstr ""
 
 #: lib.common.process:1 of
 msgid "This is the module that defines the common process."
 msgstr "共通の処理を定義するモジュール。"
+
+#: lib.common.process.recursive_replace:1 of
+msgid "Performs a recursive replacement."
+msgstr "再帰的な置換を行う。"
+
+#: lib.common.process.recursive_replace:3 of
+msgid "data before replacement."
+msgstr "置換前のデータ"
+
+#: lib.common.process.recursive_replace:5 of
+msgid "value before replacement."
+msgstr "置換前の値"
+
+#: lib.common.process.recursive_replace:7 of
+msgid "value after replacement."
+msgstr "置換後の値"
+
+#: lib.common.process.recursive_replace:10 of
+msgid "**Any** -- data after replacement."
+msgstr "**Any** -- 置換後のデータ"
+
+#: lib.common.process.sec_to_hms:1 of
+msgid "Convert seconds to hh:mm:ss:ms format."
+msgstr "秒をhh:mm:ss:msフォーマットに変換する。"
+
+#: lib.common.process.sec_to_hms:3 of
+msgid "The number of seconds."
+msgstr "ファイル数"
+
+#: lib.common.process.sec_to_hms:6 of
+msgid "**tuple[int, int, int, float]** -- The tuple of hh, mm, ss, ms."
+msgstr "**tuple[int, int, int, float]** -- 時間、分、秒、ミリ秒のタプル。"
 
 #: lib.common.process.get_device_type:1 of
 msgid "Gets the device type (cpu or mpu or cuda)."
@@ -354,26 +320,6 @@ msgstr "モデルクラス"
 msgid "**to.nn.Module** -- weighted model class."
 msgstr "**to.nn.Module** -- 重みを適用したモデルクラス"
 
-#: lib.common.process.recursive_replace:1 of
-msgid "Performs a recursive replacement."
-msgstr "再帰的な置換を行う。"
-
-#: lib.common.process.recursive_replace:3 of
-msgid "data before replacement."
-msgstr "置換前のデータ"
-
-#: lib.common.process.recursive_replace:5 of
-msgid "value before replacement."
-msgstr "置換前の値"
-
-#: lib.common.process.recursive_replace:7 of
-msgid "value after replacement."
-msgstr "置換後の値"
-
-#: lib.common.process.recursive_replace:10 of
-msgid "**Any** -- data after replacement."
-msgstr "**Any** -- 置換後のデータ"
-
 #: lib.common.process.parse_tar_fname_number:1 of
 msgid ""
 "Parse the highest and lowest numbers from a tar file whose filenames are "
@@ -388,3 +334,92 @@ msgstr "tarファイルの親パス"
 msgid "**str** -- parsed load tar file pattern."
 msgstr "**str** -- 読み込むtarファイルのパターンを解析する。"
 
+#: ../../source/lib.common.rst:43
+msgid "types.py"
+msgstr ""
+
+#: lib.common.types:1 of
+msgid "This is the module that defines the types."
+msgstr "デコレータを定義するモジュール。"
+
+#: ../../docstring lib.common.types.ZoneInfo:1 of
+msgid "ZoneInfo class."
+msgstr "ZoneInfoクラス"
+
+#: lib.common.types.ParamKey:1 of
+msgid "Bases: :py:class:`~enum.StrEnum`"
+msgstr ""
+
+#: lib.common.types.ParamKey:1 of
+msgid "Defines the dictionary key for the main parameters."
+msgstr "主要パラメータの辞書キーを定義する。"
+
+#: lib.common.types.ParamFileName:1 lib.common.types.ParamLog:1 of
+msgid "Bases: :py:class:`~pydantic.main.BaseModel`"
+msgstr ""
+
+#: lib.common.types.ParamLog:1 of
+msgid "Defines the parameters used in the logging configuration."
+msgstr "ロギング機能の設定で使用するパラメータを定義する。"
+
+#: ../../docstring lib.common.types.ParamFileName.model_config:1
+#: lib.common.types.ParamLog.model_config:1 of
+msgid ""
+"Configuration for the model, should be a dictionary conforming to "
+"[`ConfigDict`][pydantic.config.ConfigDict]."
+msgstr ""
+
+#: ../../docstring lib.common.types.ParamLog.SH:1 of
+msgid "The stream handler key."
+msgstr "key=sh: ストリームハンドラ"
+
+#: ../../docstring lib.common.types.ParamLog.FH:3
+#: lib.common.types.ParamLog.FPATH:3 lib.common.types.ParamLog.NAME:3
+#: lib.common.types.ParamLog.SH:3 of
+msgid "str"
+msgstr ""
+
+#: ../../docstring lib.common.types.ParamLog.FH:1 of
+msgid "The file handler key."
+msgstr "key=fh: ファイルハンドラ"
+
+#: ../../docstring lib.common.types.ParamLog.NAME:1 of
+msgid "The name to pass to ``logging.getLogger``."
+msgstr "``logging.getLogger`` に渡す名前"
+
+#: ../../docstring lib.common.types.ParamLog.HANDLER:1 of
+msgid "The handler flag to use."
+msgstr ""
+
+#: ../../docstring lib.common.types.ParamLog.HANDLER:3 of
+msgid "dict[str, bool]"
+msgstr ""
+
+#: ../../docstring lib.common.types.ParamLog.LEVEL:1 of
+msgid "The log level."
+msgstr "ログレベルを設定する。"
+
+#: ../../docstring lib.common.types.ParamLog.LEVEL:3 of
+msgid "dict[str, int]"
+msgstr ""
+
+#: ../../docstring lib.common.types.ParamLog.FPATH:1 of
+msgid "The file path."
+msgstr "ファイルパス"
+
+#: ../../docstring lib.common.types.ParamLog.SIZE:1 of
+msgid "The max file size."
+msgstr "ファイルサイズ"
+
+#: ../../docstring lib.common.types.ParamLog.NUM:3
+#: lib.common.types.ParamLog.SIZE:3 of
+msgid "int"
+msgstr ""
+
+#: ../../docstring lib.common.types.ParamLog.NUM:1 of
+msgid "The number of files."
+msgstr "ファイル数"
+
+#: lib.common.types.ParamFileName:1 of
+msgid "Defines the result file name."
+msgstr "ファイル名を定義する。"

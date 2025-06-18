@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: template-tensorflow \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-22 20:41+0900\n"
+"POT-Creation-Date: 2025-06-18 20:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ja\n"
@@ -18,7 +18,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.17.0\n"
 
 #: ../../source/lib.rst:2
 msgid "lib package"
@@ -88,7 +88,7 @@ msgid "something"
 msgstr ""
 
 #: lib.template.main:1 of
-msgid "main."
+msgid "Main."
 msgstr ""
 
 #: lib.template.main:3 of
@@ -133,4 +133,3 @@ msgid ""
 " if you want to set everything using file parameters, you don't "
 "necessarily need to use command line arguments."
 msgstr "コマンドライン引数はファイルパラメータで上書きされる。つまり、ファイルパラメータですべて設定する場合、必ずしもコマンドライン引数を使用する必要はない。"
-

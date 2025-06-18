@@ -3,8 +3,8 @@ optimizer package
 
 .. automodule:: lib.optimizer
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 
 setup.py
@@ -12,5 +12,5 @@ setup.py
 
 .. automodule:: lib.optimizer.setup
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

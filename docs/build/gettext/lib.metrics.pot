@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2024, r-dev95
-# This file is distributed under the same license as the template-tensorflow package.
+# This file is distributed under the same license as the pytorch-template package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: template-tensorflow \n"
+"Project-Id-Version: pytorch-template \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-06 20:34+0900\n"
+"POT-Creation-Date: 2025-06-18 20:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,11 +24,11 @@ msgstr ""
 msgid "setup.py"
 msgstr ""
 
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup:1
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup:1
 msgid "This is the module that sets up metrics."
 msgstr ""
 
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.check_params:1
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.check_params:1
 msgid "Checks the :class:`SetupMetrics` parameters."
 msgstr ""
 
@@ -36,53 +36,53 @@ msgstr ""
 msgid "Parameters"
 msgstr ""
 
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics:7
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.check_params:3
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics:7
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.check_params:3
 msgid "parameters."
 msgstr ""
 
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.check_params:5
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.check_params:5
 msgid "Class variables whose values are available methods."
 msgstr ""
 
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics:1
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics:1
 msgid "Bases: :py:class:`object`"
 msgstr ""
 
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics:1
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.setup:1
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics:1
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.setup:1
 msgid "Sets up metrics."
 msgstr ""
 
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics:3
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics:3
 msgid "If you want to use some other settings, implement it as a method of this class. If you implemented, set the name as the ``func`` key in ``__init__`` and the method as the value."
 msgstr ""
 
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.bacc:0
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.macc:0
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.mse:0
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.setup:0
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.bacc:0
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.macc:0
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.mse:0
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.setup:0
 msgid "Returns"
 msgstr ""
 
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.setup:3
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.setup:3
 msgid "**Callable** -- metrics class. (``torchmetrics.MetricCollection``)"
 msgstr ""
 
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.mse:1
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.mse:1
 msgid "Sets ``torchmetrics.MeanSquaredError``."
 msgstr ""
 
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.bacc:3
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.macc:3
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.mse:3
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.bacc:3
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.macc:3
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.mse:3
 msgid "**Callable** -- metrics class."
 msgstr ""
 
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.bacc:1
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.bacc:1
 msgid "Sets ``torchmetrics.classification.BinaryAccuracy``."
 msgstr ""
 
-#: ../../../template_pytorch/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.macc:1
+#: ../../../src/lib/metrics/setup.py:docstring of lib.metrics.setup.SetupMetrics.macc:1
 msgid "Sets ``torchmetrics.classification.MulticlassAccuracy``."
 msgstr ""

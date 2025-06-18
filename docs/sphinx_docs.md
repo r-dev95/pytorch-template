@@ -2,29 +2,29 @@
     Sphinxのドキュメントについて
  -->
 
-# Sphinxのドキュメントについて
+# Sphinx のドキュメントについて
 
-Sphinxのドキュメントについて、作成手順を示します。
+Sphinx のドキュメントについて、作成手順を示します。
 
 本手順は、ドキュメント作成にあたって、実行した手順を説明するものであり、
-Sphinxの使い方を網羅的に説明するものでないことに注意してください。
+Sphinx の使い方を網羅的に説明するものでないことに注意してください。
 また分かりやすさのため、ソースやディレクトリ構造は一部省略または改変して説明しています。
 
-Sphinxのより詳細な使い方は[公式サイト](https://www.sphinx-doc.org/en/master/#)を参照してください。
+Sphinx のより詳細な使い方は[公式サイト](https://www.sphinx-doc.org/en/master/#)を参照してください。
 
 ## 必要なパッケージ
 
 下記パッケージを`pip install`してください。
 
-* sphinx
-* sphinx-intl
-* sphinx-rtd-theme
+- sphinx
+- sphinx-intl
+- sphinx-rtd-theme
 
 ## 手順
 
 下記のようなディレクトリ構造でカレントディレクトリが`docs`である前提で進めます。
 
-``` none
+```none
 pj_root/
 ├── docs # Sphinxでドキュメントを作成するディレクトリ
 └── src
@@ -37,15 +37,15 @@ pj_root/
             └── decorator.py
 ```
 
-### 1. Sphinxのディレクトリと必要なファイルを作成する
+### 1. Sphinx のディレクトリと必要なファイルを作成する
 
 下記のコマンドを実行し、インタラクティブに設定を行います。
 
-``` bash
+```bash
 sphinx-quickstart
 ```
 
-``` none
+```none
 ...
 > Separate source and build directories (y/n) [n]: <yかn>
 
@@ -57,9 +57,9 @@ The project name will occur in several places in the built documentation.
 ...
 ```
 
-`docs`ディレクトリの構造が、下記のようになっていればOKです。
+`docs`ディレクトリの構造が、下記のようになっていれば OK です。
 
-``` none
+```none
 pj_root/docs/
 ├── Makefile
 ├── make.bat
@@ -73,13 +73,13 @@ pj_root/docs/
 
 下表を設定した前提で進めます。
 
-|項目                                   |設定値                 |
-|---------------------------------------|-----------------------|
-|`source`と`build`ディレクトリを分けるか|y                      |
-|プロジェクト名                         |pj_name                |
-|著者名                                 |author_name            |
-|リリースバージョン                     |release_version        |
-|言語                                   |en                     |
+| 項目                                    | 設定値          |
+| --------------------------------------- | --------------- |
+| `source`と`build`ディレクトリを分けるか | y               |
+| プロジェクト名                          | pj_name         |
+| 著者名                                  | author_name     |
+| リリースバージョン                      | release_version |
+| 言語                                    | en              |
 
 ### 2. `sphinx-apidoc`コマンドで必要なテンプレートファイルを作成する
 
@@ -95,7 +95,7 @@ pj_root/docs/
 
 このときドキュメント上のサイドバーやヘッダーの表記は下表のようになります。
 
-``` diff
+```diff
     {%- if show_headings %}
 -   {{- [basename, "module"] | join(' ') | e | heading }}
 +   {{- [basename.split(".")[-1], ".py"] | join('') | e | heading }}
@@ -107,16 +107,16 @@ pj_root/docs/
     {%- endfor %}
 ```
 
-|編集前の表記                    |編集後の表記                    |
-|:------------------------------:|:------------------------------:|
-|`lib.template module`           |`template.py`                   |
+|     編集前の表記      | 編集後の表記  |
+| :-------------------: | :-----------: |
+| `lib.template module` | `template.py` |
 
 #### 2-2. `packages.rst.jinja`を編集する
 
 下記の編集は、`package`と`namespace`のパターンで、
 `module.rst.jinja`の例と似ているので編集前後の表記は省略します。
 
-``` diff
+```diff
     ...
     {%- if is_namespace %}
 -   {{- [pkgname, "namespace"] | join(" ") | e | heading }}
@@ -130,7 +130,7 @@ pj_root/docs/
 
 次に下記の編集で、`Subpackages`と`Submodules`という表記をサイドバーやヘッダーから削除しています。
 
-``` diff
+```diff
     {%- if subpackages %}
 -   Subpackages
 -   -----------
@@ -142,7 +142,7 @@ pj_root/docs/
 
 最後の編集は、`module.rst.jinja`の例と同様です。
 
-``` diff
+```diff
     ...
     {% if separatemodules %}
     {{ toctree(submodules) }}
@@ -162,14 +162,14 @@ pj_root/docs/
 
 下記のコマンドを実行します。
 
-このときモジュールのパスから``__init__.py``のあるディレクトリを再帰的に解析し、
+このときモジュールのパスから`__init__.py`のあるディレクトリを再帰的に解析し、
 `.rst`ファイルが作成されます。
 
-``` bash
+```bash
 sphinx-apidoc -o source/ ../src/ -t source/_templates/apidoc/ -d 2 -T -M -f
 ```
 
-``` bash
+```bash
 # sphinx-apidoc [OPTIONS] -o <出力ディレクトリ> <モジュールのパス>
 # [OPTIONS]:
 #   -t <パス>       : テンプレートのパス
@@ -179,9 +179,9 @@ sphinx-apidoc -o source/ ../src/ -t source/_templates/apidoc/ -d 2 -T -M -f
 #   -f              : 上書き
 ```
 
-`source`ディレクトリの構造が、下記のようになっていればOKです。
+`source`ディレクトリの構造が、下記のようになっていれば OK です。
 
-``` none
+```none
 pj_root/docs/source/
 ├── index.rst
 ├── run.rst        # 出力されたファイル
@@ -198,7 +198,7 @@ pj_root/docs/source/
 >
 > `sphinx-quickstart`は引数からも設定できます。
 >
-> ``` bash
+> ```bash
 > sphinx-quickstart --sep -p <プロジェクト名> -a <著者名> -r <リリースバージョン> -l <言語>
 > ```
 
@@ -210,7 +210,7 @@ pj_root/docs/source/
 
 また必要のない文章は削除しています。
 
-``` diff
+```diff
     pj_name documentation
     =====================
 
@@ -243,7 +243,7 @@ pj_root/docs/source/
 
 (`html_theme = 'sphinx_rtd_theme'`の箇所)
 
-``` diff
+```diff
     # Configuration file for the Sphinx documentation builder.
     #
     # For the full list of built-in configuration values, see the documentation:
@@ -314,7 +314,7 @@ pj_root/docs/source/
     html_static_path = ['_static']
 ```
 
-### 6. htmlを作成する
+### 6. html を作成する
 
 下記のコマンドを実行します。
 引数は必要に応じて、指定してください。(`SPHINXOPTS='-a -E'`の部分)
@@ -323,11 +323,11 @@ pj_root/docs/source/
 
 `index.html`は、`docs/build/html/`にできます。
 
-``` bash
+```bash
 make html SPHINXOPTS='-a -E'
 ```
 
-**Sphinxドキュメントの作成完了です。**
+**Sphinx ドキュメントの作成完了です。**
 
 ## 国際化対応(i18n)
 
@@ -337,7 +337,7 @@ make html SPHINXOPTS='-a -E'
 
 `conf.py`に下記を追加します。
 
-``` python
+```python
 gettext_compact = False
 locale_dirs = ['locale/']
 ```
@@ -348,7 +348,7 @@ locale_dirs = ['locale/']
 
 `.pot`ファイルは、`docs/build/gettext/`に作成されます。
 
-``` bash
+```bash
 cd docs
 make gettext
 ```
@@ -358,9 +358,9 @@ make gettext
 下記コマンドで`.po`ファイルを作成します。
 `-l`の引数には、作成する言語を指定します。
 
-`.pot`ファイルは、`docs/source/locale/ja/LC_MESSAGES/`に作成されます。
+`.po`ファイルは、`docs/source/locale/ja/LC_MESSAGES/`に作成されます。
 
-``` bash
+```bash
 sphinx-intl update -p build/gettext -l ja
 ```
 
@@ -372,7 +372,7 @@ sphinx-intl update -p build/gettext -l ja
 
 記載しない場合、`msgid "..."`がそのまま適用されます。
 
-``` diff
+```diff
     # SOME DESCRIPTIVE TITLE.
     # Copyright (C) 2024, author_name
     # This file is distributed under the same license as the pj_name package.
@@ -401,11 +401,11 @@ sphinx-intl update -p build/gettext -l ja
 +   msgstr "pj_nameドキュメントへようこそ!"
 ```
 
-### 5. htmlを作成する
+### 5. html を作成する
 
 下記のコマンドを実行します。
 
-``` bash
+```bash
 make html -e SPHINXOPTS='-a -E -D language="ja"'
 ```
 

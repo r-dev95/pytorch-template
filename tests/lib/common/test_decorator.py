@@ -3,18 +3,16 @@
 
 import re
 import shutil
-import sys
 from logging import getLogger
 from pathlib import Path
 
 import pytest
 from _pytest.capture import MultiCapture
 
-sys.path.append('../template_pytorch/')
-from template_pytorch.lib.common import decorator
-from template_pytorch.lib.common.define import ParamKey, ParamLog
+from lib.common import decorator
+from lib.common.types import ParamKey as K
+from lib.common.types import ParamLog
 
-K = ParamKey()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(name=PARAM_LOG.NAME)
 
@@ -23,10 +21,12 @@ class TestProcessTime:
     """Tests :func:`decorator.process_time`.
     """
     ptns = [
-        r'^# \[START\] ========================================$',
-        r'^# ================================================$',
-        r'^# \d*.\d*e-\d*sec|\d*.\d*sec$',
-        r'^# \[END\] ==========================================$',
+        r'^==================================================$',
+        r'^\[START\]\[func\]$',
+        r'^==================================================$',
+        r'^==================================================$',
+        r'^\[END\]\[func\] \d*.\d*e-\d*sec|\[END\]\[func\] \d*.\d*sec$',
+        r'^==================================================$',
     ]
 
     def test(self, capfd: MultiCapture):

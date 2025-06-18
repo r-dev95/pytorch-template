@@ -1,17 +1,15 @@
 """This is the module that tests base.py.
 """
 
-import sys
 from logging import ERROR, INFO, getLogger
 
 import pytest
 from _pytest.logging import LogCaptureFixture
 
-sys.path.append('../template_pytorch/')
-from template_pytorch.lib.common.define import ParamKey, ParamLog
-from template_pytorch.lib.data import base
+from lib.common.types import ParamKey as K
+from lib.common.types import ParamLog
+from lib.data import base
 
-K = ParamKey()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(name=PARAM_LOG.NAME)
 

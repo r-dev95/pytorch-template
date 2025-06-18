@@ -1,14 +1,12 @@
 """This is the module that defines the test configuration.
 """
 
-import sys
 from dataclasses import dataclass
 from logging import getLogger
 
-sys.path.append('../template_pytorch/')
-from template_pytorch.lib.common.define import ParamKey, ParamLog
+from lib.common.types import ParamKey as K
+from lib.common.types import ParamLog
 
-K = ParamKey()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(name=PARAM_LOG.NAME)
 

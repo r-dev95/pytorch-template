@@ -3,8 +3,8 @@ callbacks package
 
 .. automodule:: lib.callbacks
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 
 setup.py
@@ -12,5 +12,5 @@ setup.py
 
 .. automodule:: lib.callbacks.setup
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

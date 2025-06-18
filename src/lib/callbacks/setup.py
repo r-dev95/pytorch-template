@@ -7,9 +7,9 @@ from typing import Any
 
 from lightning.pytorch.callbacks import ModelCheckpoint, ModelSummary
 
-from lib.common.define import ParamFileName, ParamKey, ParamLog
+from lib.common.types import ParamFileName, ParamLog
+from lib.common.types import ParamKey as K
 
-K = ParamKey()
 PARAM_FILE_NAME = ParamFileName()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(PARAM_LOG.NAME)

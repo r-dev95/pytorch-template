@@ -16,10 +16,10 @@ import torchvision
 import webdataset as wds
 
 from lib.common.decorator import process_time
-from lib.common.define import ParamKey, ParamLog
 from lib.common.log import SetLogging
+from lib.common.types import ParamKey as K
+from lib.common.types import ParamLog
 
-K = ParamKey()
 PARAM_LOG = ParamLog()
 LOGGER = getLogger(PARAM_LOG.NAME)
 
@@ -114,7 +114,7 @@ def worker(args: ParamDataset) -> None:
 
 @process_time(print_func=LOGGER.info)
 def main(params: dict[str, Any]) -> None:
-    """main.
+    """Main.
 
     Args:
         params (dict[str, Any]): parameters.
@@ -146,21 +146,52 @@ def set_params() -> dict[str, Any]:
         dict[str, Any]: parameters.
     """
     # set the command line arguments.
-    parser = argparse.ArgumentParser()
-    # log level (idx=0: stream handler, idx=1: file handler)
-    # (DEBUG: 10, INFO: 20, WARNING: 30, ERROR: 40, CRITICAL: 50)
-    choices = [10, 20, 30, 40, 50]
-    parser.add_argument('--level', default=[20, 20], type=int, nargs=2, choices=choices)
-    # directory path (data save)
-    parser.add_argument('--result', default='', type=str)
-    # data
-    choices = ['all']
-    choices.extend(list(LOADER.keys()))
-    parser.add_argument('--data', default='', type=str, nargs='+', choices=choices)
-    # max workers
-    parser.add_argument('--max_workers', default=8, type=int)
+    parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
+    parser.add_argument(
+        f'--{K.HANDLER}',
+        default=[True, True], type=bool, nargs=2,
+        help=(
+            f'The log handler flag to use.\n'
+            f'True: set handler, False: not set handler\n'
+            f'ex) --{K.HANDLER} arg1 arg2 (arg1: stream handler, arg2: file handler)'
+        ),
+    )
+    parser.add_argument(
+        f'--{K.LEVEL}',
+        default=[20, 20], type=int, nargs=2, choices=[10, 20, 30, 40, 50],
+        help=(
+            f'The log level.\n'
+            f'DEBUG: 10, INFO: 20, WARNING: 30, ERROR: 40, CRITICAL: 50\n'
+            f'ex) --{K.LEVEL} arg1 arg2 (arg1: stream handler, arg2: file handler)'
+        ),
+    )
+    parser.add_argument(
+        f'--{K.PARAM}',
+        default='param/param.yaml', type=str,
+        help=('The parameter file path.'),
+    )
+    parser.add_argument(
+        f'--{K.RESULT}',
+        default='result', type=str,
+        help=('The directory path to save the results.'),
+    )
+    parser.add_argument(
+        f'--{K.DATA}',
+        default='', type=str, nargs='+', choices=['all', LOADER.keys()],
+        help=('The type of data to download.'),
+    )
+    parser.add_argument(
+        f'--{K.MAX_WORKERS}', default=8, type=int,
+        help=('The number of download workers.'),
+    )
 
     params = vars(parser.parse_args())
+
+    # # set the file parameters.
+    # if params.get(K.PARAM):
+    #     fpath = Path(params[K.PARAM])
+    #     if fpath.is_file():
+    #         params.update(load_yaml(fpath=fpath))
 
     return params
 
@@ -169,11 +200,13 @@ if __name__ == '__main__':
     # set the parameters.
     params = set_params()
     # set the logging configuration.
+    PARAM_LOG.HANDLER[PARAM_LOG.SH] = params[K.HANDLER][0]
+    PARAM_LOG.HANDLER[PARAM_LOG.FH] = params[K.HANDLER][1]
     PARAM_LOG.LEVEL[PARAM_LOG.SH] = params[K.LEVEL][0]
     PARAM_LOG.LEVEL[PARAM_LOG.FH] = params[K.LEVEL][1]
     SetLogging(logger=LOGGER, param=PARAM_LOG)
 
-    if K.RESULT in params:
+    if params.get(K.RESULT):
         Path(params[K.RESULT]).mkdir(parents=True, exist_ok=True)
 
     main(params=params)

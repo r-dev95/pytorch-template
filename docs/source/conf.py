@@ -5,12 +5,12 @@
 
 import os
 import sys
-sys.path.append(os.path.abspath('../../template_pytorch/'))
+sys.path.append(os.path.abspath('../../src/'))
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'template-tensorflow'
+project = 'pytorch-template'
 copyright = '2024, r-dev95'
 author = 'r-dev95'
 release = '0.1.0'
@@ -56,6 +56,8 @@ nitpick_ignore_regex = [
     (r'py:class', r'logging.Formatter'),
     (r'py:class', r'Path'),
     (r'py:class', r'collections.abc.Callable'),
+    (r'py:class', r'enum.StrEnum'),
+    (r'py:class', r'pydantic.main.BaseModel'),
     (r'py:class', r'np.ndarray'),
     (r'py:class', r'to.Tensor'),
     (r'py:class', r'to.nn.Module'),

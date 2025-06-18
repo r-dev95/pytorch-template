@@ -3,8 +3,8 @@ model package
 
 .. automodule:: lib.model
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 
 base.py
@@ -12,29 +12,29 @@ base.py
 
 .. automodule:: lib.model.base
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 layer.py
 --------
 
 .. automodule:: lib.model.layer
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 setup.py
 --------
 
 .. automodule:: lib.model.setup
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 simple.py
 ---------
 
 .. automodule:: lib.model.simple
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

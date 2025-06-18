@@ -3,10 +3,9 @@
 
 from logging import Formatter, Logger, StreamHandler
 from logging.handlers import RotatingFileHandler
+from pathlib import Path
 
-from lib.common.define import ParamKey, ParamLog
-
-K = ParamKey()
+from lib.common.types import ParamLog
 
 
 class SetLogging:
@@ -14,7 +13,7 @@ class SetLogging:
 
     Args:
         logger (Logger): ``logging.Logger``
-        param (ParamLog): :class:`lib.common.define.ParamLog`
+        param (ParamLog): :class:`lib.common.types.ParamLog`
     """
     #: logging.Formatter: Log format.
     format = Formatter(
@@ -26,9 +25,17 @@ class SetLogging:
         self.logger = logger
         self.param = param
 
+        self.make_directory()
         self.set_level()
-        self.set_stream_handler()
-        self.set_file_handler()
+        if self.param.HANDLER[self.param.SH]:
+            self.set_stream_handler()
+        if self.param.HANDLER[self.param.FH]:
+            self.set_file_handler()
+
+    def make_directory(self) -> None:
+        """Make the directory to store log files.
+        """
+        Path(self.param.FPATH).parent.mkdir(parents=True, exist_ok=True)
 
     def set_level(self) -> None:
         """Sets the log level.
