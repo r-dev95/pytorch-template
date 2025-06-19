@@ -17,6 +17,7 @@
 [![Pydantic](https://img.shields.io/badge/Pydantic-ff0055.svg?labelColor=d3d3d3&logo=pydantic&logoColor=ff0055)](https://github.com/pydantic/pydantic)
 [![Numpy](https://img.shields.io/badge/Numpy-blue.svg?labelColor=d3d3d3&logo=numpy&logoColor=blue)](https://github.com/numpy/numpy)
 [![Pandas](https://img.shields.io/badge/Pandas-150458.svg?labelColor=d3d3d3&logo=pandas&logoColor=150458)](https://github.com/pandas-dev/pandas)
+[![Scipy](https://img.shields.io/badge/Scipy-0054a6.svg?labelColor=d3d3d3&logo=scipy&logoColor=0054a6)](https://github.com/scipy/scipy)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E.svg?labelColor=d3d3d3&logo=scikit-learn)](https://github.com/scikit-learn/scikit-learn)
 [![Pytorch](https://img.shields.io/badge/Pytorch-F05F42.svg?labelColor=d3d3d3&logo=pytorch)](https://github.com/pytorch/pytorch)
 [![Lightning](https://img.shields.io/badge/Lightning-5500ff.svg?labelColor=d3d3d3&logo=lightning&logoColor=5500ff)](https://github.com/Lightning-AI/pytorch-lightning)
