@@ -8,14 +8,18 @@
 [![Japanese](https://img.shields.io/badge/Japanese-018EF5.svg?labelColor=d3d3d3&logo=readme)](./README_JA.md)
 [![license](https://img.shields.io/github/license/r-dev95/pytorch-template)](./LICENSE)
 [![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 
 [![Python](https://img.shields.io/badge/Python-3776AB.svg?labelColor=d3d3d3&logo=python)](https://github.com/python)
-[![Numpy](https://img.shields.io/badge/Numpy-blue.svg?labelColor=d3d3d3&logo=numpy&logoColor=blue)](https://github.com/numpy/numpy)
-[![Pytorch](https://img.shields.io/badge/Pytorch-FF6F00.svg?labelColor=d3d3d3&logo=pytorch)](https://github.com/pytorch/pytorch)
-[![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)](https://python-poetry.org/)
 [![Sphinx](https://img.shields.io/badge/Sphinx-000000.svg?labelColor=d3d3d3&logo=sphinx&logoColor=000000)](https://github.com/sphinx-doc/sphinx)
 [![Pytest](https://img.shields.io/badge/Pytest-0A9EDC.svg?labelColor=d3d3d3&logo=pytest)](https://github.com/pytest-dev/pytest)
-[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![Pydantic](https://img.shields.io/badge/Pydantic-ff0055.svg?labelColor=d3d3d3&logo=pydantic&logoColor=ff0055)](https://github.com/pydantic/pydantic)
+[![Numpy](https://img.shields.io/badge/Numpy-blue.svg?labelColor=d3d3d3&logo=numpy&logoColor=blue)](https://github.com/numpy/numpy)
+[![Pandas](https://img.shields.io/badge/Pandas-150458.svg?labelColor=d3d3d3&logo=pandas&logoColor=150458)](https://github.com/pandas-dev/pandas)
+[![Pytorch](https://img.shields.io/badge/Pytorch-F05F42.svg?labelColor=d3d3d3&logo=pytorch)](https://github.com/pytorch/pytorch)
+[![Lightning](https://img.shields.io/badge/Lightning-5500ff.svg?labelColor=d3d3d3&logo=lightning&logoColor=5500ff)](https://github.com/Lightning-AI/pytorch-lightning)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E.svg?labelColor=d3d3d3&logo=scikit-learn)](https://github.com/scikit-learn/scikit-learn)
 
 本リポジトリでは、pytorch のテンプレートを定義しています。
 
@@ -36,14 +40,14 @@
 - 英語:
 
   ```bash
-  cd tensorflow-templete/docs
+  cd pytorch-templete/docs
   make html -e SPHINXOPTS='-a -E -D language="en"'
   ```
 
 - 日本語:
 
   ```bash
-  cd tensorflow-templete/docs
+  cd pytorch-templete/docs
   make html -e SPHINXOPTS='-a -E -D language="ja"'
   ```
 
@@ -52,7 +56,7 @@
 ### 1. github からインストール
 
 ```bash
-git clone https://github.com/r-dev95/pytorch-template.git
+git clone https://github.com/r-dev95/pythontemplate.git
 ```
 
 ### 2. 仮想環境の構築
@@ -62,7 +66,7 @@ git clone https://github.com/r-dev95/pytorch-template.git
 python の開発環境がまだ整っていない方は、[こちら](#開発環境の構築)。
 
 ```bash
-cd pytorch-template/pytorch_template
+cd pythontemplate/pytorch_template
 poetry install
 ```
 
