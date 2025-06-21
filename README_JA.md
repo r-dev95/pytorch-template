@@ -38,53 +38,58 @@
 
 本リポジトリをクローンして、ローカルで確認してみてください。
 
+ビルドの詳細については[こちら](docs/sphinx_docs.md)。
+
 - 英語:
 
   ```bash
-  cd pytorch-templete/docs
+  cd pytorch-template/docs
   make html -e SPHINXOPTS='-a -E -D language="en"'
   ```
 
 - 日本語:
 
   ```bash
-  cd pytorch-templete/docs
+  cd pytorch-template/docs
   make html -e SPHINXOPTS='-a -E -D language="ja"'
   ```
 
 ## Getting started
 
-### 1. github からインストール
+### github からインストール
 
 ```bash
-git clone https://github.com/r-dev95/pythontemplate.git
+git clone https://github.com/r-dev95/pytorch-template.git
 ```
 
-### 2. 仮想環境の構築
+### 仮想環境の構築
 
-`poetry`がインストールされていることが前提です。
+`uv`がインストールされていることが前提です。
 
-python の開発環境がまだ整っていない方は、[こちら](#開発環境の構築)。
+python の開発環境がまだ整っていない方は、[こちら][python]。
+
+[python]: https://github.com/r-dev95/env-python
 
 ```bash
-cd pythontemplate/pytorch_template
-poetry install
+cd pytorch-template
+uv sync
 ```
 
-### 3. データのダウンロードと shard データ(webdataset)の作成
+### データのダウンロードと shard データ(webdataset)の作成
 
 ```bash
-poetry shell
+source .venv/bin/activate
+cd src
 python dataset.py --result dataset --data mnist
 ```
 
-### 4. モデルの学習
+### モデルの学習
 
 ```bash
 python train.py --param param/tutorial/param_train.yaml
 ```
 
-### 5. モデルの評価
+### モデルの評価
 
 ```bash
 python eval.py --param param/tutorial/param_eval.yaml
@@ -292,7 +297,7 @@ loss:
 
 ```yaml
 metrics:
-    kind: [mse, bacc]
+  kind: [mse, bacc]
 
   mse:
     squared: true
@@ -336,14 +341,6 @@ cb:
     save_on_train_epoch_end: null
     enable_version_counter: true
 ```
-
-## 開発環境の構築
-
-python の開発環境がまだ整っていない方は、以下を参照してください。
-
-- [開発環境の構築手順](https://github.com/r-dev95/env-python)
-
-Sphinx ドキュメントのビルドについては、[こちら](docs/sphinx_docs.md)を参照してください。
 
 ## ライセンス
 
