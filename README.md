@@ -38,53 +38,58 @@ We use Sphinx to create documentation for the implementation sources.
 
 Please clone this repository and check it locally.
 
+For more details about the build, please see [here](docs/sphinx_docs.md).
+
 - English:
 
   ```bash
-  cd pytorch-templete/docs
+  cd pytorch-template/docs
   make html -e SPHINXOPTS='-a -E -D language="en"'
   ```
 
 - Japanese:
 
   ```bash
-  cd pytorch-templete/docs
+  cd pytorch-template/docs
   make html -e SPHINXOPTS='-a -E -D language="ja"'
   ```
 
 ## Getting started
 
-### 1. To start, you will install it through github
+### Install from github
 
 ```bash
 git clone https://github.com/r-dev95/pytorch-template.git
 ```
 
-### 2. Building a virtual environment
+### Building a virtual environment
 
 We assume that `uv` is installed.
 
-If you do not yet have a Python development environment, please see [here](#building-a-development-environment).
+If you do not yet have a Python development environment, please see [here][python].
+
+[python]: https://github.com/r-dev95/env-python
 
 ```bash
-cd pytorch-template/src
-uv sync --dev --group docs
+cd pytorch-template
+uv sync
 ```
 
-### 3. Download data and make shard-form data (webdataset)
+### Download data and make shard-form data (webdataset)
 
 ```bash
 source .venv/bin/activate
+cd src
 python dataset.py --result dataset --data mnist
 ```
 
-### 4. Training the model
+### Training the model
 
 ```bash
 python train.py --param param/tutorial/param_train.yaml
 ```
 
-### 5. Evaluate the model
+### Evaluate the model
 
 ```bash
 python eval.py --param param/tutorial/param_eval.yaml
@@ -292,7 +297,7 @@ For currently available `metrics`, see the variable `func`'s key of the `SetupMe
 
 ```yaml
 metrics:
-    kind: [mse, bacc]
+  kind: [mse, bacc]
 
   mse:
     squared: true
@@ -336,14 +341,6 @@ cb:
     save_on_train_epoch_end: null
     enable_version_counter: true
 ```
-
-## Building a development environment
-
-If you do not yet have a Python development environment, please see below.
-
-- [How to build development environment.](https://github.com/r-dev95/env-python) (Japanese only)
-
-For information on building the Sphinx documentation, see [here](docs/sphinx_docs.md). (Japanese only)
 
 ## License
 
