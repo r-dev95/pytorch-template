@@ -1,0 +1,173 @@
+@startuml classes
+!define MAIN_CLASS_COLOR #a8c9ea
+
+set namespaceSeparator none
+class "lib.data.base.BaseLoadData" as lib.data.base.BaseLoadData MAIN_CLASS_COLOR {
+  Processor
+  input_shape_model : ClassVar[list[int]]
+  label_shape_model : ClassVar[list[int]]
+  n_data : int
+  params : dict[str, Any]
+  steps_per_epoch
+  make_loader_example(seed: int) -> Callable
+  process(data: tuple[to.Tensor, to.Tensor]) -> tuple[to.Tensor, to.Tensor]
+  {abstract}set_model_il_shape() -> None
+}
+class "lib.data.cifar.Cifar" as lib.data.cifar.Cifar MAIN_CLASS_COLOR {
+  input_shape_model : ClassVar[list[int]]
+  label_shape_model : ClassVar[list[int]]
+  n_data : int
+  size : ClassVar[list[int]]
+  {abstract}set_model_il_shape() -> None
+}
+class "lib.data.mnist.Mnist" as lib.data.mnist.Mnist MAIN_CLASS_COLOR {
+  input_shape_model : ClassVar[list[int]]
+  label_shape_model : ClassVar[list[int]]
+  n_data : int
+  size : ClassVar[list[int]]
+  {abstract}set_model_il_shape() -> None
+}
+class "lib.data.processor.Processor" as lib.data.processor.Processor MAIN_CLASS_COLOR {
+  func : dict
+  params : dict[str, Any]
+  one_hot(x: to.Tensor, y: to.Tensor) -> tuple[to.Tensor, to.Tensor]
+  rescale(x: to.Tensor, y: to.Tensor) -> tuple[to.Tensor, to.Tensor]
+  run(x: to.Tensor, y: to.Tensor) -> tuple[to.Tensor, to.Tensor]
+}
+class "lib.model.base.BaseModel" as lib.model.base.BaseModel MAIN_CLASS_COLOR {
+  loss
+  model
+  opt
+  train_metrics
+  train_metrics_loss : MeanMetric
+  valid_metrics : NoneType
+  valid_metrics_loss : MeanMetric
+  configure_optimizers() -> Callable
+  training_step(batch: tuple[to.Tensor, to.Tensor], batch_idx: int) -> to.Tensor
+  update_metrics(train: bool, data: tuple[to.Tensor]) -> dict[str, float]
+  validation_step(batch: tuple[to.Tensor, to.Tensor], batch_idx: int) -> to.Tensor
+}
+class "lib.model.simple.SimpleModel" as lib.model.simple.SimpleModel MAIN_CLASS_COLOR {
+  model_layers : Sequential
+  forward(x: to.Tensor) -> to.Tensor
+}
+class "lightning.pytorch.core.module.LightningModule" as lightning.pytorch.core.module.LightningModule {
+  CHECKPOINT_HYPER_PARAMS_KEY : str
+  CHECKPOINT_HYPER_PARAMS_NAME : str
+  CHECKPOINT_HYPER_PARAMS_TYPE : str
+  automatic_optimization
+  current_epoch
+  device_mesh
+  example_input_array
+  fabric
+  global_rank
+  global_step
+  local_rank
+  logger
+  loggers
+  on_gpu
+  strict_loading
+  trainer
+  all_gather(data: Union[Tensor, dict, list, tuple], group: Optional[Any], sync_grads: bool) -> Union[Tensor, dict, list, tuple]
+  backward(loss: Tensor) -> None
+  clip_gradients(optimizer: Optimizer, gradient_clip_val: Optional[Union[int, float]], gradient_clip_algorithm: Optional[str]) -> None
+  configure_callbacks() -> Union[Sequence[Callback], Callback]
+  configure_gradient_clipping(optimizer: Optimizer, gradient_clip_val: Optional[Union[int, float]], gradient_clip_algorithm: Optional[str]) -> None
+  configure_optimizers() -> OptimizerLRScheduler
+  forward() -> Any
+  freeze() -> None
+  load_from_checkpoint(checkpoint_path: Union[_PATH, IO], map_location: _MAP_LOCATION_TYPE, hparams_file: Optional[_PATH], strict: Optional[bool]) -> Self
+  log(name: str, value: _METRIC, prog_bar: bool, logger: Optional[bool], on_step: Optional[bool], on_epoch: Optional[bool], reduce_fx: Union[str, Callable], enable_graph: bool, sync_dist: bool, sync_dist_group: Optional[Any], add_dataloader_idx: bool, batch_size: Optional[int], metric_attribute: Optional[str], rank_zero_only: bool) -> None
+  log_dict(dictionary: Union[Mapping[str, _METRIC], MetricCollection], prog_bar: bool, logger: Optional[bool], on_step: Optional[bool], on_epoch: Optional[bool], reduce_fx: Union[str, Callable], enable_graph: bool, sync_dist: bool, sync_dist_group: Optional[Any], add_dataloader_idx: bool, batch_size: Optional[int], rank_zero_only: bool) -> None
+  lr_scheduler_step(scheduler: LRSchedulerTypeUnion, metric: Optional[Any]) -> None
+  lr_schedulers() -> Union[None, list[LRSchedulerPLType], LRSchedulerPLType]
+  manual_backward(loss: Tensor) -> None
+  optimizer_step(epoch: int, batch_idx: int, optimizer: Union[Optimizer, LightningOptimizer], optimizer_closure: Optional[Callable[[], Any]]) -> None
+  optimizer_zero_grad(epoch: int, batch_idx: int, optimizer: Optimizer) -> None
+  optimizers(use_pl_optimizer: Literal[True]) -> Union[LightningOptimizer, list[LightningOptimizer]]
+  predict_step() -> Any
+  print() -> None
+  {abstract}test_step() -> STEP_OUTPUT
+  to_onnx(file_path: Union[str, Path, BytesIO], input_sample: Optional[Any]) -> None
+  to_torchscript(file_path: Optional[Union[str, Path]], method: Optional[str], example_inputs: Optional[Any]) -> Union[ScriptModule, dict[str, ScriptModule]]
+  toggle_optimizer(optimizer: Union[Optimizer, LightningOptimizer]) -> None
+  training_step() -> STEP_OUTPUT
+  unfreeze() -> None
+  untoggle_optimizer(optimizer: Union[Optimizer, LightningOptimizer]) -> None
+  {abstract}validation_step() -> STEP_OUTPUT
+}
+class "torch.nn.modules.module.Module" as torch.nn.modules.module.Module {
+  T_destination : T_destination
+  call_super_init : bool
+  dump_patches : bool
+  forward : Callable[..., Any]
+  training : bool
+  add_module(name: str, module: Optional['Module']) -> None
+  apply(fn: Callable[['Module'], None]) -> T
+  bfloat16() -> T
+  buffers(recurse: bool) -> Iterator[Tensor]
+  children() -> Iterator['Module']
+  compile()
+  cpu() -> T
+  cuda(device: Optional[Union[int, device]]) -> T
+  double() -> T
+  eval() -> T
+  extra_repr() -> str
+  float() -> T
+  get_buffer(target: str) -> 'Tensor'
+  get_extra_state() -> Any
+  get_parameter(target: str) -> 'Parameter'
+  get_submodule(target: str) -> 'Module'
+  half() -> T
+  ipu(device: Optional[Union[int, device]]) -> T
+  load_state_dict(state_dict: Mapping[str, Any], strict: bool, assign: bool)
+  modules() -> Iterator['Module']
+  mtia(device: Optional[Union[int, device]]) -> T
+  named_buffers(prefix: str, recurse: bool, remove_duplicate: bool) -> Iterator[tuple[str, Tensor]]
+  named_children() -> Iterator[tuple[str, 'Module']]
+  named_modules(memo: Optional[set['Module']], prefix: str, remove_duplicate: bool)
+  named_parameters(prefix: str, recurse: bool, remove_duplicate: bool) -> Iterator[tuple[str, Parameter]]
+  parameters(recurse: bool) -> Iterator[Parameter]
+  register_backward_hook(hook: Callable[['Module', _grad_t, _grad_t], Union[None, _grad_t]]) -> RemovableHandle
+  register_buffer(name: str, tensor: Optional[Tensor], persistent: bool) -> None
+  register_forward_hook(hook: Union[Callable[[T, tuple[Any, ...], Any], Optional[Any]], Callable[[T, tuple[Any, ...], dict[str, Any], Any], Optional[Any]]]) -> RemovableHandle
+  register_forward_pre_hook(hook: Union[Callable[[T, tuple[Any, ...]], Optional[Any]], Callable[[T, tuple[Any, ...], dict[str, Any]], Optional[tuple[Any, dict[str, Any]]]]]) -> RemovableHandle
+  register_full_backward_hook(hook: Callable[['Module', _grad_t, _grad_t], Union[None, _grad_t]], prepend: bool) -> RemovableHandle
+  register_full_backward_pre_hook(hook: Callable[['Module', _grad_t], Union[None, _grad_t]], prepend: bool) -> RemovableHandle
+  register_load_state_dict_post_hook(hook)
+  register_load_state_dict_pre_hook(hook)
+  register_module(name: str, module: Optional['Module']) -> None
+  register_parameter(name: str, param: Optional[Parameter]) -> None
+  register_state_dict_post_hook(hook)
+  register_state_dict_pre_hook(hook)
+  requires_grad_(requires_grad: bool) -> T
+  set_extra_state(state: Any) -> None
+  set_submodule(target: str, module: 'Module', strict: bool) -> None
+  share_memory() -> T
+  state_dict() -> T_destination
+  to(device: Optional[DeviceLikeType], dtype: Optional[dtype], non_blocking: bool) -> Self
+  to_empty() -> T
+  train(mode: bool) -> T
+  type(dst_type: Union[dtype, str]) -> T
+  xpu(device: Optional[Union[int, device]]) -> T
+  zero_grad(set_to_none: bool) -> None
+}
+class "train.Trainer" as train.Trainer MAIN_CLASS_COLOR {
+  callbacks : list[Callable]
+  classes : ClassVar[dict[str, Any]]
+  model
+  params : dict[str, Any]
+  train_data
+  valid_data
+  load_dataset() -> None
+  run() -> None
+  setup() -> None
+}
+lib.data.cifar.Cifar --|> lib.data.base.BaseLoadData
+lib.data.mnist.Mnist --|> lib.data.base.BaseLoadData
+lib.model.base.BaseModel --|> lightning.pytorch.core.module.LightningModule
+lib.model.simple.SimpleModel --|> torch.nn.modules.module.Module
+lightning.pytorch.core.module.LightningModule --|> torch.nn.modules.module.Module
+lib.data.processor.Processor --* lib.data.base.BaseLoadData : Processor
+lib.model.base.BaseModel --* train.Trainer : model
+@enduml

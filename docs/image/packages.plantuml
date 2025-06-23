@@ -1,0 +1,83 @@
+@startuml packages
+set namespaceSeparator none
+package "dataset" as dataset {
+}
+package "eval" as eval {
+}
+package "lib.callbacks.setup" as lib.callbacks.setup {
+}
+package "lib.common.decorator" as lib.common.decorator {
+}
+package "lib.common.file" as lib.common.file {
+}
+package "lib.common.log" as lib.common.log {
+}
+package "lib.common.process" as lib.common.process {
+}
+package "lib.data.base" as lib.data.base {
+}
+package "lib.data.cifar" as lib.data.cifar {
+}
+package "lib.data.mnist" as lib.data.mnist {
+}
+package "lib.data.processor" as lib.data.processor {
+}
+package "lib.data.setup" as lib.data.setup {
+}
+package "lib.loss.setup" as lib.loss.setup {
+}
+package "lib.metrics.setup" as lib.metrics.setup {
+}
+package "lib.model.base" as lib.model.base {
+}
+package "lib.model.layer" as lib.model.layer {
+}
+package "lib.model.setup" as lib.model.setup {
+}
+package "lib.model.simple" as lib.model.simple {
+}
+package "lib.optimizer.setup" as lib.optimizer.setup {
+}
+package "lib.template" as lib.template {
+}
+package "train" as train {
+}
+dataset --> lib.common.decorator
+dataset --> lib.common.log
+eval --> lib.common.decorator
+eval --> lib.common.file
+eval --> lib.common.log
+eval --> lib.common.process
+eval --> lib.data.base
+eval --> lib.data.setup
+eval --> lib.loss.setup
+eval --> lib.metrics.setup
+eval --> lib.model.setup
+lib.common.decorator --> lib.common.file
+lib.common.file --> lib.common.process
+lib.data.base --> lib.data.processor
+lib.data.cifar --> lib.common.process
+lib.data.cifar --> lib.data.base
+lib.data.mnist --> lib.common.process
+lib.data.mnist --> lib.data.base
+lib.data.setup --> lib.data.base
+lib.data.setup --> lib.data.cifar
+lib.data.setup --> lib.data.mnist
+lib.model.setup --> lib.model.simple
+lib.model.simple --> lib.model.layer
+lib.template --> lib.common.decorator
+lib.template --> lib.common.file
+lib.template --> lib.common.log
+train --> lib.callbacks.setup
+train --> lib.common.decorator
+train --> lib.common.file
+train --> lib.common.log
+train --> lib.common.process
+train --> lib.data.base
+train --> lib.data.setup
+train --> lib.loss.setup
+train --> lib.metrics.setup
+train --> lib.model.base
+train --> lib.model.setup
+train --> lib.optimizer.setup
+@enduml

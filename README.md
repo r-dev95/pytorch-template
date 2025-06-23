@@ -1,8 +1,19 @@
-<!--
-    README
- -->
+<!-- ============================================================
+  Project Image
+ ============================================================ -->
+<!-- <div align=center>
+  <img
+    src='docs/image/demo.gif'
+    alt='Project Image.'
+    width=500
+  />
+</div> -->
 
-# Pytorch Template
+<!-- ============================================================
+  Overview
+ ============================================================ -->
+
+# :book:Overview
 
 [![English](https://img.shields.io/badge/English-018EF5.svg?labelColor=d3d3d3&logo=readme)](./README.md)
 [![Japanese](https://img.shields.io/badge/Japanese-018EF5.svg?labelColor=d3d3d3&logo=readme)](./README_JA.md)
@@ -40,29 +51,29 @@ Please clone this repository and check it locally.
 
 For more details about the build, please see [here](docs/sphinx_docs.md).
 
-- English:
+```bash
+cd pytorch-template/docs
+make html -e SPHINXOPTS='-a -E -D language="en"' # "en" or "ja"
+```
 
-  ```bash
-  cd pytorch-template/docs
-  make html -e SPHINXOPTS='-a -E -D language="en"'
-  ```
+<!-- ============================================================
+  Features
+ ============================================================ -->
+<!-- ## :desktop_computer:Features -->
 
-- Japanese:
+<!-- ============================================================
+  Usage
+ ============================================================ -->
 
-  ```bash
-  cd pytorch-template/docs
-  make html -e SPHINXOPTS='-a -E -D language="ja"'
-  ```
+## :keyboard:Usage
 
-## Getting started
-
-### Install from github
+### Install
 
 ```bash
 git clone https://github.com/r-dev95/pytorch-template.git
 ```
 
-### Building a virtual environment
+### Build virtual environment
 
 We assume that `uv` is installed.
 
@@ -78,21 +89,20 @@ uv sync
 ### Download data and make shard-form data (webdataset)
 
 ```bash
-source .venv/bin/activate
 cd src
-python dataset.py --result dataset --data mnist
+uv run python dataset.py --result dataset --data mnist
 ```
 
 ### Training the model
 
 ```bash
-python train.py --param param/tutorial/param_train.yaml
+uv run python train.py --param param/tutorial/param_train.yaml
 ```
 
 ### Evaluate the model
 
 ```bash
-python eval.py --param param/tutorial/param_eval.yaml
+uv run python eval.py --param param/tutorial/param_eval.yaml
 ```
 
 ## How to use parameter file
@@ -342,6 +352,23 @@ cb:
     enable_version_counter: true
 ```
 
-## License
+<!-- ============================================================
+  Structure
+ ============================================================ -->
+
+## :bookmark_tabs:Structure
+
+<div align=center>
+  <img
+    src='docs/image/classes.svg'
+    alt='classes.'
+  />
+</div>
+
+<!-- ============================================================
+  License
+ ============================================================ -->
+
+## :key:License
 
 This repository is licensed under the [BSD 3-Clause](LICENSE).
