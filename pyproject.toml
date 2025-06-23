@@ -23,6 +23,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "ipykernel>=6.29.5",
+    "pylint>=3.3.7",
     "pytest>=8.3.5",
     "pytest-mock>=3.14.0",
     "types-pyyaml>=6.0.12.20250516",
